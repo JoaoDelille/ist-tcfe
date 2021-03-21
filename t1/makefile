@@ -4,7 +4,7 @@ testreport.pdf: mesh nodal ngspice
 	mv -v nodal.tex  ./doc/
 	mv -v mesh.tex   ./doc/
 	mv -v op_tab.tex ./doc/
-	cd ./doc/; pdflatex testreport.tex
+	cd ./doc/; pdflatex report.tex
 	mv -v ./doc/*.pdf ./
 	echo "Status norminal"
 
