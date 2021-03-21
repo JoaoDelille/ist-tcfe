@@ -21,12 +21,12 @@ ngspice.log: ./sim/t1.cir
 	ngspice -b $< -o $@
 
 clean:
-	rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
-	rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
-	rm -rf *_tab.tex octave-workspace *.eps
-	cd ./doc/ ; rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
-	cd ./doc/ ; rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
-	cd ./doc/ ; rm -rf *_tab.tex octave-workspace *.eps
-	cd ./doc/ ; rm -rf nodal.tex mesh.tex
+	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
+	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
+	@rm -rf *_tab.tex octave-workspace *.eps
+	@cd ./doc/ ; rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
+	@cd ./doc/ ; rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
+	@cd ./doc/ ; rm -rf *_tab.tex octave-workspace *.eps
+	@cd ./doc/ ; rm -rf nodal.tex mesh.tex
 
 .PHONY: all clean
