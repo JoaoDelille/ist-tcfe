@@ -1,9 +1,11 @@
 
 
-all: mesh nodal ngspice
+testreport.pdf: mesh nodal ngspice
 	mv -v nodal.tex  ./doc/
 	mv -v mesh.tex   ./doc/
 	mv -v op_tab.tex ./doc/
+	cd ./doc/; pdflatex testreport.tex
+	mv -v *pdf ./
 	echo "Status norminal"
 
 mesh: ./mat/meshm.m
@@ -22,7 +24,13 @@ ngspice.log: ./sim/t1.cir
 
 
 clean:
-	rm ./doc/mesh.tex ./doc/nodal.tex ./doc/op_tab.tex ngspice.log
+	rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
+	rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
+	rm -rf *_tab.tex octave-workspace *.eps
+	cd ./doc/ ; rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
+	cd ./doc/ ; rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
+	cd ./doc/ ; rm -rf *_tab.tex octave-workspace *.eps
+	cd ./doc/ ; rm -rf nodal.tex mesh.tex
 
 
 .PHONY: all clean
