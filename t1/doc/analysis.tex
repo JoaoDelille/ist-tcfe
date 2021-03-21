@@ -1,5 +1,40 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
+In this section, the theoretical analysis consists of finding all node voltages and branch currents, using two different methods, Mesh and Nodal Methods.  
+
+The circuit consists of four elementary meshes, which together form a bigger one. On the circuit there are four different types of sources, two voltage and two currents sources, wich are divided into independent, $V_a$ and $I_d$, and dependent sources, $V_c$ and $I_b$. And yet to add to this circuit there are among them and connected to them six other resistors.
+
+\vspace {1cm}
+Starting with the Mesh Method, the idea of this one in particular, focusses mainly on assigning to each mesh a characteristic current that passes trough it with the idea that the sum of the potencial in that mesh with a certain current tends to be zero. And then the KVL equations are applied in order to obtain equations linearly independent of each other and are then placed in matrix form along with additional equations, in order to obtain the same number of equations and variables. They are used in the form of a matrix, only for the objective of easier resolution.  
+
+\vspace {1cm}
+Colocar matriz, correspondente ao ficheiro de octave de mesh analysis. 
+\vspace{1cm}
+
+
+\begin{matrix} 
+R_1+R_3+R_4  R_3        R_4              0 \\       
+K_b*R_3      K_b*R_3-1  0                0 \\
+R_4              0      R_4+R_6+R_7-K_c  0 \\
+0            0          0                1 \\
+\end {matrix} 
+\quad
+
+
+For the Nodal Method, respective equations are constructed for each one, with the idea that the sum of the currents in each one node has to be equal to zero. In that note, it is important to mention that only nodes that aren't connected to voltage sources can be assigned KCL equations. For the other cases additional equations must be created in order to have enough linearly independent equations to discover all the variables. 
+
+\vspace{1cm}
+
+Falta clocar matriz relacionada com o ficheiro Ocatve 
+
+\vspace {1cm}
+
+On both cases the Ohm's Law is applied, in the first method we use the potencial depending of the resistance times the current and in the second one we use the current depending of potencial divided by the resistance of the component: 
+
+\vspace{1cm}
+
+$V =$  $R$ x $I$ 
+\vspace{1cm} 
 
 As it is possible to evaluate from our results, the theoretical analysis using Octave differs from what was obtained using NGSpice. \textbf{The reason for this is currently unknown, BUT HOPEFULLY WILL BE FIGURED OUT IN A FUTURE COMMIT}
