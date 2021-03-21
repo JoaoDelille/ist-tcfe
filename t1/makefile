@@ -5,7 +5,7 @@ testreport.pdf: mesh nodal ngspice
 	mv -v mesh.tex   ./doc/
 	mv -v op_tab.tex ./doc/
 	cd ./doc/; pdflatex testreport.tex
-	mv -v *pdf ./
+	mv -v ./doc/*.pdf ./
 	echo "Status norminal"
 
 mesh: ./mat/meshm.m
@@ -15,9 +15,12 @@ nodal: ./mat/nodalm.m
 	octave $<
 
 ngspice: ngspice.log
+	#$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))
+	#$(eval NGSFIGPS=$(addsuffix .ps, $(NGSFIGS)))
 	$(eval NGSTABS=$(shell grep _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
-	
+	#$(foreach i, $(NGSFIGPS), ps2pdf $i;)
+
 ngspice.log: ./sim/t1.cir
 	ngspice -b $< -o $@
 
