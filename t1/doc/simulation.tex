@@ -1,9 +1,10 @@
-\section{Simulation Analysis}
+\section{Operating Point Analysis}
 \label{sec:simulation}
 
-\subsection{Operating Point Analysis}
+To realize the computational simulation of the circuit analysis, ngspice was used. A script was created to perform a DC (Operating Point) analysis, and print the results to this table.\\
+It is notable that an extra node, node "e" is present in the table, as well as a short circuited voltage source connecting node n\_0 and "e". This procedure doesn't affect the circuit electrically, but is required for the correct funtioning of ngspice. For the correct simulation of the current dependent voltage source $V_{c}$, such dependent current must be read from a shorted voltage source, as ngspice cannot read it from the resistor $R_{6}$ as the image implies.
 
-This table contains the values obtained via Operating Point analysis in NGSpice, labeled accordingly to the image \textbf{IMAGE WHICH HAS TO BE CREATED IN LIBREOFFICE AND INTRODUCED IN THE FILE+}
+This table contains the values obtained, labeled accordingly to the image. The potential differentials in each node, labeled V(1 throught 7) are measured in relation to the common ground, node 0. 
 
 \begin{table}[h]
   \centering
