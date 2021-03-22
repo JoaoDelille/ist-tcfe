@@ -1,4 +1,8 @@
-testreport.pdf: mesh nodal ngspice
+all:report.pdf
+	@evince report.pdf &
+	@echo "Opening the report in the Gnome document viewer"
+
+report.pdf: mesh nodal ngspice
 	mv -v nodal.tex  ./doc/
 	mv -v mesh.tex   ./doc/
 	mv -v op_tab.tex ./doc/
@@ -31,6 +35,6 @@ clean:
 	@cd ./doc/ ; rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
 	@cd ./doc/ ; rm -rf *_tab.tex octave-workspace *.eps
 	@cd ./doc/ ; rm -rf nodal.tex mesh.tex
-	@echo All auxiliary files and the report have been erased successfully
+	@echo "All auxiliary files and the report have been erased successfully"
 
 .PHONY: all clean
