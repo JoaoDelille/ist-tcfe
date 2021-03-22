@@ -1,11 +1,11 @@
 \section{Operating Point Analysis}
 \label{sec:simulation}
 
-To realize the computational simulation of the circuit analysis, ngspice was used. A script was created to perform a DC (Operating Point) analysis, and print the results to the table below.\\
+To realize the computational simulation of the circuit analysis, ngspice was used. A script containing the netlist used by the program was created to perform a DC (Operating Point) analysis, and print the results to the table below.\\
 It is notable that an extra node, node $e$ is present in the table, as well as a short circuited voltage source, $V_{e}$ connecting node $n\_0$ and $e$. This procedure doesn't affect the circuit electrically, but is required for the correct funtioning of ngspice. For the correct simulation of the current dependent voltage source $V_{c}$, the current it depends on must be read from a shorted voltage source, as ngspice cannot read it from a resistor. Since this shorted voltage source is in series with the resistor $R_{6}$, the current is the same in both elements, and thus can be read from either of them.\\
 Another component not present in the original circuit is the 0 ohm resistor $R_{f}$ connected in series with the current source $I_{d}$ at node $f$. Just like the shorted voltage source $V_{e}$ this component is introduced to obtain a current reading from ngspice, as it does not display the current produced by the current source $I_{d}$. While the current at $I_{d}$ is a given parameter of the circuit, we decided to include it in the table, as this current is equal to the mesh current of mesh $m\_4$ and its inclusion was convenient for the analysis made in the next section.
 
-This table contains the values obtained, labeled accordingly to the image. The potential differentials in each node, labeled $V_{(1 \; through \; 7)}$ are measured in relation to the common ground, node 0. 
+This table contains the values obtained, labeled accordingly to the image. The potential differentials in each node, labeled V(1) through V(7), are measured in relation to the common ground, node 0. 
 
 
 \FloatBarrier
