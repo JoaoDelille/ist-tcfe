@@ -19,5 +19,5 @@ A=[ R1+R3+R4 , R3       , R4           , 0 ;
 y=[Va, 0, 0, Id]
 res=y/A'
 
-fprintf( fopen( "mesh.tex" , "w" ) , 'm\\_1  & m\\_2  & m\\_3  & m\\_4 \\\\ %g A & %g A& %g A& %gA\\\\' , res(1) , res(2) , res(3) , res(4) )
+fprintf( fopen( "mesh.tex" , "w" ) , 'm\\_1  & m\\_2  & m\\_3  & m\\_4 \\\\ %g mA & %g mA & %g mA & %gA\\\\' , res(1) , res(2) , res(3) , res(4) )
 printf( " \nSuccess! \n" ) 
