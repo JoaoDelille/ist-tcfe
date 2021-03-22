@@ -4,7 +4,8 @@ testreport.pdf: mesh nodal ngspice
 	mv -v op_tab.tex ./doc/
 	cd ./doc/; pdflatex report.tex
 	mv -v ./doc/*.pdf ./
-	echo "Status norminal"
+	@echo "Status norminal"
+	@echo "Everything good"
 
 mesh: ./mat/meshm.m
 	octave $<
