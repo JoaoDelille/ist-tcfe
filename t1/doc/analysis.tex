@@ -22,14 +22,47 @@ The mesh method consists in assigning a current to each elementary mesh and then
  \vspace{0.5cm}
 One should notice that I3 must be equal to Ic. The potencial diferences between two nodes in any mesh are written using Ohm's law: I*R=V. This allows us to solve the system for the mesh currents. The linear equation system can be represented in matrix form, which allows us to solve it more easly. It is then evident that the first and third equations state that the voltage induced by the source must equal to the sum of the potencial drops in the resistors. The second equation is a manipulation on the dependance condition of the dependant current source present using Ohm's Law to substitute Vb for R3*(I1+I2). The forth one is a direct translation of the fact that the current imposed by the current source is the same one as the one flowing throgh the mesh.
 
+
+
+
+
+
+
+
+
+
 $$
 \begin{bmatrix} 
-R_1+R_3+R_4 & R_3       & R_4             & 0 \\       
-K_b*R_3     & K_b*R_3-1 & 0               & 0 \\
-R_4         &     0     & R_4+R_6+R_7-K_c & 0 \\
-0           & 0         & 0               & 1 \\
+	R_1+R_3+R_4 & R_3       & R_4             & 0 \\       
+	K_b*R_3     & K_b*R_3-1 & 0               & 0 \\
+	R_4         &     0     & R_4+R_6+R_7-K_c & 0 \\
+	0           & 0         & 0               & 1 \\
+\end {bmatrix} 
+\begin{bmatrix} 
+	I1 \\       
+	I2 \\
+	I3 \\
+	I4 \\
+\end {bmatrix} 
+=
+\begin{bmatrix} 
+	Va \\       
+	0  \\
+	0  \\
+	Id \\
 \end {bmatrix} 
 $$
+
+
+
+
+
+
+
+
+
+
+
 \quad
 
 The nodal method consists in aquiring the relative voltages at each node (one must first define the value of one node as 0) by aquiring as many equations by applying the Kirchhoffs Current Law (KCL) at each node that is not connected to a voltage source. Then, other equations must be aquired in order to get a total equal to the number of nodes. All equations must be linearly independent. By solving this system of equations, we can completly define the system, aquiring branch currents and any other values.\\
@@ -58,6 +91,25 @@ An equation was used for the sum of the currents on node 0, in order to get seve
 % \[(V2-V1)/R1+V4/R4+V6/R6=0\]
  
 This was also translated into matrix form.
+
+$$
+\begin{bmatrix} 
+   1     & 0               & 0    & 0           & 0    & 0          & 0    \\
+   1/R1  & -1/R1-1/R2-1/R3 & 1/R2 & 1/R3        & 0    & 0          & 0    \\
+   0     & 0               & 0    & 0           & 0    & -1/R6-1/R7 & 1/R7 \\
+   0     & 0               & 0    & 1           & 0    & Kc/R6      & -1   \\
+   0     & Kb/R3           & 0    & -1/R5-Kb/R3 & 1/R5 & 0          & 0    \\
+   0     & -1/R2-Kb/R3     & 1/R2 & Kb/R3       & 0    & 0          & 0    \\
+   -1/R1 & 1/R1            & 0    & 1/R4        & 0    & 1/R6       & 0    \\
+\end {bmatrix} 
+\begin{bmatrix}
+V1 \\ V2 \\ V3 \\ V4 \\ V5 \\ V6 \\ V7
+\end{bmatrix}
+=
+\begin{bmatrix}
+Va \\ 0 \\ 0 \\ 0 \\ Id \\ 0 \\ 0
+\end{bmatrix}
+$$
 
 Using Octave, once can solve the system. The system was described was Ax=y, where x is equal to the variables in question (currents in the mesh mehtod and voltages in the node method). Using the command y/A', we can solve the system. Note that due to the way Octave works, one must invert the matrix A. Note that the system could also be described as xA'=y, where x is now a line matrix and not a column one.\\
 The results obtained are presented in the tables below.
