@@ -1,15 +1,15 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the theoretical analysis consists of finding all node voltages and branch currents, using two different methods, Mesh and Nodal Methods.  
+The theoretical analysis consists of finding all node voltages and mesh currents using two different methods: Mesh and Nodal Methods. Such values allow us to define the circuit in its entirety.\\
 
-The circuit consists of four elementary meshes, which together form a bigger one. On the circuit there are four different types of sources, two voltage and two currents sources, wich are divided into independent, $V_a$ and $I_d$, and dependent sources, $V_c$ and $I_b$. And yet to add to this circuit there are among them and connected to them six other resistors.
-
-\vspace {1cm}
-Starting with the Mesh Method, the idea of this one in particular, focusses mainly on assigning to each mesh a characteristic current that passes trough it with the idea that the sum of the potencial in that mesh with a certain current tends to be zero. And then the KVL equations are applied in order to obtain equations linearly independent of each other and are then placed in matrix form along with additional equations, in order to obtain the same number of equations and variables. They are used in the form of a matrix, only for the objective of easier resolution.  
+The circuit consists of four elementary meshes. In the circuit, there are four different types of sources: two voltage and two currents sources, which can be divided into independent, $V_a$ and $I_d$, and dependent sources, $V_c$ and $I_b$. There are also seven resistors present.\\
 
 \vspace {1cm}
-Colocar matriz, correspondente ao ficheiro de octave de mesh analysis. 
+The mesh method consists in assigning a current to each elementary mesh and then solving the Kirchhoffs Voltage Law (KVL) for each of them. The equations use are the following: \[ Va=R1*I1+R4*I1+R3(I1+I2) quad \]
+
+\vspace {1cm}
+Colocar matriz correspondente ao ficheiro de octave de mesh analysis. 
 \vspace{1cm}
 
 
