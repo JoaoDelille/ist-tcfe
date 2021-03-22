@@ -29,5 +29,6 @@ clean:
 	@cd ./doc/ ; rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
 	@cd ./doc/ ; rm -rf *_tab.tex octave-workspace *.eps
 	@cd ./doc/ ; rm -rf nodal.tex mesh.tex
+	@echo All auxiliary files and the report have been erased successfully
 
 .PHONY: all clean
