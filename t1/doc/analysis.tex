@@ -9,7 +9,7 @@ The circuit consists of four elementary meshes. In the circuit, there are four d
 In this analysis, we will be using the Kirchhoffs' laws of current and voltage. The first one mentioned states that current is not acumulated in a node, and therefore the sum of all currents in a node must be zero. The latter one states that the sum of all voltages in any mesh of the circuit must be zero.
 
 \vspace {1cm}
-The mesh method consists in assigning a current to each elementary mesh and then solving the Kirchhoffs Voltage Law (KVL) for each of them. The equations use are the following:
+The mesh method consists of assigning a current to each elementary mesh and then solving the Kirchhoffs Voltage Law (KVL) for each of them. The equations used are the following:
 
 \begin{align*} 
  &Va=R1*I1+R4*I1+R3(I1+I2) \\ &I2 = Kb*R3*(I1+I2) \\
@@ -20,7 +20,7 @@ The mesh method consists in assigning a current to each elementary mesh and then
  %Kc*I3&=R4*I1+(R4+R6+R7)*I3 \\ I4&=Id \\ 
  
  \vspace{0.5cm}
-One should notice that I3 must be equal to Ic. The potencial diferences between two nodes in any mesh are written using Ohm's law: I*R=V. This allows us to solve the system for the mesh currents. The linear equation system can be represented in matrix form, which allows us to solve it more easly. It is then evident that the first and third equations state that the voltage induced by the source must equal to the sum of the potencial drops in the resistors. The second equation is a manipulation on the dependance condition of the dependant current source present using Ohm's Law to substitute Vb for R3*(I1+I2). The forth one is a direct translation of the fact that the current imposed by the current source is the same one as the one flowing throgh the mesh.
+One should notice that I3 must be equal to Ic. The potencial diferences between two nodes in any mesh are written using Ohm's law: I*R=V. This allows us to solve the system for the mesh currents. The linear equation system can be represented in matrix form, which allows us to solve it more easily. It is then evident that the first and third equations state that the voltage induced by the source must equal to the sum of the potencial drops in the resistors. The second equation is a manipulation on the dependance condition of the dependant current source present using Ohm's Law to substitute Vb for R3*(I1+I2). The forth one is a direct translation of the fact that the current imposed by the current source is the same one as the one flowing throgh the mesh.
 
 
 
@@ -65,7 +65,7 @@ $$
 
 \quad
 
-The nodal method consists in aquiring the relative voltages at each node (one must first define the value of one node as 0) by aquiring as many equations by applying the Kirchhoffs Current Law (KCL) at each node that is not connected to a voltage source. Then, other equations must be aquired in order to get a total equal to the number of nodes. All equations must be linearly independent. By solving this system of equations, we can completly define the system, aquiring branch currents and any other values.\\
+The nodal method consists of aquiring the relative voltages at each node (one must first define the value of one node as 0) by aquiring as many equations by applying the Kirchhoffs Current Law (KCL) at each node that is not connected to a voltage source. Then, other equations must be aquired in order to get a total equal to the number of nodes. All equations must be linearly independent. By solving this system of equations, we can completly define the system, aquiring branch currents and any other values.\\
 
 There are four nodes that are not connected to any voltage sources. The KCL equations are: 
 
