@@ -10,8 +10,14 @@ In this analysis, we will be using the Kirchhoffs' laws of current and voltage. 
 
 \vspace {1cm}
 The mesh method consists in assigning a current to each elementary mesh and then solving the Kirchhoffs Voltage Law (KVL) for each of them. The equations use are the following:
-\[ Va=R1*I1+R4*I1+R3(I1+I2) \quad \quad  Kb*R3*(I1+I2)=I2\]
- \[R4*I1+(R4+R6+R7)*I3=Kc*I3 \quad \quad I4=Id\] 
+
+\begin{align*} 
+ &Va=R1*I1+R4*I1+R3(I1+I2) \\ &I2 = Kb*R3*(I1+I2) \\
+ &I3*Kc=R4*I1+(R4+R6+R7)*I3 \\ &I4=Id \\ 
+\end{align*}
+
+% Va&=R1*I1+R4*I1+R3(I1+I2) \\ Kb*R3*(I1+I2)&=I2 \\
+ %Kc*I3&=R4*I1+(R4+R6+R7)*I3 \\ I4&=Id \\ 
  
  \vspace{0.5cm}
 One should notice that I3 must be equal to Ic. The potencial diferences between two nodes in any mesh are written using Ohm's law: I*R=V. This allows us to solve the system for the mesh currents. The linear equation system can be represented in matrix form, which allows us to solve it more easly. It is then evident that the first and third equations state that the voltage induced by the source must equal to the sum of the potencial drops in the resistors. The second equation is a manipulation on the dependance condition of the dependant current source present using Ohm's Law to substitute Vb for R3*(I1+I2). The forth one is a direct translation of the fact that the current imposed by the current source is the same one as the one flowing throgh the mesh.
@@ -29,29 +35,52 @@ $$
 The nodal method consists in aquiring the relative voltages at each node (one must first define the value of one node as 0) by aquiring as many equations by applying the Kirchhoffs Current Law (KCL) at each node that is not connected to a voltage source. Then, other equations must be aquired in order to get a total equal to the number of nodes. All equations must be linearly independent. By solving this system of equations, we can completly define the system, aquiring branch currents and any other values.\\
 
 There are four nodes that are not connected to any voltage sources. The KCL equations are: 
-\[(V1-V2)/R1+(V33-V2)/R2=(V2-V4)/R3 \quad \quad -V6/R6=(V6-V7)/R7\]
- \[(V3-V2)/R2=Kb(V2-V4) \quad \quad Id=(V5-V4)/R3+Kb(V2-V4) \] 
+
+\begin{align*} 
+&(V1-V2)/R1+(V33-V2)/R2 = (V2-V4)/R3 \\ 
+&-V6/R6 = (V6-V7)/R7\\
+&(V3-V2)/R2 = Kb(V2-V4) \\
+&(V5-V4)/R3+Kb(V2-V4) = Id \\
+\end{align*}
+
  
 As aditional equations, we used noted the fact that the diference between two nodes next to a voltage source must be equal to the value given by that source. 
-\[V1=Va \quad \quad  V7-V4=Kc(-V6/R6)\] 
+
+\begin{align*} 
+V1&=Va \\ V7-V4&=Kc(-V6/R6)\\
+\end{align*}
+%\[V1=Va \quad \quad  V7-V4=Kc(-V6/R6)\] 
 
 An equation was used for the sum of the currents on node 0, in order to get seven equations, and thus, a solvable linear system.
- \[(V2-V1)/R1+V4/R4+V6/R6=0\]
+\begin{align*} 
+(V2-V1)/R1+V4/R4+V6/R6&=0
+\end{align*}
+% \[(V2-V1)/R1+V4/R4+V6/R6=0\]
  
 This was also translated into matrix form.
 
 Using Octave, once can solve the system. The system was described was Ax=y, where x is equal to the variables in question (currents in the mesh mehtod and voltages in the node method). Using the command y/A', we can solve the system. Note that due to the way Octave works, one must invert the matrix A. Note that the system could also be described as xA'=y, where x is now a line matrix and not a column one.\\
+The results obtained are presented in the tables below.
 
-The values obtained were:
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{nodal}
+    \hline
+  \end{tabular}
+  \caption{Nodal method}
+  \label{tab:nodal}
+\end{table}
 
-\input{mesh}
 
- Where values are I(m\_1 through 4) for the mesh analysis
-
-\input{nodal}
-For the nodal analysis\\
-
-
-
-
-As it is possible to evaluate from our results, the theoretical analysis using Octave differs from what was obtained using NGSpice. \textbf{The reason for this is currently unknown, BUT HOPEFULLY WILL BE FIGURED OUT IN A FUTURE COMMIT}
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline    
+    \input{mesh}
+    \hline
+  \end{tabular}
+  \caption{Mesh method}
+  \label{tab:mesh}
+\end{table}
