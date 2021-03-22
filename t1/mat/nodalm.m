@@ -26,6 +26,6 @@ res=y'/A'
 %printf ("\nSuccess!\n")
 
 
-fprintf ( fopen("nodal.tex", "w") , '\n V(1) & V(2) & V(3) & V(4) & V(5) & V(6) & V(7) \\\\ \n %g   & %g   & %g   & %g   & %g   & %g   & %g \\\\\n' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
+fprintf ( fopen("nodal.tex", "w") , '\n V(1) & V(2) & V(3) & V(4) & V(5) & V(6) & V(7) \\\\ \n %g V   & %g V  & %g V  & %g V  & %g V  & %g V  & %g V\\\\\n' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
 printf ("\nSuccess!\n")
 
