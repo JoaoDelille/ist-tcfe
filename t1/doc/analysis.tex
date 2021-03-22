@@ -62,6 +62,7 @@ This was also translated into matrix form.
 Using Octave, once can solve the system. The system was described was Ax=y, where x is equal to the variables in question (currents in the mesh mehtod and voltages in the node method). Using the command y/A', we can solve the system. Note that due to the way Octave works, one must invert the matrix A. Note that the system could also be described as xA'=y, where x is now a line matrix and not a column one.\\
 The results obtained are presented in the tables below.
 
+\FloatBarrier
 \begin{table}[h]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -72,8 +73,9 @@ The results obtained are presented in the tables below.
   \caption{Nodal method}
   \label{tab:nodal}
 \end{table}
+\FloatBarrier
 
-
+\FloatBarrier
 \begin{table}[h]
   \centering
   \begin{tabular}{|c|c|c|c|}
@@ -84,3 +86,4 @@ The results obtained are presented in the tables below.
   \caption{Mesh method}
   \label{tab:mesh}
 \end{table}
+\FloatBarrier
