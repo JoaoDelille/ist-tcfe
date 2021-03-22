@@ -22,5 +22,5 @@ y=[Va ; 0 ; 0 ; 0 ; Id ; 0 ; 0]
 
 res=y'/A'
 
-fprintf ( fopen("nodal.tex", "w") , '\\[[\\;%g\\;%g\\;%g\\;%g\\;%g\\;%g\\;%g\\;]\\]' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
+fprintf ( fopen("nodal.tex", "w") , '\\[[\\;\\;%g\\;\\;%g\\;\\;%g\\;\\;%g\\;\\;%g\\;\\;%g\\;\\;%g\\;\\;]\\]' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
 printf ("\nSuccess!\n")
