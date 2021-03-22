@@ -9,16 +9,17 @@ The circuit consists of four elementary meshes, which together form a bigger one
 Starting with the Mesh Method, the idea of this one in particular, focusses mainly on assigning to each mesh a characteristic current that passes trough it with the idea that the sum of the potencial in that mesh with a certain current tends to be zero. And then the KVL equations are applied in order to obtain equations linearly independent of each other and are then placed in matrix form along with additional equations, in order to obtain the same number of equations and variables. They are used in the form of a matrix, only for the objective of easier resolution.  
 
 \vspace {1cm}
-Colocar matriz, correspondente ao ficheiro de octave de mesh analysis. 
+Colocar matriz correspondente, ao ficheiro de octave de mesh analysis. 
 \vspace{1cm}
 
-
-\begin{matrix} 
-R_1+R_3+R_4  R_3        R_4              0 \\       
-K_b*R_3      K_b*R_3-1  0                0 \\
-R_4              0      R_4+R_6+R_7-K_c  0 \\
-0            0          0                1 \\
-\end {matrix} 
+$$
+\begin{bmatrix} 
+R_1+R_3+R_4 & R_3       & R_4             & 0 \\       
+K_b*R_3     & K_b*R_3-1 & 0               & 0 \\
+R_4         &     0     & R_4+R_6+R_7-K_c & 0 \\
+0           & 0         & 0               & 1 \\
+\end {bmatrix} 
+$$
 \quad
 
 
