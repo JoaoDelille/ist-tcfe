@@ -17,10 +17,19 @@ Gb  6 3 (2,5) 7.24529394385m ;Fonte de corrente
 
 
 .ic v(6)=8.763595 v(8)=0     ;Condicao inicial do C
-.tran 0.1ms 20ms uic
+.tran 0.001ms 20ms uic
 
 .control
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
 run
+hardcopy plotstim.ps    v(1)
 hardcopy plotforcado.ps v(6)
 quit
 .endc
