@@ -1,0 +1,29 @@
+Analise do t2 para corrente direta, o C funciona como circuito aberto.
+.options savecurrents
+Vs   1    0   5.24841080700
+R1   1    2   1.02166163214k
+R2   2    3   2.05713464724k 
+R3   2    5   3.10288701080k 
+R4   0    5   4.16870321182k 
+R5   5    6   3.01167607597k 
+R6   0   7.1  2.04520070018k 
+Ve  7.1  7.2  0.00000000000  ;Fonte nula para medir a corrente
+R7  7.2   8   1.02576029486k 
+
+Cc    6    8   1.00334118042u
+
+
+Hc  5 8  Ve   8.29202733390k ;Fonte de voltagem
+Gb  6 3 (2,5) 7.24529394385m ;Fonte de corrente
+
+
+.control	
+op
+echo "op_TAB"
+print all
+echo "op_END"
+quit
+.endc
+
+.end
+
