@@ -32,14 +32,25 @@ A=[1     , 0               , 0    , 0           , 0         , 0          , 0    
 res=y'/A'
 
 
-t=0:0.00001:0.02
-func= real(e.^(2.*pi.*i.*t.*f).*res(5))
+t=0:0.00001:0.02;
+func= real(e.^(2.*pi.*i.*t.*f).*res(5));
 hold on;
 figura = figure();
 plot ( t , func );
 
 xlabel ("t");
 ylabel ("func");
+title ("teste da coisa");
+
+print (figura, "yay", "-dsvg");
+
+func2= real(e.^(2.*pi.*i.*t.*f).*res(5))+8.7*e.^(-t/(4.5640*10^(-3)));
+hold on;
+figura = figure();
+plot ( t , func2 );
+
+xlabel ("t");
+ylabel ("func2");
 title ("teste da coisa");
 
 print (figura, "yay", "-dsvg");
