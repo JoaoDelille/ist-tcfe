@@ -12,24 +12,36 @@ Kd = 8.29202733390
 
 f=1000
 
-%vs= @(t) sin(2*pi*f*t)
+vs= @(t) sin(2*pi*f*t)
 vs=e^(i*(pi/2)) %cos(2pift+pi/2) sem a parte do 2pift
 
 Zc=i*2*pi*f*C
 inZc=1/Zc
 
-A=[1     , 0               , 0    , 0           , 0         , 0          , 0    ;
-   1/R1  , -1/R1-1/R2-1/R3 , 1/R2 , 1/R3        , 0         , 0          , 0    ;
-   0     , 0               , 0    , 0           , 0         , -1/R6-1/R7 , 1/R7 ;
-   0     , 0               , 0    , 1           , 0         , Kd/R6      , -1   ;
-   0     , Kb              , 0    , -1/R5-Kb    , 1/R5+inZc, 0          , -inZc ;
-   0     , -1/R2-Kb        , 1/R2 , Kb          , 0         , 0          , 0    ;
-   -1/R1 , 1/R1            , 0    , 1/R4        , 0         , 1/R6       , 0    ]
+A=[1     , 0               , 0    , 0           , 0         , 0          , 0     ;
+   1/R1  , -1/R1-1/R2-1/R3 , 1/R2 , 1/R3        , 0         , 0          , 0     ;
+   0     , 0               , 0    , 0           , 0         , -1/R6-1/R7 , 1/R7  ;
+   0     , 0               , 0    , 1           , 0         , Kd/R6      , -1    ;
+   0     , Kb              , 0    , -1/R5-Kb    , 1/R5+inZc , 0          , -inZc ;
+   0     , -1/R2-Kb        , 1/R2 , Kb          , 0         , 0          , 0     ;
+   -1/R1 , 1/R1            , 0    , 1/R4        , 0         , 1/R6       , 0     ]
    
    
    y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0]
 
 res=y'/A'
 
-func = @(t) real(e^(2*pi*f*t)*res(5))
-fplot(func,[0,0.02])
+
+t=0:0.00001:0.02
+func= real(e.^(2.*pi.*i.*t.*f).*res(5))
+hold on;
+figura = figure();
+plot ( t , func );
+
+xlabel ("t");
+ylabel ("func");
+title ("teste da coisa");
+
+print (figura, "yay", "-dsvg");
+
+
