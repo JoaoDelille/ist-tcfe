@@ -1,17 +1,15 @@
-#all:report.pdf
-#	@evince $< &
-#	@echo "Opening the report in the Gnome document viewer"
+all:report.pdf
+	@evince $< &
+	@echo "Opening the report in the Gnome document viewer"
 
 report.pdf: nodal forced ngspice2a ngspice2b python ngspicy
 	mv -v *.tex  ./doc/
-#	mv -v mesh.tex   ./doc/
-#	mv -v op_tab.tex ./doc/
-#	cd ./doc/; pdflatex report.tex
-#	cd ./doc/; pdflatex report.tex
-#	cd ./doc/; pdflatex report.tex
-#	mv -v ./doc/*.pdf ./
+	cd ./doc/; pdflatex report.tex
+	cd ./doc/; pdflatex report.tex
+	cd ./doc/; pdflatex report.tex
+	mv -v ./doc/*.pdf ./
 	@echo "Status norminal"
-#	@echo "Everything good"
+	@echo "Everything good"
 
 
 nodal: ./mat/forced_solution.m python
