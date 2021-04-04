@@ -29,8 +29,8 @@ set color4=violet
 set color5=rgb:3/8/0
 set color6=rgb:4/0/0
 run
-hardcopy plotstim.ps    v(1)
-hardcopy plotforcado.ps v(6)
+hardcopy plotstim.ps    v(1) v(6) ;e suposto ser isto?
+hardcopy plotforcado.ps v(6)-v(8)
 quit
 .endc
 
