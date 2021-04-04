@@ -1,3 +1,5 @@
+graphics_toolkit('gnuplot')
+
 R1 = 1.02166163214 
 R2 = 2.05713464724 
 R3 = 3.10288701080 
@@ -53,6 +55,32 @@ xlabel ("t");
 ylabel ("func2");
 title ("teste da coisa");
 
-print (figura, "yay", "-dsvg");
+print (figura, "yay", "-dsvg"); 
 
+t=0.01;
+f=0.1:100:1000000;
+func3= 20*log10(abs(e.^(2.*pi.*i.*t.*f).*res(5)));
+func4= 20*log10(abs(e.^(2.*pi.*i.*t.*f).*(res(5)-res(7)))); 
+func5= 20*log10(abs(e.^(2.*pi.*i.*t.*f).*(vs)));
+hold on;
+figura = figure();
+plot ( f , func3, f, func4, f , func5);
 
+xlabel ("f");
+ylabel ("func4");
+title ("teste da coisa");
+
+print (figura, "yyyjyy", "-dsvg"); 
+
+%t=0.01;
+%f=logspace(0.1,1e6,1e4);
+%func6= real(e.^(2.*pi.*i.*t.*f).*res(5))+8.7*e.^(-t/(4.5640*10^(-3))); 
+%hold on;
+%figura = figure(); 
+%plot( f , func6); 
+
+%xlabel ("f");
+%ylabel ("func6");
+%title ("teste da coisa");
+
+%~print (figura, "abc", "-dsvg");

@@ -23,7 +23,8 @@ A=[  1/R1           , 0       , 1/R4    , 0 , 1/R6       , 0     ;
 y=[0, 0, 0, 0,8.763595,0]
 res=y/A'
 
-printf ('V2 = %g ,  V3 = %g \n V5 = %g,  V7 = %g, res(1),res(2),res(3),res(4)')
 Ix=-(V6-res(3))/R5-Kb*(res(1)-res(3))
 Req=(V8-V6)/Ix
 timecte=Req*C
+
+fprintf ( fopen("node_alinea2.tex", "w") , ' V(2) & V(3) & V(5) &  V(7) & Ix & Req & timecte\\\\ \n %g V  &  %g V   &  %g V  &  %g V  &  %g A  &  %g Ohm &  %g  s  \\\\\n' , res(1),res(2),res(3),res(4), Ix, Req, timecte')
