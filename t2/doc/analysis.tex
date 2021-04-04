@@ -1,36 +1,72 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-%As stated earlier, in this section, the theoretical analysis of the laboratory is made. These results were all obtained through GNU Octave.
+\par As stated earlier, in this section, the theoretical analysis of the laboratory is made. These results were all obtained through GNU Octave.
 
 
 
-\begin{Capacitor, C, as a open circuit} 
-%The first point of the Theoretical analysis requested "asked" for a study of the node voltages for t<0, that is, for a constant voltage signal, at the voltage source, Vs. 
+\subsection{Capacitor as an open circuit} 
 
+\par The first point of the Theoretical analysis requested for a study of the node voltages for t<0 which affect the type of signal that pass . 
 
-\end{align*}
+\begin{align*}  
+v_s(t)=V_s*u(-t)+sin(2*pi*f*t)*u(t)\\   
+\end{align*} 
 
+where the u(t) function controls the type of signal that the source provides, which means when $t<0$, a constant signal is made, when the $t>0$ or equal to 0, a sinusoidal signal is propagated.  
+In this case, the voltage is constant and consequently the capacitor behaves like an open circuit. Then a study of the nodes voltages was made, applying the node method with the following KCL equations: 
 
-[filler]
-[filler]
+\begin{align*} 
+&(V1-V2)/R1+(V3-V2)/R2 = (V2-V5)/R3 \\ 
+&-V7/R6 = (V7-V8)/R7\\
+&(V3-V2)/R2 = Kb(V2-V5) \\
+&(V6-V5)/R5+Kb(V2-V5) = Id \\
+\end{align*} 
 
+And three additional equations in order to get a total of seven equations: 
+
+\begin{align*} 
+&V1=Vs \\ 
+&V5-V8=-Kd/R6\\ 
+&(V2-V1)/R1+V5/R4+V7/R6=0
+\end{align*} 
+
+This was transformed in matrix form:
 
 $$
 \begin{bmatrix} 
-[filler]
-[filler]
+   1     & 0               & 0    & 0           & 0    & 0          & 0    \\
+   1/R1  & -1/R1-1/R2-1/R3 & 1/R2 & 1/R3        & 0    & 0          & 0    \\
+   0     & 0               & 0    & 0           & 0    & -1/R6-1/R7 & 1/R7 \\
+   0     & 0               & 0    & 1           & 0    & Kd/R6      & -1   \\
+   0     & Kb              & 0    & -1/R5-Kb    & 1/R5 & 0          & 0    \\
+   0     & -1/R2-Kb        & 1/R2 & Kb          & 0    & 0          & 0    \\
+   -1/R1 & 1/R1            & 0    & 1/R4        & 0    & 1/R6       & 0    \\
 \end {bmatrix} 
-\begin{bmatrix} 
-[filler]
-[filler]
+\begin{bmatrix}
+V1 \\ V2 \\ V3 \\ V5 \\ V6 \\ V7 \\ V8
 \end {bmatrix} 
 =
 \begin{bmatrix} 
-[filler]
-[filler]
+Vs \\ 0 \\ 0 \\ 0 \\ Id \\ 0 \\ 0
 \end {bmatrix} 
-$$
+$$ 
+
+\vspace{0.5cm}
+And finally the results obtained, using Octave to solve the matrix, are in the table down below. 
+
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{nodal}
+    \hline
+  \end{tabular}
+  \caption{Nodal method}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier
 
 
 [filler]
