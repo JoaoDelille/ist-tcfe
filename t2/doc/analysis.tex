@@ -5,7 +5,7 @@
 
 
 
-\subsection{Capacitor as an open circuit} 
+\subsection{Point (1)} 
 
 \par The first point of the Theoretical analysis requested for a study of the node voltages for t<0 which affect the type of signal that pass . 
 
@@ -68,21 +68,59 @@ And finally the results obtained, using Octave to solve the matrix, are in the t
 \end{table}
 \FloatBarrier
 
+\subsection{Point (2)} 
 
-[filler]
-[filler]
-
+The second point of this analysis consists on computing the equivalent resistance, the current that flows through the capacitor and the time constant, using v6 and v8 from the previous point. 
+These procedure is necessary since it allows us to study when the capacitor is under sinusoidal signal conditions.   
+The node analysis was applied, using the following equations:
+ 
 \begin{align*} 
-[filler]
-[filler]
+&V2/R1+V5/R4+V7/R6=0//
+&(V3-V2)/R2+(V5-V2)Kb//
+&V2/R1+(V2-V3)/R2+(V2-V5)/R3=0//
+&V7/R6+(V7-V8)/R7// 
+&V6-V8=8.763595// 
+&V5+(V7*Kd)/R6-V8=0//
 \end{align*}
 
- 
+In the matrix from, we obtained:  
 
-[filler]
-[filler]
+$$
+\begin{bmatrix} 
+   1/R1           & 0       & 1/R4    & 0    & 1/R6         & 0       \\
+  -1/R2-Kb        & 1/R2    & Kb      & 0    & 0            & 0       \\
+   1/R1+1/R2+1/R3 & -1/R2   & -1/R3   & 0    & 0            & 0       \\
+   0              & 0       & 0       & 0    & 1/R6 + 1/R7  & -1/R7   \\
+   0              & 0       & 0       & 1    & 0            & -1      \\
+   0              & 0       & -1      & 0    & Kd/R6        & 0       \\
+\end {bmatrix} 
+\begin{bmatrix}
+V2 \\ V3 \\ V5 \\ V6 \\ V7 \\ V8
+\end {bmatrix} 
+=
+\begin{bmatrix} 
+0 \\ 0 \\ 0 \\ 0 \\ 8.763595 \\ 0
+\end {bmatrix} 
+$$ 
 
+The results for these procedure are presented down bellow: 
 
+%%colocar tabela de node_alinea.tex aqui.  
+
+\subsection{Point (3)} 
+
+We used the theremin circuit calculated in the previous point to calculate the condenser discharge, whose function can be deducted from the meshes law and solves the resulting differential equation. This equation is equal to:  
+
+\begin{equation}
+  V_{6n}= V6e^{-\frac{t}{RC}}
+  \label{eq:kvl}
+\end{equation}  
+
+%dar plot correspondido 
+
+\subsection{Point (4)} 
+
+In this point the forced current was represented with a phasor, which is a complex number.Then the capacitor was replaced by its impedance.The nodes were analyzed in the same way as in pont 1.The time function will then be matched to the actual part of the phasor multiplied by $e^{\omega*t}$. 
 
 \begin{align*} 
 [filler]
