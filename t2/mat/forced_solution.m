@@ -58,10 +58,10 @@ figura = figure();
 plot ( t , func );
 
 xlabel ("t");
-ylabel ("func");
-title ("teste da coisa");
+ylabel ("V6");
+title ("V6 forced response");
 
-print (figura, "yay", "-dsvg");
+print (figura, "forcado", "-dsvg");
 
 func2= real(e.^(2.*pi.*i.*t.*f).*res(5))+8.7*e.^(-t/(timecte.*10.^-3));
 hold on;
@@ -69,10 +69,10 @@ figura = figure();
 plot ( t , func2 );
 
 xlabel ("t");
-ylabel ("func2");
-title ("teste da coisa");
+ylabel ("V6");
+title ("V6 final response");
 
-print (figura, "yay", "-dsvg"); 
+print (figura, "final", "-dsvg"); 
 
 
 
