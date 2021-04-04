@@ -10,9 +10,9 @@ plot ( f , func );
 
 xlabel ("f");
 ylabel ("func");
-title ("ups errado");
+title ("ups errado"); 
 
-
+print (figura, "ai_deus", "-dsvg"); 
 
 
 %Provavelmente para ignorar, incompleto e incorrecto.
