@@ -27,7 +27,7 @@ Ix=-(V6-res(3))/R5-Kb*(res(1)-res(3))
 Req=(V8-V6)/Ix
 timecte=Req*C
 
-fprintf ( fopen("node_alinea2.tex", "w") , ' V(2) & V(3) & V(5) &  V(7) & Ix & Req & timecte\\\\ \n %g V  &  %g V   &  %g V  &  %g V  &  %g A  &  %g Ohm &  %g  s  \\\\\n' , res(1),res(2),res(3),res(4), Ix, Req, timecte')
+fprintf ( fopen("condensador.tex", "w") , ' V(2) & V(3) & V(5) &  V(7) & Ix & Req & timecte\\\\ \n %g V  &  %g V   &  %g V  &  %g V  &  %g A  &  %g Ohm &  %g  s  \\\\\n' , res(1),res(2),res(3),res(4), Ix, Req, timecte')
 
 
 f=1000
@@ -49,7 +49,7 @@ A=[1     , 0               , 0    , 0           , 0         , 0          , 0    
 y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0]
 res=y'/A'
 
-fprintf ( fopen("nodal.tex", "w") , '\n V(1) & V(2) & V(3) & V(4) & V(5) & V(6) & V(7) \\\\ \n %g V   & %g V  & %g V  & %g V  & %g V  & %g V  & %g V\\\\\n' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
+fprintf ( fopen("phasor.tex", "w") , '\n V(1) & V(2) & V(3) & V(4) & V(5) & V(6) & V(7) \\\\ \n %g V   & %g V  & %g V  & %g V  & %g V  & %g V  & %g V\\\\\n' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
 
 t=0:0.00001:0.02;
 func= real(e.^(2.*pi.*i.*t.*f).*res(5));
