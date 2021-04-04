@@ -58,13 +58,13 @@ title ("teste da coisa");
 print (figura, "yay", "-dsvg"); 
 
 t=0.01;
-f=logspace(0.1,1e6,1e4);
-func3= real(e.^(2.*pi.*i.*t.*f).*res(5));
-func4= real(e.^(2.*pi.*i.*t.*f).*(res(5)-res(7))); 
-func5= real(e.^(2.*pi.*i.*t.*f).*(vs));
+f=0.1:100:1000000;
+func3= 20*log10(abs(e.^(2.*pi.*i.*t.*f).*res(5)));
+func4= 20*log10(abs(e.^(2.*pi.*i.*t.*f).*(res(5)-res(7)))); 
+func5= 20*log10(abs(e.^(2.*pi.*i.*t.*f).*(vs)));
 hold on;
 figura = figure();
-plot ( log10(f) , func3, log10(f), func4, log10(f) , func5);
+plot ( f , func3, f, func4, f , func5);
 
 xlabel ("f");
 ylabel ("func4");
