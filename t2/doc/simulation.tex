@@ -2,7 +2,9 @@
 \label{sec:simulation}
 
 To realize the computational simulation of the circuit analysis, ngspice was used. A script containing the netlist used by the program was created to perform a DC (Operating Point) analysis, and print the results to the tables down below.\\ 
-It is notable that an extra node, node $7.1$ is present in the table, as well as a short circuited voltage source, $V_{e}$ connecting node $7.1$ and $7.2$. This procedure doesn't affect the circuit electrically, but is required for the correct funtioning of ngspice. For the correct simulation of the current dependent voltage source $V_{c}$, the current it depends on must be read from a shorted voltage source, as ngspice cannot read it from a resistor. Since this shorted voltage source is in series with the resistor $R_{6}$, the current is the same in both elements, and thus can be read from either of them.\\
+It is notable that an extra node, node $7.1$ is present in the tables, as well as a short circuited voltage source, $V_{e}$ connecting node $7.1$ and $7.2$. This procedure doesn't affect the circuit electrically, but is required for the correct funtioning of ngspice. For the correct simulation of the current dependent voltage source $V_{c}$, the current it depends on must be read from a shorted voltage source, as ngspice cannot read it from a resistor. Since this shorted voltage source is in series with the resistor $R_{6}$, the current is the same in both elements, and thus can be read from either of them.\\ 
+
+
 %\FloatBarrier
 %\begin{table}[h]
 %  \centering
