@@ -1,13 +1,13 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-\par As stated earlier, in this section, the theoretical analysis of the laboratory is made. These results were all obtained through GNU Octave.
+\par As stated earlier, in this section, we go through various steps to obtained the total solution of the circuit and present the theoretical frequency response analysis.
 
 
 
-\subsection{Point (1)} 
+\subsection{Node analysis for $t<0$} 
 
-\par The first point of the Theoretical analysis requested for a study of the node voltages for $t<0$ which affect the type of signal that pass . 
+\par The first point of the Theoretical analysis requested for a study of the node voltages for $t<0$ which affect the type of signal that pass through the capacitor. 
 
 \begin{align*}  
 v_s(t)=V_s*u(-t)+sin(2*pi*f*t)*u(t)\\   
@@ -71,10 +71,10 @@ And for the currents in all branches we apllied directly for each component the 
 
 \subsection{Point (2)} 
 
-The second point of this analysis consists on computing the equivalent resistance, the current that flows through the capacitor and the time constant, using v6 and v8 from the previous point. 
-These procedure is necessary since it allows us to study when the capacitor is under sinusoidal signal conditions.   
-The node analysis was applied and transforming it into a matrix form we obtained:
+The second point of this analysis consists on computing the equivalent resistance seen through the capacitor. We made the node analysis, making $V_s=0$ and replacing the capacitor with a voltage source named $V_6-V_8$, calculated in the previous step.
+These procedure is necessary to make sure that the voltage in the capacitor is continuos.   
 
+The matriz used for the node analysis:
 $$
 \begin{bmatrix} 
    1/R1           & 0       & 1/R4    & 0    & 1/R6         & 0       \\
@@ -120,22 +120,29 @@ The results for these procedure are presented down bellow:
 \FloatBarrier 
   
 
-\subsection{Point (3)} 
+\subsection{Natural solution} 
 
-We used the theremin circuit calculated in the previous point to calculate the condenser discharge, whose function can be deducted from the meshes law and solves the resulting differential equation. This equation is equal to:  
+We used the Thevenin circuit calculated in the previous point to calculate the condenser discharge. The equation for the natural regime in RC circuits is: 
 
 \begin{equation}
-  V_{6n}= V_6*e^{-\frac{t}{RC}}
+  V_{6n}=V_6*e^{-\frac{t}{RC}}
   \label{eq:kvl}
 \end{equation}   
 
+The initial voltage in node 6 was obtained in the previous point when we compute the equivalent resistor along with charecteristc time. 
 
+From this equation we computed the natural response in node 6, in [0,0.02] seconds.  
+\FloatBarrier
+\begin{figure}
+  \includegraphics[width=\linewidth]{natural.png}
+  \caption{Natural solution of V6, Theo-3}
+  \label{fig:natural}
+\end{figure}
+\FloatBarrier
 
-%dar plot correspondido 
+\subsection{Forced solution} 
 
-\subsection{Point (4)} 
-
-In this point the forced current was represented with a phasor, which is a complex number.Then the capacitor was replaced by its impedance.The nodes were analyzed in the same way as in pont 1.The time function will then be matched to the actual part of the phasor multiplied by $e^{\omega*t}$. 
+In this point the forced current was represented with a phasor, which is a complex number.Then the capacitor was replaced by its impedance, $\frac{1}{j\omega C}$.The nodes were analyzed in the same way as in pont 1.The time function will then be matched to the actual part of the phasor multiplied by $e^{\omega*t}$. 
 
 
 \vspace{0.2cm}

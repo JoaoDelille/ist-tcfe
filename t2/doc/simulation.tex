@@ -4,6 +4,80 @@
 To realize the computational simulation of the circuit analysis, ngspice was used. A script containing the netlist used by the program was created to perform a DC (Operating Point) analysis, and print the results to the tables down below.\\ 
 It is notable that an extra node, node $7.1$ is present in the tables, as well as a short circuited voltage source, $V_{e}$ connecting node $7.1$ and $7.2$. This procedure doesn't affect the circuit electrically, but is required for the correct funtioning of ngspice. For the correct simulation of the current dependent voltage source $V_{c}$, the current it depends on must be read from a shorted voltage source, as ngspice cannot read it from a resistor. Since this shorted voltage source is in series with the resistor $R_{6}$, the current is the same in both elements, and thus can be read from either of them.\\ 
 
+\subsection{Operating point analysis} 
+
+The tables below show the simulated operating point results for $t<0$ and $t=0$, respectively. 
+
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{2a_tab}
+  \end{tabular}
+  \caption{Simulated values from Ngspice}
+  \label{tab:op}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{2b_tab}
+  \end{tabular}
+  \caption{Simulated values from Ngspice}
+  \label{tab:op}
+\end{table}
+\FloatBarrier
+
+
+\subsection{Natural response}
+In this subsection we simulate the natural response of the circuit in the time interval [0,20]ms, using essentially the transient analysis simulation in NGspice. 
+
+\FloatBarrier
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{plotnatural.pdf}
+\caption{Natural solution of V6, Sim-3}
+\label{fig:plotnatural}
+\end{figure}
+\FloatBarrier
+
+\subsection{Natural and forced response} 
+
+In this subsectio we repeat the previous step but now with the sinusoidal voltage source $V_(t)$, for a frequency $f=1kHz$. 
+
+\FloatBarrier
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{plotfinal.pdf}
+\caption{Simulated response for natural and forced solution for $V-6$, Sim-4}
+\label{fig:plotfinal}
+\end{figure}
+\FloatBarrier 
+
+\subsection{Frequency response} 
+
+We simulated the frequency response to $V_s$, $V_6$ and $V_C$, Voltage in the capacitor. We plotted the magnitude, in dB, and phase, in degrees, of the three voltages in relation to a variation of frequency. The frequency varies between 0.1Hz to 1MHz 
+
+\FloatBarrier
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{plotmagnitude.pdf}
+\caption{Falta legenda}
+\label{fig:plotmagnitude}
+\end{figure}
+\FloatBarrier  
+
+\FloatBarrier
+\begin{figure}[h] \centering
+\includegraphics[width=0.6\linewidth]{plotfase.pdf}
+\caption{Falta legenda}
+\label{fig:plotfase}
+\end{figure}
+\FloatBarrier 
+
 
 %\FloatBarrier
 %\begin{table}[h]
