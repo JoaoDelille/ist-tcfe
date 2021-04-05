@@ -152,8 +152,6 @@ print (figura, "final", "-dpng");
 hold off
 
 
-
-
 freqs = logspace(-1, 6, 200);
 %print freqs
 
@@ -169,7 +167,6 @@ Vs = Vs
 C  = C*10*-6
 Kb = R1*10^-3
 Kd = R1*10^-3
-
 
 for ea = 1:size(freqs,2)
 
