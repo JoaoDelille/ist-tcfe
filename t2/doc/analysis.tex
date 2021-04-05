@@ -14,24 +14,7 @@ v_s(t)=V_s*u(-t)+sin(2*pi*f*t)*u(t)\\
 \end{align*} 
 
 where the u(t) function controls the type of signal that the source provides, which means when $t<0$, a constant signal is made, when the $t>0$ or equal to 0, a sinusoidal signal is propagated.  
-In this case, the voltage is constant and consequently the capacitor behaves like an open circuit. Then a study of the nodes voltages was made, applying the node method with the following KCL equations: 
-
-\begin{align*} 
-&(V1-V2)/R1+(V3-V2)/R2 = (V2-V5)/R3 \\ 
-&-V7/R6 = (V7-V8)/R7\\
-&(V3-V2)/R2 = Kb(V2-V5) \\
-&(V6-V5)/R5+Kb(V2-V5) = Id \\
-\end{align*} 
-
-And three additional equations in order to get a total of seven equations: 
-
-\begin{align*} 
-&V1=Vs \\ 
-&V5-V8=-Kd/R6\\ 
-&(V2-V1)/R1+V5/R4+V7/R6=0
-\end{align*} 
-
-This was transformed in matrix form:
+In this case, the voltage is constant and consequently the capacitor behaves like an open circuit. Then a study of the nodes voltages was made, applying the node method with the KCL equations and transforming to a matrix form, we get:
 
 $$
 \begin{bmatrix} 
@@ -55,35 +38,40 @@ $$
 \vspace{0.5cm}
 And finally the results obtained, using Octave to solve the matrix, are in the table down below. 
 
+
 \FloatBarrier
 \begin{table}[h]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline    
-    \input{nodal}
+    \input{nodeVolt}
     \hline
   \end{tabular}
   \caption{Nodal method}
   \label{tab:nodal}
 \end{table}
+\FloatBarrier 
+
+And for the currents in all branches we apllied directly for each component the Ohm's Law. 
+
 \FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{nodeCurr}
+    \hline
+  \end{tabular}
+  \caption{Nodal method}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier 
 
 \subsection{Point (2)} 
 
 The second point of this analysis consists on computing the equivalent resistance, the current that flows through the capacitor and the time constant, using v6 and v8 from the previous point. 
 These procedure is necessary since it allows us to study when the capacitor is under sinusoidal signal conditions.   
-The node analysis was applied, using the following equations:
- 
-\begin{align*} 
-&V2/R1+V5/R4+V7/R6=0//
-&(V3-V2)/R2+(V5-V2)Kb//
-&V2/R1+(V2-V3)/R2+(V2-V5)/R3=0//
-&V7/R6+(V7-V8)/R7// 
-&V6-V8=8.763595// 
-&V5+(V7*Kd)/R6-V8=0//
-\end{align*}
-
-In the matrix from, we obtained:  
+The node analysis was applied and transforming it into a matrix form we obtained:
 
 $$
 \begin{bmatrix} 
