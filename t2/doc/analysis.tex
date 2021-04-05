@@ -120,7 +120,7 @@ The results for these procedure are presented down bellow:
 \end{table}
 \FloatBarrier 
   
-
+ 
 \subsection{Natural solution} 
 
 We used the Thevenin circuit calculated in the previous point to calculate the condenser discharge. The equation for the natural regime in RC circuits is: 
@@ -171,27 +171,27 @@ By imposing both natural and forced responses we get the total solution:
 
 Plotting both $V_s(t)$ and $V_6(t)$ in the time interval [-5,20] ms we see that both voltages are constant before $t=0$.
 
-%\FloatBarrier
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{natural.png}
-%  \caption{Natural solution of V6, Theo-3}
-%  \label{fig:natural}
-%\end{figure}
-%\FloatBarrier 
+\FloatBarrier
+\begin{figure}
+  \includegraphics[width=\linewidth]{final.png}
+  \caption{Final solution of V6, Theo-3}
+  \label{fig:final}
+\end{figure}
+\FloatBarrier 
 
-\subsection {houds+fo} 
+\subsection {Frequency response} 
 
-
+In this subsection a study varying the frequency in $V_s$, $V_c$ and $V_6$
 \FloatBarrier
 \begin{figure}
   \includegraphics[width=\linewidth]{magnitudes.png}
-  \caption{Natural solution of V6, Theo-3}
+  \caption{Magnitude response}
   \label{fig:magnitudes}
 \end{figure}
 
 \begin{figure}
   \includegraphics[width=\linewidth]{phases.png}
-  \caption{Natural solution of V6, Theo-3}
+  \caption{Phase response}
   \label{fig:phases}
 \end{figure}
 \FloatBarrier
