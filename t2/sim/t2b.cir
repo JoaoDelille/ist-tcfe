@@ -1,5 +1,6 @@
 Analise do Vx 6-8
 .options savecurrents
+*.include valuesb.cir  ; nao conseguimos por a recolha de dados automatica a funcionar :(
 Vs   1    0   0.00000000000
 R1   1    2   1.02166163214k
 R2   2    3   2.05713464724k 

@@ -1,5 +1,6 @@
 Analise do t2 para corrente direta, o C funciona como circuito aberto.
 .options savecurrents
+*.include valuesa.cir ; nao conseguimos por a recolha de dados automatica a funcionar :(
 Vs   1    0   5.24841080700
 R1   1    2   1.02166163214k
 R2   2    3   2.05713464724k 
