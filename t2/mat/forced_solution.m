@@ -40,7 +40,11 @@ printf ("\nSuccess!\n")
 
 V8=res(7)
 V6=res(5)
- 
+
+cttV6=V6
+cttV8=V8
+cttVS=Vs
+
  
    %     V2              V3        V5     V6     V7         V8
 A=[  1/R1           , 0       , 1/R4    , 0 , 1/R6       , 0     ;
@@ -114,8 +118,27 @@ print (figura, "natural", "-dpng");
 hold off
 
 
+%guardar os valores de -5 a 0 num array, continuar esse array com os de 0 a 20
+%cter=0
 
-func3= real(e.^(2.*pi.*i.*t.*f).*res(5))+(V6-V8)*e.^(-t/(timecte.*10.^-3));
+t=-0.005:0.00001:0.02;
+
+%func3= piecewise (t<0, cttV6 , t>=0 , real(e.^(2.*pi.*i.*t.*f).*res(5))+(V6-V8)*e.^(-t/(timecte.*10.^-3)));
+
+%for ctr = -0.005:0.00001:0
+%cter=cter+1
+%result(cter,1)=cttV6
+%result(cter,2)=ctr
+%endfor
+
+%for ctrr = 0:0.00001:0.02
+%cter=cter+1
+%result(cter,1)= (real(e.^(2.*pi.*i.*ctrr.*f).*res(5))+(V6-V8)*e.^(-ctrr/(timecte.*10.^-3)))
+%result(cter,2)=ctrr
+%endfor
+func3=real(e.^(2.*pi.*i.*t.*f).*res(5))+(V6-V8)*e.^(-t/(timecte.*10.^-3))
+
+
 hold on;
 figura = figure();
 plot ( t , func3 );
@@ -140,7 +163,7 @@ for ea = 1:size(freqs,2)
 %vs=e^(i*(pi/2)) %cos(2pift+pi/2) sem a parte do 2pift
 
 %f=10^freqs(1,ea)
-f=2*pi*freqs(ea);
+f=freqs(ea);
 %printf ("freqs %g \n f %g\n ea %g\n" , freqs , f , ea)
 Zc=i*f*C;
 inZc=1/Zc;
