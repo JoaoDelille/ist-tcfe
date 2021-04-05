@@ -121,7 +121,7 @@ hold off
 %guardar os valores de -5 a 0 num array, continuar esse array com os de 0 a 20
 %cter=0
 
-t=-0.005:0.00001:0.02;
+t=0:0.00001:0.02;
 
 %func3= piecewise (t<0, cttV6 , t>=0 , real(e.^(2.*pi.*i.*t.*f).*res(5))+(V6-V8)*e.^(-t/(timecte.*10.^-3)));
 
@@ -142,10 +142,11 @@ func3=real(e.^(2.*pi.*i.*t.*f).*res(5))+(V6-V8)*e.^(-t/(timecte.*10.^-3))
 hold on;
 figura = figure();
 plot ( t , func3 );
-
+hold on;
+plot (t , e.^(2.*pi.*i.*t.*f))
 xlabel ("t");
 ylabel ("V6");
-title ("V6 final response");
+title ("V6 final response and stimulus in orange");
 
 print (figura, "final", "-dpng"); 
 hold off
@@ -215,7 +216,6 @@ close(figura)
 
 hold on;
 figura = figure();
-%plot ( log10(freqs) , 20*log10(abs(magnitude) ));
 
 
 plot (log10(freqs), 20*log10(abs(magnVS)), "g");
