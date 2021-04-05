@@ -54,7 +54,7 @@ y=[0, 0, 0, 0,V6-V8,0]
 res=y/A'
 
 Ix=-(V6-res(3))/R5-Kb*(res(1)-res(3))
-Req=(V8-V6)/Ix
+Req=abs((V6-V8)/Ix)
 timecte=Req*C
 
 fprintf ( fopen("condensador.tex", "w") , ' V(2) & V(3) & V(5) &  V(7) & Ix & Req & timecte\\\\ \n %g V  &  %g V   &  %g V  &  %g V  &  %g A  &  %g Ohm &  %g  s  \\\\\n' , res(1),res(2),res(3),res(4), Ix, Req, timecte')
@@ -62,7 +62,7 @@ fprintf ( fopen("condensador.tex", "w") , ' V(2) & V(3) & V(5) &  V(7) & Ix & Re
 
 f=1000
 
-vs= @(t) sin(2*pi*f*t)
+%vs= @(t) sin(2*pi*f*t)
 vs=e^(i*(pi/2)) %cos(2pift+pi/2) sem a parte do 2pift
 
 Zc=i*2*pi*f*C
@@ -96,7 +96,7 @@ ylabel ("V6");
 title ("V6 forced response");
 
 print (figura, "forcado", "-dpng");
-
+hold off
 
 
 
@@ -111,7 +111,7 @@ ylabel ("V6");
 title ("V6 natural response");
 
 print (figura, "natural", "-dpng"); 
-
+hold off
 
 
 
@@ -125,22 +125,25 @@ ylabel ("V6");
 title ("V6 final response");
 
 print (figura, "final", "-dpng"); 
+hold off
 
 
 
 
+freqs = logspace(-1, 6, 500);
+print freqs
 
 
+for ea = 1:size(freqs,2)
 
+%vs= @(t) sin(2*pi*f*t)
+%vs=e^(i*(pi/2)) %cos(2pift+pi/2) sem a parte do 2pift
 
-freqs = logspace(-1, 6, 200);
-for c = 1:size(freqs,2)
-
-vs= @(t) sin(2*pi*f*t)
-vs=e^(i*(pi/2)) %cos(2pift+pi/2) sem a parte do 2pift
-
-Zc=i*2*pi*f*C
-inZc=1/Zc
+%f=10^freqs(1,ea)
+f=2*pi*freqs(ea)
+printf ("freqs %g \n f %g\n ea %g\n" , freqs , f , ea)
+Zc=i*f*C;
+inZc=1/Zc;
 
 A=[1     , 0               , 0    , 0           , 0         , 0          , 0     ;
    1/R1  , -1/R1-1/R2-1/R3 , 1/R2 , 1/R3        , 0         , 0          , 0     ;
@@ -148,13 +151,44 @@ A=[1     , 0               , 0    , 0           , 0         , 0          , 0    
    0     , 0               , 0    , 1           , 0         , Kd/R6      , -1    ;
    0     , Kb              , 0    , -1/R5-Kb    , 1/R5+inZc , 0          , -inZc ;
    0     , -1/R2-Kb        , 1/R2 , Kb          , 0         , 0          , 0     ;
-   -1/R1 , 1/R1            , 0    , 1/R4        , 0         , 1/R6       , 0     ]
+   -1/R1 , 1/R1            , 0    , 1/R4        , 0         , 1/R6       , 0     ];
 
-y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0]
-res=y'/A'
-
-
+y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0];
+res=y'/A';
+%print ea
+experiencia(ea)= angle(res(5))
+magnitude(ea)= real(res(5))
 endfor
+
+
+hold on;
+figura = figure();
+plot ( log10(freqs) , experiencia*180/pi );
+
+xlabel ("f");
+ylabel ("phase");
+title ("V6 phase");
+print (figura, "well", "-dpng"); 
+hold off
+
+
+
+
+hold on;
+figura = figure();
+plot ( log10(freqs) , 20*log10(abs(magnitude) ));
+
+xlabel ("f");
+ylabel ("dB");
+title ("V6 magnitude");
+print (figura, "zell", "-dpng"); 
+hold off
+
+
+
+
+
+
 
 %t=0.01;
 %f=0.1:100:1000000;
