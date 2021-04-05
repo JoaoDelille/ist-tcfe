@@ -179,10 +179,10 @@ plot ( log10(freqs) , phasC*180/pi , "b");
 
 
 
-xlabel ("f");
-ylabel ("phase");
-title ("V6 phase");
-print (figura, "well", "-dpng"); 
+xlabel ("f in Hz");
+ylabel ("phase in deg");
+title ("phase    green-VS  red-V6  blue-C");
+print (figura, "phases", "-dpng"); 
 hold off
 
 close(figura)
@@ -202,10 +202,10 @@ hold on
 plot (log10(freqs), 20*log10(abs(magnC)), "b");
 
 
-xlabel ("f");
+xlabel ("f in Hz");
 ylabel ("dB");
-title ("magnitude");
-print (figura, "zell", "-dpng"); 
+title ("magnitude   green-VS  red-V6  blue-C");
+print (figura, "magnitudes", "-dpng"); 
 hold off
 
 
