@@ -154,7 +154,7 @@ hold off
 
 
 
-freqs = logspace(-1, 6, 500);
+freqs = logspace(-1, 6, 200);
 %print freqs
 
 
@@ -194,23 +194,23 @@ y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0];
 res=y'/A';
 %print ea
 
-phasVS(ea)= angle(-res(1));
-magnVS(ea)= real(-res(1));
-phas6(ea)= angle(-res(5));
-magn6(ea)= real(-res(5));
-phasC(ea)= angle(-res(5)+res(7));
-magnC(ea)= real(-res(5)+res(7));
+phasVS(ea)= angle(res(1));
+magnVS(ea)= real(res(1));
+phas6(ea)= angle(res(5));
+magn6(ea)= real(res(5));
+phasC(ea)= angle(res(5)-res(7));
+magnC(ea)= real(res(5)-res(7));
 endfor
 
 
 hold on;
 figura = figure();
 
-plot ( log10(freqs) , phasVS*180/pi , "g");
+plot ( log10(freqs) , -(phasVS*180/pi +90 ), "g");
 hold on;
-plot ( log10(freqs) , phas6*180/pi , "r");
+plot ( log10(freqs) ,-(phas6*180/pi +90), "r");
 
-plot ( log10(freqs) , phasC*180/pi , "b");
+plot ( log10(freqs) , -(-phasC*180/pi), "b");
 
 
 
