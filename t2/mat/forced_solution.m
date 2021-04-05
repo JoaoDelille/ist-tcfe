@@ -196,8 +196,10 @@ res=y'/A';
 
 phasVS(ea)= angle(res(1));
 magnVS(ea)= real(res(1));
+
 phas6(ea)= angle(res(5));
 magn6(ea)= real(res(5));
+
 phasC(ea)= angle(res(5)-res(7));
 magnC(ea)= real(res(5)-res(7));
 endfor
@@ -216,7 +218,7 @@ plot ( log10(freqs) , -(-phasC*180/pi), "b");
 
 
 
-xlabel ("f in Hz");
+xlabel ("log f");
 ylabel ("phase in deg");
 title ("phase    green-VS  red-V6  blue-C");
 print (figura, "phases", "-dpng"); 
@@ -238,7 +240,7 @@ hold on
 plot (log10(freqs), 20*log10(abs(magnC)), "b");
 
 
-xlabel ("f in Hz");
+xlabel ("log f");
 ylabel ("dB");
 title ("magnitude   green-VS  red-V6  blue-C");
 print (figura, "magnitudes", "-dpng"); 

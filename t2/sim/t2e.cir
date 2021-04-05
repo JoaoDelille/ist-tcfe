@@ -1,5 +1,5 @@
 Analise de frequency response no V6
-Vs   1    0   DC 0 AC 5.24841080700 SIN(0 1 1000)
+Vs   1    0   DC 0 AC 1 SIN(0 1 1000)
 R1   1    2   1.02166163214k
 R2   2    3   2.05713464724k 
 R3   2    5   3.10288701080k 
