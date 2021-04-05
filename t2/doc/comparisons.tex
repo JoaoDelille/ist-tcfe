@@ -1,12 +1,91 @@
 \section{Comparisons}
 \label{sec:comparisons}
 
-[filler]
-[filler]
-[filler]
-[filler]
-[filler]
-[filler]
-[filler]
-[filler]
+In this section the objective is to compare the same from GNU Octave and Ngspice. 
+Starting with the values of the node voltages and all the branches currennts we have: 
+
+\vspace{0.5cm}
+For point (1):
+Octave: 
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{nodeVolt}
+    \hline
+  \end{tabular}
+  \caption{Nodal method}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier  
+
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{nodeCurr}
+    \hline
+  \end{tabular}
+  \caption{Nodal method}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier 
+
+Ngspice: 
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{2a_tab}
+  \end{tabular}
+  \caption{Simulated values from Ngspice}
+  \label{tab:op}
+\end{table}
+\FloatBarrier
+
+
+%ver o que se passa aqui valores completamnete diferentes!!! 
+
+\vspace{0.5cm} 
+For point (2): 
+Octave:
+\vspace{0.2cm}
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{condensador}
+    \hline
+  \end{tabular}
+  \caption{Nodal method for point (2)}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier   
+
+Ngspice:
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{2b_tab}
+  \end{tabular}
+  \caption{Simulated values from Ngspice}
+  \label{tab:op}
+\end{table}
+\FloatBarrier
+
+%escrever o que se passa aqui
+
+
+
+
+
+
 
