@@ -158,6 +158,19 @@ freqs = logspace(-1, 6, 500);
 %print freqs
 
 
+R1 = R1*10^3
+R2 = R2*10^3
+R3 = R3*10^3
+R4 = R4*10^3
+R5 = R5*10^3
+R6 = R6*10^3
+R7 = R7*10^3
+Vs = Vs
+C  = C*10*-6
+Kb = R1*10^-3
+Kd = R1*10^-3
+
+
 for ea = 1:size(freqs,2)
 
 %vs= @(t) sin(2*pi*f*t)
@@ -181,12 +194,12 @@ y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0];
 res=y'/A';
 %print ea
 
-phasVS(ea)= angle(res(1));
-magnVS(ea)= real(res(1));
-phas6(ea)= angle(res(5));
-magn6(ea)= real(res(5));
-phasC(ea)= angle(res(5)-res(7));
-magnC(ea)= real(res(5)-res(7));
+phasVS(ea)= angle(-res(1));
+magnVS(ea)= real(-res(1));
+phas6(ea)= angle(-res(5));
+magn6(ea)= real(-res(5));
+phasC(ea)= angle(-res(5)+res(7));
+magnC(ea)= real(-res(5)+res(7));
 endfor
 
 
