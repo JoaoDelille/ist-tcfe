@@ -9,7 +9,8 @@ report.pdf: octave ngspice2a ngspice2b ngspicy
 	ps2pdf plotfase.ps plotfase.pdf
 	mv -v *.tex  ./doc/
 	mv -v *.ps   ./doc/
-	mv -v *.svg  ./doc/
+	mv -v *.svg  ./doc/ 
+	mv -v *.pdf  ./doc/
 	cd ./doc/; pdflatex report.tex
 	cd ./doc/; pdflatex report.tex
 	cd ./doc/; pdflatex report.tex
