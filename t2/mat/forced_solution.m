@@ -131,7 +131,7 @@ hold off
 
 
 freqs = logspace(-1, 6, 500);
-print freqs
+%print freqs
 
 
 for ea = 1:size(freqs,2)
@@ -140,8 +140,8 @@ for ea = 1:size(freqs,2)
 %vs=e^(i*(pi/2)) %cos(2pift+pi/2) sem a parte do 2pift
 
 %f=10^freqs(1,ea)
-f=2*pi*freqs(ea)
-printf ("freqs %g \n f %g\n ea %g\n" , freqs , f , ea)
+f=2*pi*freqs(ea);
+%printf ("freqs %g \n f %g\n ea %g\n" , freqs , f , ea)
 Zc=i*f*C;
 inZc=1/Zc;
 
@@ -156,14 +156,28 @@ A=[1     , 0               , 0    , 0           , 0         , 0          , 0    
 y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0];
 res=y'/A';
 %print ea
-experiencia(ea)= angle(res(5))
-magnitude(ea)= real(res(5))
+
+phasVS(ea)= angle(res(1));
+magnVS(ea)= real(res(1));
+phas6(ea)= angle(res(5));
+magn6(ea)= real(res(5));
+phasC(ea)= angle(res(5)-res(7));
+magnC(ea)= real(res(5)-res(7));
 endfor
 
 
 hold on;
 figura = figure();
-plot ( log10(freqs) , experiencia*180/pi );
+
+plot ( log10(freqs) , phasVS*180/pi , "g");
+hold on;
+plot ( log10(freqs) , phas6*180/pi , "r");
+
+plot ( log10(freqs) , phasC*180/pi , "b");
+
+
+
+
 
 xlabel ("f");
 ylabel ("phase");
@@ -171,22 +185,28 @@ title ("V6 phase");
 print (figura, "well", "-dpng"); 
 hold off
 
+close(figura)
+
 
 
 
 hold on;
 figura = figure();
-plot ( log10(freqs) , 20*log10(abs(magnitude) ));
+%plot ( log10(freqs) , 20*log10(abs(magnitude) ));
+
+
+plot (log10(freqs), 20*log10(abs(magnVS)), "g");
+hold on
+plot (log10(freqs), 20*log10(abs(magn6)), "r");
+hold on
+plot (log10(freqs), 20*log10(abs(magnC)), "b");
+
 
 xlabel ("f");
 ylabel ("dB");
-title ("V6 magnitude");
+title ("magnitude");
 print (figura, "zell", "-dpng"); 
 hold off
-
-
-
-
 
 
 
