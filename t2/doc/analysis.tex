@@ -1,10 +1,11 @@
+
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
 \par As stated earlier, in this section, we go through various steps to obtained the total solution of the circuit and present the theoretical frequency response analysis.
 
 
-
+\newpage 
 \subsection{Node analysis for $t<0$} 
 
 \par The first point of the Theoretical analysis requested for a study of the node voltages for $t<0$ which affect the type of signal that pass through the capacitor. 
@@ -48,7 +49,7 @@ And finally the results obtained, using Octave to solve the matrix, are in the t
     \input{nodeVolt}
     \hline
   \end{tabular}
-  \caption{Nodal method}
+  \caption{Nodal method when $t<0$}
   \label{tab:nodal}
 \end{table}
 \FloatBarrier 
@@ -63,13 +64,13 @@ And for the currents in all branches we apllied directly for each component the 
     \input{nodeCurr}
     \hline
   \end{tabular}
-  \caption{Nodal method}
+  \caption{Nodal method when $t=0$}
   \label{tab:nodal}
 \end{table}
 \FloatBarrier 
 
 
-\subsection{Point (2)} 
+\subsection{Equivalent Resistor} 
 
 The second point of this analysis consists on computing the equivalent resistance seen through the capacitor. We made the node analysis, making $V_s=0$ and replacing the capacitor with a voltage source named $V_6-V_8$, calculated in the previous step.
 These procedure is necessary to make sure that the voltage in the capacitor is continuos.   
@@ -114,7 +115,7 @@ The results for these procedure are presented down bellow:
     \input{condensador}
 	\hline
   \end{tabular}
-  \caption{Nodal method for point (2)}
+  \caption{Computed results for $R_{eq}$  by Octave }
   \label{tab:nodal}
 \end{table}
 \FloatBarrier 
@@ -157,7 +158,43 @@ In this point the forced current was represented with a phasor, which is a compl
   \caption{Nodal method for point (2)}
   \label{tab:nodal}
 \end{table}
-\FloatBarrier 
+\FloatBarrier  
+
+
+\subsection{Final total solution} 
+By imposing both natural and forced responses we get the total solution: 
+
+\begin{equation}
+  V_6(t)= V_{6n}(t) + V_{6f}(t)
+  \label{}
+\end{equation}    
+
+Plotting both $V_s(t)$ and $V_6(t)$ in the time interval [-5,20] ms we see that both voltages are constant before $t=0$.
+
+%\FloatBarrier
+%\begin{figure}
+%  \includegraphics[width=\linewidth]{natural.png}
+%  \caption{Natural solution of V6, Theo-3}
+%  \label{fig:natural}
+%\end{figure}
+%\FloatBarrier 
+
+\subsection {houds+fo} 
+
+
+\FloatBarrier
+\begin{figure}
+  \includegraphics[width=\linewidth]{magnitudes.png}
+  \caption{Natural solution of V6, Theo-3}
+  \label{fig:magnitudes}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{phases.png}
+  \caption{Natural solution of V6, Theo-3}
+  \label{fig:phases}
+\end{figure}
+\FloatBarrier
 
 
 
