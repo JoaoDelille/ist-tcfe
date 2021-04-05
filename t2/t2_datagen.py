@@ -75,5 +75,3 @@ def main():
     dataset.printDataSet()
     
 if __name__ == "__main__": main()
-
-
