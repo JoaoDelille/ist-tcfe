@@ -89,20 +89,43 @@ V2 \\ V3 \\ V5 \\ V6 \\ V7 \\ V8
 \end {bmatrix} 
 =
 \begin{bmatrix} 
-0 \\ 0 \\ 0 \\ 0 \\ 8.763595 \\ 0
+0 \\ 0 \\ 0 \\ 0 \\ V6-V8 \\ 0
 \end {bmatrix} 
 $$ 
 
+Where: 
+\begin{align*} 
+&I_x=\frac{(V_6-V_5)}{R_5} - K_b*(V2-V5)\\
+\\    
+&R_{eq}=\frac{(V_8-V_6)}{I_X}\\
+\\
+&timecte=R_{eq}*C\\
+\end{align*}
+
+
 The results for these procedure are presented down bellow: 
 
-%%colocar tabela de node_alinea.tex aqui.  
+\vspace{0.2cm}
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{condensador}
+    \hline
+  \end{tabular}
+  \caption{Nodal method for point (2)}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier 
+  
 
 \subsection{Point (3)} 
 
 We used the theremin circuit calculated in the previous point to calculate the condenser discharge, whose function can be deducted from the meshes law and solves the resulting differential equation. This equation is equal to:  
 
 \begin{equation}
-  V_{6n}= V6e^{-\frac{t}{RC}}
+  V_{6n}= V_6*e^{-\frac{t}{RC}}
   \label{eq:kvl}
 \end{equation}  
 
@@ -111,6 +134,21 @@ We used the theremin circuit calculated in the previous point to calculate the c
 \subsection{Point (4)} 
 
 In this point the forced current was represented with a phasor, which is a complex number.Then the capacitor was replaced by its impedance.The nodes were analyzed in the same way as in pont 1.The time function will then be matched to the actual part of the phasor multiplied by $e^{\omega*t}$. 
+
+\vspace{0.2cm}
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{phasor}
+    \hline
+  \end{tabular}
+  \caption{Nodal method for point (2)}
+  \label{tab:nodal}
+\end{table}
+\FloatBarrier 
+
 
 \begin{align*} 
 [filler]
