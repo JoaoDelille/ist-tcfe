@@ -50,7 +50,7 @@ A=[  1/R1           , 0       , 1/R4    , 0 , 1/R6       , 0     ;
      0              , 0       , 0       , 1 , 0          , -1    ;
      0              , 0       , 1       , 0 , Kd/R6      , -1    ]
 
-y=[0, 0, 0, 0,V8-V6,0]
+y=[0, 0, 0, 0,V6-V8,0]
 res=y/A'
 
 Ix=-(V6-res(3))/R5-Kb*(res(1)-res(3))
@@ -93,10 +93,28 @@ title ("V6 forced response");
 
 print (figura, "forcado", "-dsvg");
 
-func2= real(e.^(2.*pi.*i.*t.*f).*res(5))+8.7*e.^(-t/(timecte.*10.^-3));
+
+
+
+
+func2= (V6-V8)*e.^(-t/(timecte.*10.^-3));
 hold on;
 figura = figure();
 plot ( t , func2 );
+
+xlabel ("t");
+ylabel ("V6");
+title ("V6 natural response");
+
+print (figura, "natural", "-dsvg"); 
+
+
+
+
+func3= real(e.^(2.*pi.*i.*t.*f).*res(5))+(V6-V8)*e.^(-t/(timecte.*10.^-3));
+hold on;
+figura = figure();
+plot ( t , func3 );
 
 xlabel ("t");
 ylabel ("V6");
