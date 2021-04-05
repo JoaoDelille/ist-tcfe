@@ -79,7 +79,11 @@ A=[1     , 0               , 0    , 0           , 0         , 0          , 0    
 y=[vs ; 0 ; 0 ; 0 ; 0 ; 0 ; 0]
 res=y'/A'
 
-fprintf ( fopen("phasor.tex", "w") , '\n V(1) & V(2) & V(3) & V(4) & V(5) & V(6) & V(7) \\\\ \n %g V   & %g%+gi V  & %g%+gi V  & %g%+gi V  & %g%+gi V  & %g%+gi V  & %g%+gi V\\\\\n' , real(res(1)) , imag(res(1)) , real(res(2)) , imag(res(2)) , real(res(3)) , imag(res(3)) , real(res(4)) , imag(res(4)) , real(res(5)) , imag(res(5)) , real(res(6)) , imag(res(6)) , real(res(7)) , imag(res(7)) )
+
+phas=fopen("phasor.tex", "w")
+fprintf (  phas , '\n V(1)  &  %g%+gi V \\\\ \n  V(2) & %g%+gi V \\\\ \n  V(3) & %g%+gi V \\\\ \n  V(4) & %g%+gi V \\\\ \n  V(5) & %g%+gi V \\\\ \n V(6) & %g%+gi V \\\\ \n V(7) & %g%+gi V \\\\ \n ' , real(res(1)) , imag(res(1)) , real(res(2)) , imag(res(2)) , real(res(3)) , imag(res(3)) , real(res(4)) , imag(res(4)) , real(res(5)) , imag(res(5)) , real(res(6)) , imag(res(6)) , real(res(7)) , imag(res(7)) )
+fclose(phas)
+
 
 t=0:0.00001:0.02;
 func= real(e.^(2.*pi.*i.*t.*f).*res(5));
@@ -91,7 +95,7 @@ xlabel ("t");
 ylabel ("V6");
 title ("V6 forced response");
 
-print (figura, "forcado", "-dsvg");
+print (figura, "forcado", "-dpng");
 
 
 
@@ -106,7 +110,7 @@ xlabel ("t");
 ylabel ("V6");
 title ("V6 natural response");
 
-print (figura, "natural", "-dsvg"); 
+print (figura, "natural", "-dpng"); 
 
 
 
@@ -120,7 +124,7 @@ xlabel ("t");
 ylabel ("V6");
 title ("V6 final response");
 
-print (figura, "final", "-dsvg"); 
+print (figura, "final", "-dpng"); 
 
 
 
