@@ -165,8 +165,8 @@ R6 = R6*10^3
 R7 = R7*10^3
 Vs = Vs
 C  = C*10*-6
-Kb = R1*10^-3
-Kd = R1*10^-3
+Kb = Kb*10^3
+Kd = Kd*10^-3
 
 for ea = 1:size(freqs,2)
 
