@@ -76,6 +76,7 @@ clean:
 	@cd ./sim/ ; rm -rf *.ps *.log
 	@cd ./doc/ ; rm -rf *_tab.tex octave-workspace *.eps
 	@cd ./doc/ ; rm -rf nodeCurr.tex nodeVolt.tex phasor.tex condensador.tex
+	@cd ./doc/ ; rm -rf final.png forcado.png magnitudes.png natural.png phases.png
 	@echo "All auxiliary files and the report have been erased successfully"
 
 .PHONY: all clean
