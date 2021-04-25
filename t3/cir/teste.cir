@@ -1,0 +1,55 @@
+Circuit to measure the average output voltage between two nodes
+
+
+
+********************************
+Vs i o SIN( 0 240 50 )         ;
+                               ;
+*********envelope detector     ;
+                         ;     ;
+*full bridge rectifier;  ;     ;
+D1  i  1  Default     ;  ;     ;
+D2  0  i  Default     ;  ;     ;
+D3  0  o  Default     ;  ;     ;
+D4  o  1  Default     ;  ;     ;
+***********************  ;     ;
+Rc    1 5 20             ;     ;
+Ct    5 0 50u            ;     ;
+Rload 4 0 500            ;     ;
+**************************     ;
+                               ;
+****voltage limiter;           ;
+                   ;           ;
+.include stack.cir ;           ;
+                   ;           ;
+Rlim 5 4 10        ;           ;
+Xpos 5 0 inout     ;           ;
+Xneg 0 5 inout     ;           ;
+                   ;           ;
+********************           ;
+.model Default D               ;
+********************************
+
+
+.measure tran Vone   AVG v(4) from=0 to=0.2
+.measure tran Vipel  MIN v(4) from=0.1 to=0.2
+.measure tran Viple  \\MAX v(4) from=0.1 to=0.2
+
+.control
+set hcopypscolor=1
+set color0=white
+set color1=black
+set color2=green
+set color3=yellow
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+run
+tran 0.0002 0.05
+*plot v(2)
+hardcopy meow.ps v(4) (v(i)-v(o))
+
+quit
+.endc
+.end
+

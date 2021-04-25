@@ -1,0 +1,28 @@
+*stack of diodes******
+.subckt inout 1 2
+Dp1  1   p1   Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  p10  Default
+Dp11 p10 p11  Default
+Dp12 p11 p12  Default
+Dp13 p12 p13  Default
+Dp14 p13 p14  Default
+Dp15 p14 p15  Default
+Dp16 p15 2    Default
+.model Default D
+.ends
+**********************
+*experiments**********
+.subckt inoutt 1 2 
+Dp1  1   p1   Default
+Dp16 p1  2    Default
+.model Default D
+.ends
+**********************
