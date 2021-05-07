@@ -33,7 +33,7 @@ Is = 0.01*10^(-12)
 V   = leinosforc(Vs,Vd,r,C,Z_C,Rpar);
 Vm  = V;
 t0f = p_i;
-Vmforc3=0;
+Vmforc3 = 0;
 
 for k = 1:numel(intervalo)
     t = intervalo(k);
