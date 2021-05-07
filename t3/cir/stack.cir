@@ -1,5 +1,6 @@
 *stack of diodes******
-.subckt inout 1 2
+.subckt inout40 1 2
+
 Dp1  1   p1   Default
 Dp2  p1  p2   Default
 Dp3  p2  p3   Default
@@ -9,20 +10,238 @@ Dp6  p5  p6   Default
 Dp7  p6  p7   Default
 Dp8  p7  p8   Default
 Dp9  p8  p9   Default
-Dp10 p9  p10  Default
-Dp11 p10 p11  Default
-Dp12 p11 p12  Default
-Dp13 p12 p13  Default
-Dp14 p13 p14  Default
-Dp15 p14 p15  Default
-Dp16 p15 2    Default
+Dp10 p9  p0   Default
+
+Da1  p0  a1   Default
+Da2  a1  a2   Default
+Da3  a2  a3   Default
+Da4  a3  a4   Default
+Da5  a4  a5   Default
+Da6  a5  a6   Default
+Da7  a6  a7   Default
+Da8  a7  a8   Default
+Da9  a8  a9   Default
+Da10 a9  a0   Default
+
+Db1  a0  b1   Default
+Db2  b1  b2   Default
+Db3  b2  b3   Default
+Db4  b3  b4   Default
+Db5  b4  b5   Default
+Db6  b5  b6   Default
+Db7  b6  b7   Default
+Db8  b7  b8   Default
+Db9  b8  b9   Default
+Db10 b9  b0   Default
+
+Dc1  b0  c1   Default
+Dc2  c1  c2   Default
+Dc3  c2  c3   Default
+Dc4  c3  c4   Default
+Dc5  c4  c5   Default
+Dc6  c5  c6   Default
+Dc7  c6  c7   Default
+Dc8  c7  c8   Default
+Dc9  c8  c9   Default
+Dc10 c9  2   Default
+
 .model Default D
 .ends
-**********************
-*experiments**********
-.subckt inoutt 1 2 
+
+
+
+
+.subckt inout35 1 2
+
 Dp1  1   p1   Default
-Dp16 p1  2    Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  p0   Default
+
+Da1  p0  a1   Default
+Da2  a1  a2   Default
+Da3  a2  a3   Default
+Da4  a3  a4   Default
+Da5  a4  a5   Default
+Da6  a5  a6   Default
+Da7  a6  a7   Default
+Da8  a7  a8   Default
+Da9  a8  a9   Default
+Da10 a9  a0   Default
+
+Db1  a0  b1   Default
+Db2  b1  b2   Default
+Db3  b2  b3   Default
+Db4  b3  b4   Default
+Db5  b4  b5   Default
+Db6  b5  b6   Default
+Db7  b6  b7   Default
+Db8  b7  b8   Default
+Db9  b8  b9   Default
+Db10 b9  b0   Default
+
+Dc1  b0  c1   Default
+Dc2  c1  c2   Default
+Dc3  c2  c3   Default
+Dc4  c3  c4   Default
+Dc5  c4  2    Default
+
 .model Default D
 .ends
-**********************
+
+
+
+
+.subckt inout30 1 2
+
+Dp1  1   p1   Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  p0   Default
+
+Da1  p0  a1   Default
+Da2  a1  a2   Default
+Da3  a2  a3   Default
+Da4  a3  a4   Default
+Da5  a4  a5   Default
+Da6  a5  a6   Default
+Da7  a6  a7   Default
+Da8  a7  a8   Default
+Da9  a8  a9   Default
+Da10 a9  a0   Default
+
+Db1  a0  b1   Default
+Db2  b1  b2   Default
+Db3  b2  b3   Default
+Db4  b3  b4   Default
+Db5  b4  b5   Default
+Db6  b5  b6   Default
+Db7  b6  b7   Default
+Db8  b7  b8   Default
+Db9  b8  b9   Default
+Db10 b9  2    Default
+
+.model Default D
+.ends
+
+
+
+
+.subckt inout25 1 2
+
+Dp1  1   p1   Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  p0   Default
+
+Da1  p0  a1   Default
+Da2  a1  a2   Default
+Da3  a2  a3   Default
+Da4  a3  a4   Default
+Da5  a4  a5   Default
+Da6  a5  a6   Default
+Da7  a6  a7   Default
+Da8  a7  a8   Default
+Da9  a8  a9   Default
+Da10 a9  a0   Default
+
+Db1  a0  b1   Default
+Db2  b1  b2   Default
+Db3  b2  b3   Default
+Db4  b3  b4   Default
+Db5  b4  2    Default
+
+.model Default D
+.ends
+
+
+
+
+.subckt inout20 1 2
+
+Dp1  1   p1   Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  p0   Default
+
+Da1  p0  a1   Default
+Da2  a1  a2   Default
+Da3  a2  a3   Default
+Da4  a3  a4   Default
+Da5  a4  a5   Default
+Da6  a5  a6   Default
+Da7  a6  a7   Default
+Da8  a7  a8   Default
+Da9  a8  a9   Default
+Da10 a9  2    Default
+
+.model Default D
+.ends
+
+
+
+
+.subckt inout15 1 2
+
+Dp1  1   p1   Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  p0   Default
+
+Da1  p0  a1   Default
+Da2  a1  a2   Default
+Da3  a2  a3   Default
+Da4  a3  a4   Default
+Da5  a4  2    Default
+
+.model Default D
+.ends
+
+
+
+
+.subckt inout10 1 2
+
+Dp1  1   p1   Default
+Dp2  p1  p2   Default
+Dp3  p2  p3   Default
+Dp4  p3  p4   Default
+Dp5  p4  p5   Default
+Dp6  p5  p6   Default
+Dp7  p6  p7   Default
+Dp8  p7  p8   Default
+Dp9  p8  p9   Default
+Dp10 p9  2    Default
+
+.model Default D
+.ends

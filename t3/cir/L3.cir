@@ -1,0 +1,54 @@
+Final contender for the circuit, further testing required for fine tuning
+
+********************************
+Vs 2 3 SIN( 0 12.53197 50 )    ;
+                               ;
+*********envelope detector     ;
+                         ;     ;
+*full bridge rectifier   ;     ;
+D1  2  1  Default    ;   ;     ;
+D2  0  2  Default    ;   ;     ;
+D3  0  3  Default    ;   ;     ;
+D4  3  1  Default    ;   ;     ;
+**********************   ;     ;
+Rc    1 5 0              ;     ;
+Ct    5 0 0.00001u       ;     ;
+                         ;     ;
+**************************     ;
+                               ;
+*****voltage limiter           ;
+                   ;           ;
+.include stack.cir ;           ;
+                   ;           ;
+Rlim 5 4 0.00      ;           ;
+Xlim1 5 6 inout40  ;           ;
+Xlim2 6 7 inout40  ;           ;
+Xlim3 7 8 inout40  ;           ;
+Xlim4 8 0 inout40  ;           ;
+                   ;           ;
+********************           ;
+.model Default D               ;
+********************************
+
+***********************************************
+.measure tran Vavg  AVG v(4) from=0.5 to=0.70 ;
+.measure tran Vmin  MIN v(4) from=0.5 to=0.70 ;
+.measure tran Vmax  MAX v(4) from=0.5 to=0.70 ;
+***********************************************
+
+************************************************
+.control                                       ;
+set hcopypscolor=1                             ;
+run                                            ;
+                                               ;
+tran 0.00002 0.30 0                            ;
+hardcopy out.ps (v(4)) (v(2)-v(3))             ;
+                                               ;
+tran 0.00002 0.70 0.5                          ;
+hardcopy zoom.ps (v(4)-12) ((v(2)-v(3))*0.0001);
+                                               ;
+quit                                           ;
+.endc                                          ;
+************************************************
+.end
+
