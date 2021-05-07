@@ -58,6 +58,8 @@ V1(k)=Vm(1);
   endif
   
 endfor
+%
+ripple=real(max(V3)-min(V3))
 hold on
 plot(intervalo, real(V3) , ".");
 hold on
