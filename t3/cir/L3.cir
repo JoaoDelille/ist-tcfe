@@ -1,10 +1,9 @@
 Final contender for the circuit, further testing required for fine tuning
 
+.model Default D 
 ********************************
-Vs 2 3 SIN( 0 12.53134 50 )    ;
-                               ;
-*********envelope detector     ;
-                         ;     ;
+Vs 2 3 SIN( 0 12.53134 50 )    ;                             
+*********envelope detector     ;                        
 *full bridge rectifier   ;     ;
 D1  2  1  Default    ;   ;     ;
 D2  0  2  Default    ;   ;     ;
@@ -12,32 +11,24 @@ D3  0  3  Default    ;   ;     ;
 D4  3  1  Default    ;   ;     ;
 **********************   ;     ;
 Rc    1 5 0              ;     ;
-Ct    5 0 0.00002u       ;     ;
-                         ;     ;
-**************************     ;
-                               ;
-*****voltage limiter           ;
-                   ;           ;
-.include stack.cir ;           ;
-                   ;           ;
+Ct    5 0 0.00002u       ;     ;                      
+**************************     ;            
+*****voltage limiter           ;                 
+.include stack.cir ;           ;             
 Rlim 5 4 0.00      ;           ;
 Xlim1 5 6 inout20  ;           ;
 Xlim2 6 7 inout20  ;           ;
 Xlim3 7 8 inout20  ;           ;
 Xlim4 8 9 inout20  ;           ;
-Dlim5 9 0 Default
-
-                   ;           ;
+Dlim5 9 0 Default  ;           ;    
 ********************           ;
 .model Default D               ;
 ********************************
-
-***********************************************
-.measure tran Vavg  AVG v(4) from=5 to=5.2 ;
-.measure tran Vmin  MIN v(4) from=5 to=5.2 ;
-.measure tran Vmax  MAX v(4) from=5 to=5.2 ;
-***********************************************
-
+**********************************************
+.measure tran Vavg  AVG v(4) from=5 to=5.2   ;
+.measure tran Vmin  MIN v(4) from=5 to=5.2   ;
+.measure tran Vmax  MAX v(4) from=5 to=5.2   ;
+**********************************************
 ************************************************
 .control                                       ;
 set hcopypscolor=1                             ;
@@ -46,8 +37,8 @@ run                                            ;
 tran 0.00002 0.30 0                            ;
 hardcopy out.ps (v(4)) (v(2)-v(3))             ;
                                                ;
-tran 0.00002 5.2 5                          ;
-hardcopy zoom.ps (v(4)-12) ((v(2)-v(3))*0.0001);
+tran 0.00002 5.2 5                             ;
+hardcopy zoom.ps (v(4)-12)                     ;
                                                ;
 quit                                           ;
 .endc                                          ;
