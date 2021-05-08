@@ -3,8 +3,30 @@
 
 In this section we proceed to a comparsison of the results obtained between Ngspice and Octave. Looking at the table down bellow we see a difference in values. This difference can be explained due to the way of functioning of the two softwares that differ from each other. This difference resides in the way the components, Diodes, are treated, that is, Ngspice takes into account a phenomenon called Leakage Currents of the diodes, while we and Octave intend and assume that they have infinite resistance when they are OFF. 
 
-%colocar tabela side by side do ripple e do DC level  
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline    
+    \input{Oct_results}
+    \hline
+  \end{tabular}
+  \caption{Ripple and DC voltages}
+  \label{tab:Octave}
+\end{table}
+\FloatBarrier 
 
-In this laboratory assignement, our monetary value, according to the quantity of each of the componentsused for the realization of our model for an AC/DC converter is: 
+%falta meter aqui os resultados/tabela que se utilizar na secção da simulation
 
-% Fazer contas
+In this laboratory assignement, our merit value, according to the quantity of each of the components used and quality for the realization of our model for an AC/DC converter is: 
+
+\par Quantity of resistors= $100$ Kohm ----------> Cost of resistors = 100 MU 
+\par Quantity of capacitors= $1*10^-3$ F --------> Cost of capacitors = 100 MU 
+\par Quantity of diodes = 10 --------------------> Cost of diodes = 1 MU  
+\par Total cost= 201 MU
+
+\par Quality = (1/4.3672) + (1/0.054)= 18.75 
+
+\par Merit= 18.75/201 = 0.09
+
+% Não sei se está certo, muito incerto, peço que revejam os cálculos please.
