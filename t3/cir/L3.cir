@@ -43,7 +43,7 @@ print mean(v(5)-12)                                                    ;
 echo "op2_END"                                                         ;
                                                                        ;
 echo "op3_TAB"                                                         ;
-print 1/ (74.2* ((maximum(v(5))-minimum(v(5))) + mean(v(5)-12) + 1e-6));
+print 1/ (75.2* ((maximum(v(5))-minimum(v(5))) + mean(v(5)-12) + 1e-6));
 echo "op3_END"                                                         ;
                                                                        ;
 quit                                                                   ;
