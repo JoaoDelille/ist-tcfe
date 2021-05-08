@@ -22,6 +22,11 @@ Condensador.png: ./mat/main3.m
 	cd ./mat/; mv $@ ../$@
 	@echo "octave complete"
 
+tab.tex: spice.log
+	$(eval NGSTABS=$(shell grep _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
+	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
+	
+
 spice.log: ./cir/L3.cir 
 	cd ./cir/; ngspice L3.cir -o ../$@
 	mv -v ./cir/*.ps ./ 

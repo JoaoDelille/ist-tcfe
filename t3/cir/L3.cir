@@ -2,7 +2,7 @@ Final contender for the circuit, further testing required for fine tuning
 
 .model Default D 
 ********************************
-Vs 2 3 SIN( 0 12.7 50 )    ;                             
+Vs 2 3 SIN( 0 12.665565 50 )    ;                             
 *********envelope detector     ;                        
 *full bridge rectifier   ;     ;
 D1  2  5  Default    ;   ;     ;
@@ -11,7 +11,7 @@ D3  0  3  Default    ;   ;     ;
 D4  3  5  Default    ;   ;     ;
 **********************   ;     ;
 *Rc    1 5 0              ;     ;
-Ct    5 0 1.2u       ;     ;                      
+Ct    5 0 0.2u       ;     ;                      
 **************************     ;            
 *****voltage limiter           ;                 
 .include stack.cir ;           ;             
@@ -24,21 +24,29 @@ Dlim5 9 0 Default  ;           ;
 ********************           ;
 .model Default D               ;
 ********************************
-**********************************************
-.measure tran Vavg  AVG v(5) from=155 to=155.2   ;
-.measure tran Vmin  MIN v(5) from=155 to=155.2   ;
-.measure tran Vmax  MAX v(5) from=155 to=155.2   ;
-**********************************************
 ************************************************
 .control                                       ;
 set hcopypscolor=1                             ;
 run                                            ;
                                                ;
-tran 0.0002 155.2 155                            ;
+tran 0.0002 55.2 55                          ;
 hardcopy out.ps (v(5)) (v(2)-v(3))             ;
-                                               ;
-                           ;
 hardcopy zoom.ps (v(5)-12)                     ;
+                                               ;
+echo "op1_TAB"                                 ;
+print maximum(v(5))                            ;
+print minimum(v(5))                            ;
+print mean(v(5))                               ;
+echo "op1_END"                                 ;
+                                               ;
+echo "op2_TAB"                                 ;
+print maximum(v(5))-minimum(v(5))              ;
+print mean(v(5)-12)                            ;
+echo "op2_END"                                 ;
+                                               ;
+echo "op3_TAB"                                 ;
+print 1/ (74.2* ((maximum(v(5))-minimum(v(5))) + mean(v(5)-12) + 1e-6))
+echo "op3_END"                                 ;
                                                ;
 quit                                           ;
 .endc                                          ;
