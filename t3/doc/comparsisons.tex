@@ -11,18 +11,35 @@ In this section we proceed to a comparsison of the results obtained between Ngsp
     \input{Oct_results}
     \hline
   \end{tabular}
-  \caption{Ripple and DC voltages}
+  \caption{Ripple and DC voltages from Theoretical Anallysis}
   \label{tab:Octave}
 \end{table}
 \FloatBarrier 
 
-%falta meter aqui os resultados/tabela que se utilizar na secção da simulation
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline    
+    \input{op1_tab.tex}
+    \hline
+  \end{tabular}
+  \caption{Ripple and DC voltages from Simulation Analysis}
+  \label{tab:Octave}
+\end{table}
+\FloatBarrier 
+
+Finally looking at the values in Table 3 and Table 4, of which the values were broken down in the Simulation Analysis, we then confirm the difference referred to in the previous paragraph. The differences betwwen these two values from each software are: 
+
+\par Ripple Voltage = $|$1.8e-04 - 2.61313e-05$|$ = 1.538687e+-04 V
+\par DC Voltage = $|$11.95-12.00$|$ = 0.05 V
+\vspace{0.5cm}
 
 In this laboratory assignement, our merit value, according to the quantity of each of the components used and quality for the realization of our model for an AC/DC converter is: 
 
-\par Quantity of resistors= $100$ Kohm ----------> Cost of resistors = 100 MU 
-\par Quantity of capacitors= $1*10^-3$ F --------> Cost of capacitors = 100 MU 
-\par Quantity of diodes = 10 --------------------> Cost of diodes = 1 MU  
+\par Quantity of resistors= $100$ Kohm ----------$>$ Cost of resistors = 100 MU 
+\par Quantity of capacitors= $1*10^-3$ F --------$>$ Cost of capacitors = 100 MU 
+\par Quantity of diodes = 10 --------------------$>$ Cost of diodes = 1 MU  
 \par Total cost= 201 MU
 
 \par Quality = (1/4.3672) + (1/0.054)= 18.75 

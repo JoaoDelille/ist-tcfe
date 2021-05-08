@@ -1,25 +1,45 @@
 \section{Simulation Analysis}
 \label{sec:simulation} 
 
-In these section we represent the plots that were produced by doing operating point using Ngspice. These plots represents the Voltage on Envelope Detector and the output voltage of the circuit.
+\par In these section we represent the plots that were produced by doing operating point using Ngspice. These plots represents the Voltage on Envelope Detector and the output voltage of the circuit.
 
-\FloatBarrier
-\begin{figure}
-  \includegraphics[width=\linewidth]{out.ps}
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{out.pdf}
   \caption{Envelope Detector and Output Voltages}
   \label{fig:theoplots}
+  \endminipage\hfill
 \end{figure}
-\FloatBarrier 
 
-\FloatBarrier
-\begin{figure}
-  \includegraphics[width=\linewidth]{zoom.ps}
-  \caption{No idea what this plot means. Precisa legenda}
+
+
+\begin{figure} [!htb]
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{zoom.pdf}
+  \caption{Output AC component + DC deviation}
   \label{fig:theoplots}
+  \endminipage\hfill
 \end{figure}
-\FloatBarrier
 
-And finally to conclute the requirements for the simulation analysis, we have computed the results of the voltage ripple and the output DC level. 
+
+\par And finally to conclute the requirements for the simulation analysis, we have computed the results of the voltage ripple and the output DC level.  
+
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline    
+    \input{op1_tab.tex}
+    \hline
+  \end{tabular}
+  \caption{Ripple an DC voltages}
+  \label{tab:Octave}
+\end{table}
+\FloatBarrier  
+
+From this table we can remove the ripple voltage value, that match with the difference: $V_{ripple}=maximum(v(5))-minimum(v(5))$, which in this case has a value of $V_{ripple}=1.8e-04$. And also the value of the DC level, which in this case is represented by the variable $mean(v(5))$
+
 
 %colocar valores
 % não consigo encontrar os valores certos para colocar aqui, nomeadamente os do ripple e do DC level, helppp
