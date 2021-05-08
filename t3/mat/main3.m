@@ -3,7 +3,7 @@
 %dados------------------------------------------
 V1  = 12.665565 %amp da volt do gerador
 phi = 0    %fase do get
-Von = 0.666  %volt de ativacao do diodo
+Von = 0.66557  %volt de ativacao do diodo
 Vd  = Von;
 
 f  = 50     %freq
@@ -48,7 +48,7 @@ for k = 1:numel(intervalo)
    
       Vm = [V(1)*freqPh(om,t),V(2)*freqPh(om,t),V(3)*freqPh(om,t)];
       
-      if(k=1)
+      if(k==1)
         Vmforc3=Vm(3);
       endif
       
@@ -56,7 +56,7 @@ for k = 1:numel(intervalo)
       Vmnat = Vm(3);
       
       t0n = t;
-      printf("ON");
+      %printf("ON");
 
    endif
 
@@ -66,7 +66,7 @@ for k = 1:numel(intervalo)
       Vm = [V(1)*freqPh(om,t),V(2)*freqPh(om,t),leinonat(Rpar,C,t,Vmnat,Vs,t0n)];
       Vmforc3 = Vm(3);
       t0f = t;
-      printf("OFF");
+      %printf("OFF");
    endif
 
 

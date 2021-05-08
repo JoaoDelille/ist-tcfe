@@ -13,9 +13,8 @@ In these section we represent the plots that were produced by our theoretical an
 \end{figure}
 
 To produce these plots we considered a diode model composed of a DC voltage source, resistor, and ideal diode, and ran a mathematical analysis of the components of the circuit that were active at that time.\\
-To run the analysis itself, we created two mathematical models, one where the diodes were off, and one where they were on. We then ran the calculations for each timestep and used "if" statements to switch between the conducting and non conducting modes of the diodes in function of the voltage across them. In the end, due to the design we picked, it worked out to be indifferent wether or not we did this, since the resistance of the voltage limiter when it is off is infinite in our model, the capacitor never discharges, the ripple is zero, and the average voltage is exactly 12. Due to how the code was written, some very small ripple occurs.
+To run the analysis itself, we created two mathematical models, one where the diodes were off, and one where they were on. We then ran the calculations for each timestep and used "if" statements to switch between the conducting and non conducting modes of the diodes in function of the voltage across them. In the end, due to the design we picked, it worked out to be indifferent wether or not we did this, since the resistance of the voltage limiter when it is off is infinite in our model, the capacitor never discharges, the ripple is zero, and the average voltage is exactly 12.
 
-And finally to conclude the requirements for the theoretical analysis, we have computed the results of the voltage ripple and the output DC level.
 
 \FloatBarrier
 \begin{table}[h]

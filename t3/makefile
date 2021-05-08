@@ -1,5 +1,7 @@
 all:report.pdf
 	@evince $< &
+	@echo
+	@echo
 	@echo "How do you generate a random string?"
 	@echo "You give Vim to a Windows user and ask them to exit!"
 
