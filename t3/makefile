@@ -1,5 +1,5 @@
 all:report.pdf
-#	@evince $< &
+	@evince $< &
 	@echo "Opening the report in the Gnome document viewer"
 
 report.pdf: Condensador.png tab.tex
