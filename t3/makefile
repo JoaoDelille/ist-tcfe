@@ -6,12 +6,13 @@ report.pdf: Condensador.png spice.log
 	ps2pdf out.ps out.pdf
 	ps2pdf zoom.ps zoom.pdf
 #	mv -v *.tex  ./doc/
-#	mv -v *.ps   ./doc/
+	mv -v *.ps   ./doc/
 	mv -v *.png  ./doc/ 
 	mv -v *.pdf  ./doc/
-#	cd ./doc/; pdflatex report.tex
-#	cd ./doc/; pdflatex report.tex
-#	cd ./doc/; pdflatex report.tex
+#	mv -v *.JPG  ./doc/
+	cd ./doc/; pdflatex report.tex
+	cd ./doc/; pdflatex report.tex
+	cd ./doc/; pdflatex report.tex
 	mv -v ./doc/*.pdf ./
 	@echo "Status norminal"
 	@echo "Everything good"
