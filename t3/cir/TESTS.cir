@@ -1,0 +1,41 @@
+experiment for corss referencing with octave, delete when done
+
+
+
+
+********************************
+.options savecurrents
+Vs 2 3 SIN(0 10 50)
+
+
+*full bridge rectifier
+D3 3 1
+D4 0 2
+D5 2 1
+D6 0 3
+
+Rt 1 0 1k
+
+Ct 1 0 10u
+
+
+
+
+*.measure tran Vipel  MIN v(1) from=0 to=0.01
+
+
+
+
+
+.control
+set hcopypscolor=1
+run
+tran 0.00002 0.1
+
+print all
+
+hardcopy xx.ps v(1) (v(2)-v(1)) (v(2)-v(3))
+quit
+.endc
+.end
+
