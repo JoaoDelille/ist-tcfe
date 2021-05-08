@@ -85,7 +85,7 @@ for k = 1:numel(intervalo)
   
 endfor
 
-ripple=real(max(V3)-min(V3))
+ripple=abs(real(max(V3)-min(V3)))
 V_DC= max(abs(V3)) 
 
 fprintf ( fopen("Oct_results.tex", "w") , '\n V_ripple & V_DC \\\\ \n %g V   & %g V\\\\\n' , ripple , V_DC )
