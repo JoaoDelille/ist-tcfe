@@ -67,7 +67,7 @@ for k = 1:numel(intervalo)
       
       t0n = t;
       %printf("ON");
-      
+
    endif
 
 
@@ -78,11 +78,8 @@ for k = 1:numel(intervalo)
       t0f = t;
      % printf("OFF");
    endif
-  
 
 
-      
-  
 endfor
 
 ripple=abs(real(max(V3)-min(V3)))
