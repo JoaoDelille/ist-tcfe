@@ -1,28 +1,34 @@
 all:report.pdf
-	@evince $< &
+#	@evince $< &
 	@echo "Opening the report in the Gnome document viewer"
 
-report.pdf: condensador.png spice.log
+report.pdf: Condensador.png spice.log
 	ps2pdf out.ps out.pdf
 	ps2pdf zoom.ps zoom.pdf
-	mv -v *.tex  ./doc/
-	mv -v *.ps   ./doc/
+#	mv -v *.tex  ./doc/
+#	mv -v *.ps   ./doc/
 	mv -v *.png  ./doc/ 
 	mv -v *.pdf  ./doc/
-	cd ./doc/; pdflatex report.tex
-	cd ./doc/; pdflatex report.tex
-	cd ./doc/; pdflatex report.tex
+#	cd ./doc/; pdflatex report.tex
+#	cd ./doc/; pdflatex report.tex
+#	cd ./doc/; pdflatex report.tex
 	mv -v ./doc/*.pdf ./
 	@echo "Status norminal"
 	@echo "Everything good"
 
 
-condensador.png: ./mat/main3.m
+Condensador.png: ./mat/main3.m
 	cd ./mat/; octave main3.m
+	cd ./mat/; mv $@ ../$@
 	@echo "octave complete"
 
 spice.log: ./cir/L3.cir 
 	cd ./cir/; ngspice L3.cir -o ../$@
+	mv -v ./cir/*.ps ./ 
+#	sed 's/.*v/vavg/' $@ > a$@
+#	sed 's/.*v/vavg/' a$@ > aa$@
+#	sed 's/.*v/vavg/' aa$@ > aaa$@
+#	rm $@
 	@echo "ngspice.log created"
 
 
