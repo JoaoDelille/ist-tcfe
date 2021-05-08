@@ -12,10 +12,10 @@ om = 2*pi*f %freq angular
 r  = 0.08  %resistencia do diodo
 nd = 10    %numero de diodos em serie
   
-C   = 1*10^(-3) %capacidade condensador
+C   = 1*10^(-6) %capacidade condensador
 Z_C = 1/(i*om*C) %impedancia do condensador
 
-Rpar = 100000 %10^300 %por razoes de manutencao e simplicidade do codigo, em vez de circuito aberto decidimos que Rpar seria grande o suficiente para ser aproximada a infinito
+Rpar = 10^300 %por razoes de manutencao e simplicidade do codigo, em vez de circuito aberto decidimos que Rpar seria grande o suficiente para ser aproximada a infinito
 ReqC = Rpar;  %resistencia vista do condensador
 R    = [ReqC, Rpar];
 
@@ -35,18 +35,20 @@ V   = leinosforc(Vs,Vd,r,C,Z_C,Rpar);
 Vm  = V;
 t0f = p_i;
 Vmforc3 = 0;
-
+Vmnat = Vm(3);
+t0n = 0;
 for k = 1:numel(intervalo)
     t = intervalo(k);
    
    
-   %if(real(Vm(3))>Von*nd)
-    %  V3(k) = Von*nd; 
-   %   printf("y");
- %  else
-   %   V3(k) = Vm(3);
- %     printf("n");
- %  endif
+%   if(real(Vm(3))>=Von*nd)
+%      Vm(3) = Vm(3)+Vm(1)*(nd*r/(nd*r+r)); 
+%      V3(k) = Vm(3);
+%      printf("y");
+%   else
+%      V3(k) = Vm(3);
+%      printf("n");
+%   endif
    
    V3(k) = Vm(3);
    V1(k) = Vm(1);
