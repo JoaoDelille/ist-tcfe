@@ -5,18 +5,10 @@ all:report.pdf
 report.pdf: Condensador.png tab.tex
 	ps2pdf out.ps out.pdf
 	ps2pdf zoom.ps zoom.pdf
-<<<<<<< HEAD
-#	mv -v *.tex  ./doc/
-	mv -v *.ps   ./doc/
-	mv -v *.png  ./doc/ 
-	mv -v *.pdf  ./doc/
-#	mv -v *.JPG  ./doc/
-=======
 	mv -v *.tex  ./doc/
 	mv -v *.ps   ./doc/
 	mv -v *.png  ./doc/ 
 	mv -v *.pdf  ./doc/
->>>>>>> 3f34136e67587e8c7575b7133e510b25935993d6
 	cd ./doc/; pdflatex report.tex
 	cd ./doc/; pdflatex report.tex
 	cd ./doc/; pdflatex report.tex
