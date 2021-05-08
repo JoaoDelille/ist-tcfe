@@ -82,12 +82,9 @@ for k = 1:numel(intervalo)
       
   
 endfor
-<<<<<<< HEAD
-%
-ripple=real(max(V3)-min(V3))
-=======
 
->>>>>>> 109eed04ed0c3bc1d922225218b1ee15254bb12a
+ripple=real(max(V3)-min(V3))
+
 hold on
 plot(intervalo, real(V3) , ".");
 hold on
