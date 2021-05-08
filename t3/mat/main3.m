@@ -86,9 +86,16 @@ for k = 1:numel(intervalo)
 endfor
 
 ripple=real(max(V3)-min(V3))
+V_DC= max(abs(V3)) 
+
+fprintf ( fopen("Oct_results.tex", "w") , '\n V_ripple & V_DC \\\\ \n %g V   & %g V\\\\\n' , ripple , V_DC )
 
 hold on
 plot(intervalo, real(V3) , ".");
 hold on
 plot(intervalo, real(V1) , ".");
 print("Condensador", "-dpng");
+
+
+
+%fprintf ( fopen("nodeVolt.tex", "w") , '\n V(1) & V(2) & V(3) & V(5) & V(6) & V(7) & V(8) \\\\ \n %g V   & %g V  & %g V  & %g V  & %g V  & %g V  & %g V\\\\\n' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
