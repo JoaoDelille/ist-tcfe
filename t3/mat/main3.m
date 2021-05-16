@@ -1,9 +1,9 @@
 %main3 script
 
 %dados------------------------------------------
-V1  = 12.6 %amp da volt do gerador
+V1  = 12.665565 %amp da volt do gerador
 phi = 0    %fase do get
-Von = 0.65  %volt de ativacao do diodo
+Von = 0.66557  %volt de ativacao do diodo
 Vd  = Von;
 
 f  = 50     %freq
@@ -15,7 +15,7 @@ nd = 10    %numero de diodos em serie
 C   = 1*10^(-6) %capacidade condensador
 Z_C = 1/(i*om*C) %impedancia do condensador
 
-Rpar = 10^300 %por razoes de manutencao e simplicidade do codigo, em vez de circuito aberto decidimos que Rpar seria grande o suficiente para ser aproximada a infinito
+Rpar = 1.79769*10^308 %por razoes de manutencao e simplicidade do codigo, em vez de circuito aberto decidimos que Rpar seria grande o suficiente para ser aproximada a infinito
 ReqC = Rpar;  %resistencia vista do condensador
 R    = [ReqC, Rpar];
 
@@ -40,16 +40,6 @@ t0n = 0;
 for k = 1:numel(intervalo)
     t = intervalo(k);
    
-   
-%   if(real(Vm(3))>=Von*nd)
-%      Vm(3) = Vm(3)+Vm(1)*(nd*r/(nd*r+r)); 
-%      V3(k) = Vm(3);
-%      printf("y");
-%   else
-%      V3(k) = Vm(3);
-%      printf("n");
-%   endif
-   
    V3(k) = Vm(3);
    V1(k) = Vm(1);
    
@@ -58,7 +48,7 @@ for k = 1:numel(intervalo)
    
       Vm = [V(1)*freqPh(om,t),V(2)*freqPh(om,t),V(3)*freqPh(om,t)];
       
-      if(k=1)
+      if(k==1)
         Vmforc3=Vm(3);
       endif
       
@@ -76,14 +66,14 @@ for k = 1:numel(intervalo)
       Vm = [V(1)*freqPh(om,t),V(2)*freqPh(om,t),leinonat(Rpar,C,t,Vmnat,Vs,t0n)];
       Vmforc3 = Vm(3);
       t0f = t;
-     % printf("OFF");
+      %printf("OFF");
    endif
 
 
 endfor
 
-ripple=abs(real(max(V3)-min(V3)))
-V_DC= max(abs(V3)) 
+ripple=abs( real(max(V3)) - real(min(V3)) )
+V_DC= mean(real(V3)) 
 
 fprintf ( fopen("Oct_results.tex", "w") , '\n $V_{ripple}$ & $V_{DC}$ \\\\ \n %g V   & %g V\\\\\n' , ripple , V_DC )
 
@@ -95,4 +85,4 @@ print("Condensador", "-dpng");
 
 
 
-%fprintf ( fopen("nodeVolt.tex", "w") , '\n V(1) & V(2) & V(3) & V(5) & V(6) & V(7) & V(8) \\\\ \n %g V   & %g V  & %g V  & %g V  & %g V  & %g V  & %g V\\\\\n' , res(1) , res(2) , res(3) , res(4) , res(5) , res(6) , res(7) )
+

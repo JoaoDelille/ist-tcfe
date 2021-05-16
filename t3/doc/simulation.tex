@@ -1,6 +1,6 @@
 \section{Simulation Analysis}
 \label{sec:simulation} 
-
+For the simulation we simplified the script by using an independent sinusoidal power source that matches the secondary coil of the inductor, corresponding to a ratio n of $n=1/12.665565 = 0.078954235$
 \par In these section we represent the plots that were produced by doing operating point using Ngspice. These plots represents the Voltage on Envelope Detector and the output voltage of the circuit.
 
 
@@ -23,7 +23,7 @@
 \end{figure}
 
 
-\par And finally to conclute the requirements for the simulation analysis, we have computed the results of the voltage ripple and the output DC level.  
+\par And finally, we have computed the results of the voltage ripple and the output DC level.  
 
 \FloatBarrier
 \begin{table}[h]
@@ -33,13 +33,37 @@
     \input{op1_tab.tex}
     \hline
   \end{tabular}
-  \caption{Ripple an DC voltages}
-  \label{tab:Octave}
+  \caption{Voltages}
+  \label{tab:Spice1}
 \end{table}
 \FloatBarrier  
 
-From this table we can remove the ripple voltage value, that match with the difference: $V_{ripple}=maximum(v(5))-minimum(v(5))$, which in this case has a value of $V_{ripple}=1.8e-04$. And also the value of the DC level, which in this case is represented by the variable $mean(v(5))$
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline    
+    \input{op2_tab.tex}
+    \hline
+  \end{tabular}
+  \caption{Ripple an mean DC deviation}
+  \label{tab:Spice2}
+\end{table}
+\FloatBarrier 
+
+From this table we can take the ripple voltage value $V_{ripple}=maximum(v(5))-minimum(v(5))$ and also the value of the DC level, $mean(v(5))$ and corresponding deviation from the target of 12V.\\
+Combined with a cost of 74.2 this gave us the merit that can be seen in the following line.
 
 
-%colocar valores
-% não consigo encontrar os valores certos para colocar aqui, nomeadamente os do ripple e do DC level, helppp
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline    
+    \input{op3_tab.tex}
+    \hline
+  \end{tabular}
+  \caption{Merit figure}
+  \label{tab:Spice2}
+\end{table}
+\FloatBarrier 
