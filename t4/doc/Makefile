@@ -2,22 +2,24 @@
 # type the "make" command to create report.pdf 
 # ---------------------------------------------------------
 
-#doc name
-FILE=report
-
 #list of LibreOffice Draw files
 LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 
-all: $(FILE).pdf
+all: report.pdf
 	evince $< &
 
-$(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
-	export TEXINPUTS=$(TEXINPUTS)
-	#cp -f ../mat/*.eps .
-	pdflatex  $(FILE).tex
-	pdflatex  $(FILE).tex
-	pdflatex  $(FILE).tex
-
+report.pdf:
+	@echo "beginning"
+	mv -v ../*.tex .
+	mv -v ../*.ps  .
+	mv -v ../*.png .
+	mv -v ../*.pdf .
+	pdflatex report.tex
+	pdflatex report.tex
+	pdflatex report.tex
+	mv -v ../*.pdf .
+	@echo "Status norminal"
+	@echo "Everything good"
 
 #convert libreoffice draw figures to pdf
 %.pdf: %.odg
@@ -26,7 +28,7 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
-
+	@echo "doc cleaned"
 .PHONY: all clean
 
 
