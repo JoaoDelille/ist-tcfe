@@ -19,7 +19,7 @@ C=4390*10^(-9)
 C2=2250*10^(-9)
 l=0;
 Rl=8;
-while k<30
+while k<=8
   while n<10
     l=l+1;
       f=n*10^(k-1);
@@ -99,7 +99,7 @@ while k<30
       
       %--
       gain(l)=AV1*AV2*AV3;
-      gain2(l)=AV1_normal*AV2;
+      gain2(l)=AV1_normal*AV2*AV3;
       n=n+1;
   endwhile
   n=1;
@@ -107,10 +107,10 @@ while k<30
 endwhile
 %hold on
 figure(1)
-plot(20*log(int), 20*log(gain) , ".");
+plot(log(int), 20*log(gain) , ".");
 print("GAIN_Exprimental_R3_a_0", "-dpng");
 
 figure(2)
-plot(20*log(int), 20*log(gain2) , ".");
+plot(log(int), 20*log(gain2) , ".");
 print("GAINVERDADEIRO", "-dpng");
 

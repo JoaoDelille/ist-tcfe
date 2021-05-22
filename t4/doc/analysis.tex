@@ -27,124 +27,24 @@ The analysis can be divided into the following particular smaller analysis:
 	\item Calculation of the gain for the output stage;
 	\item Calculation of the input and output inpedances;
 \end{itemize}
-This analysis was repeated for various frequencies of Vin, and the results were ploted on a dB scale.
 
-%Colocar as equações do slide 6 do power point número 17 - confirmar se o circuito é o mesmo
+To calculate the OP of each stage, it was considered the following circuits for each stage:
+[Inser images of OP analysis]\\
 
-%Obendo então os seguinte valores explícitos na tabala em baixo
+It was used the mesh method in conjuction with the Ebers-Moll bipolar npn transistor model in order to calculate the currents in each mesh and the voltage drops between nodes. With this, it was possible to calcule the DC component of the output volltage.\
 
-\FloatBarrier
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline    
-    \input{nome do ficheiro}
-    \hline
-  \end{tabular}
-  \caption{Operating point analysis using Octave}
-  \label{tab:Octave}
-\end{table}
-\FloatBarrier    
+To calculate the incremental stage, it was considered the following incremental model of the transistor:\\
 
+[insert incremental modell]\\
 
+Each stage was therefore modeled as follows:\\
 
-\par Then, gain, input and output impedances were also obtained for two different states, namely for the gain stage and the output stage.
- The equations used to compute the results for the Gain stage are as follows:
+[insert each stage in incremental terms]\\
 
-% fórmulas do slide 8 ou 12 de acordo se não tem ou tem o circuito com o bypass C - gain  
+By using the mesh method, it was possible to calculate the AC component for the output voltage.\\
+The total voltage for each frequencie is equal to the sum of the AC with the DC component.\\
 
-\begin{equation}
-  \frac{v_o}{v_i} = -g_{m}(\frac{1}{R_C}+\frac{1]{r_o})v_{pi}
-  \label{}
-\end{equation}   
+This analysis was repeated for various frequencies of Vin (10 equally spaced frequencies per decade), and the results were ploted on a dB scale.
+The calculation of the overall gain was obtained by multiplying the gain of each stage. The results can be observed in the following graphs:\\
 
-where: 
-
-\begin{equation}
-  v_{pi} = \frac{\frac{1}{r_{pi}}+\frac{1}{R_{B1}}+\frac{1}{R_{B2}}}{R_{S}+(\frac{1}{r_{pi}}+\frac{1}{R_{B1}}+\frac{1}{R_{B2}})}v_{s}
-  \label{}
-\end{equation}   
-
-%  fórmulas do slide 13  
-
-\begin{equation}
-  Z_{I}=\\frac{1}{R_{B1}}+\\frac{1}{R_{B2}}+\frac{1}{r_{pi}}
-  \label{}
-\end{equation}  
-
-\begin{equation}
-  
-Z_{O}=\frac{1}{R_{C}}+\frac{1}{R_{o}}}
-  \label{}
-\end{equation}
-
-\par In parallel, the equations involved in computing for the Output stage are as follows:
-
-% fórmulas do slide 15 - gain  
-\begin{equation}
-  
-\frac{v_{o}}{v_{i}}=\frac{g_m}{g_{pi}+g_{E}+g_{o}+g{m}}
-  \label{}
-\end{equation}
-
-where g's are the admitances. 
-
-\begin{equation}
-  
-Z_{I}=\frac{g_{pi}+g_{E}+g_{o}+g{m}}{g_{pi}(g_{pi}+g_{E}+g_{o})}
-  \label{}
-\end{equation}
-
-\begin{equation}
-  
-Z_{O}=\frac{1}{g_{pi}+g_{E}+g_{o}+g{m}}
-  \label{}
-\end{equation}
-
-
-% fórmulas do slide 16 - impedances 
-
-Using the Octave software, the following values ​​were obtained:
-
-\FloatBarrier
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline    
-    \input{nome do ficheiro}
-    \hline
-  \end{tabular}
-  \caption{Voltage gain, Input and Output Impedances for Gain Stage}
-  \label{tab:Octave}
-\end{table}
-\FloatBarrier    
-
-\FloatBarrier
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline    
-    \input{nome do ficheiro}
-    \hline
-  \end{tabular}
-  \caption{Volatge gain, Input and Output Impedances for Output Stage}
-  \label{tab:Octave}
-\end{table}
-\FloatBarrier     
-
-% Explicar porque é que podem ser ligadas sem ocorrer uma perda significate de sinal
-
-Finally, a study was carried out in the frequency domain for the incremental circuit of voltage gain, then obtaining the graph in dB or SOMETHING LIKE THIS: 
-
-
-\begin{figure} [!htb] 
-  \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{nome do ficheiro}
-  \caption{Frequency response of Voltage gain in Gain stage}
-  \label{fig:theoplots}
-  \endminipage\hfill
-\end{figure}
-
-
-
-
+[INSERT GRAPH]\\
