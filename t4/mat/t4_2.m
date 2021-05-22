@@ -105,8 +105,8 @@ for l = 1:length(f)
 endfor
 
 iii=1
-peakG=max(gain2)
-while real(20*log10(gain2(iii))) < (20*log10(peakG)-3)
+peakG=max(abs(real(gain2)))
+while 20*log10(abs(real(gain2(iii)))) < (20*log10(peakG)-3)
 iii++
 endwhile 
 

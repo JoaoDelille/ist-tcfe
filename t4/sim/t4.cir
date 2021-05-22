@@ -1,5 +1,5 @@
 T4 Laboratory Simulation Results
-
+.options savecurrents
 .param Rin_value=100
 .param Ci_value=365u
 .param R1_value=80000
@@ -66,7 +66,6 @@ print all
 
 * time analysis
 tran 1e-5 1e-2
-*plot v(coll)
 hardcopy vo1.ps vdb(coll)
 
 
@@ -74,14 +73,14 @@ hardcopy vo1.ps vdb(coll)
 ac dec 10 0.10 100MEG
 
 
-*plot vdb(coll)
+
 hardcopy vo1f.ps vdb(coll)
-*plot vp(coll)
+
 hardcopy vo1f2.ps vp(coll)
 
-*plot vdb(out)
+
 hardcopy vo2f.ps vdb(out)
-*plot vph(out)
+
 hardcopy vo2f2.ps vp(out)
 
 
@@ -110,10 +109,7 @@ print low
 print cost
 print gain
 print bandwidth
-***********
-*echo ******************************************************
 print merit
-*echo ******************************************************
 echo "op_END"
 
 
