@@ -1,9 +1,3 @@
-# ------------------------------------------------------------
-# type "make" command in the Linux terminal create report.pdf
-#
-# type "make clean" to delete all generated files
-# ------------------------------------------------------------
-
 all:
 	soffice --headless --convert-to pdf circuit.odg
 	mv *.pdf ./doc/
@@ -18,5 +12,3 @@ clean:
 	@make -C doc clean
 
 .PHONY: all clean
-
-

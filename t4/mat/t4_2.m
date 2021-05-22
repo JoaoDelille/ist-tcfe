@@ -19,6 +19,17 @@ C2=2250*10^(-6)
 l=0;
 
 Rl=8;
+<<<<<<< HEAD:t4/t4_2.m
+while k<=8
+  while n<10
+    l=l+1;
+      f=n*10^(k-1);
+
+      int(l)=f;
+      Zc=1/(i*2*pi*f*C);
+      Zc2=1/(i*2*pi*f*C2);
+      Zc_in=1/(i*2*pi*f*C_in);
+=======
 
 f=logspace(-1,8,100);
 for l = 1:length(f)
@@ -29,6 +40,7 @@ for l = 1:length(f)
       Zc=1/(i*2*pi*f(l)*C);
       Zc2=1/(i*2*pi*f(l)*C2);
       Zc_in=1/(i*2*pi*f(l)*C_in);
+>>>>>>> 1a793ebc1b4069fa84bae486488d5457d23b98be:t4/mat/t4_2.m
       %--
       RE1_vdd=1015;
       %--
@@ -100,6 +112,21 @@ for l = 1:length(f)
       
       %--
       gain(l)=AV1*AV2*AV3;
+<<<<<<< HEAD:t4/t4_2.m
+      gain2(l)=AV1_normal*AV2*AV3;
+      n=n+1;
+  endwhile
+  n=1;
+  k=k+1;
+endwhile
+%hold on
+figure(1)
+plot(log(int), 20*log(gain) , ".");
+print("GAIN_Exprimental_R3_a_0", "-dpng");
+
+figure(2)
+plot(log(int), 20*log(gain2) , ".");
+=======
       gain2(l)=AV1_normal*AV2;
 
 endfor
@@ -119,5 +146,6 @@ print("GAIN_Exprimental_R3_a_0", "-dpng");
 
 figure(2)
 plot(log10(int), 20*log10(gain2) , ".");
+>>>>>>> 1a793ebc1b4069fa84bae486488d5457d23b98be:t4/mat/t4_2.m
 print("GAINVERDADEIRO", "-dpng");
 
