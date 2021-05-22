@@ -5,6 +5,8 @@
 # ------------------------------------------------------------
 
 all:
+	soffice --headless --convert-to pdf circuit.odg
+	mv *.pdf ./doc/
 	make -C mat
 	make -C sim
 	make -C doc

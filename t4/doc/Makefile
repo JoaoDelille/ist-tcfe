@@ -11,19 +11,13 @@ all: report.pdf
 report.pdf:
 	@echo "beginning"
 	mv -v ../*.tex .
-	mv -v ../*.ps  .
 	mv -v ../*.png .
-	mv -v ../*.pdf .
 	pdflatex report.tex
 	pdflatex report.tex
 	pdflatex report.tex
-	mv -v ../*.pdf .
+	mv -v ./*.pdf ..
 	@echo "Status norminal"
 	@echo "Everything good"
-
-#convert libreoffice draw figures to pdf
-%.pdf: %.odg
-	soffice --headless --convert-to pdf $<
 
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
