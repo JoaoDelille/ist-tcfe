@@ -5,53 +5,11 @@ In the simulation study of an amplifier circuit, the Ngspice software was used, 
 
 We started with the OP analysis to make sure that the transistors are operating in the F.A.R. region. The results can be seen in the following table:
 
-[tabela]
-
-
 Here we can see that for the NPN transistor of the gain stage $V_{CE}$ > $V_{BE}$ and for the PNP of the output stage $V_{EC}$ > $V_{EB}$. This means they are operating in the F.A.R. region.
 
 To maximize the merit we decided to start by increasing the bandwidth of the amplifier, increasing the capacitance of the coupling capacitors to lower the minimum cutoff frequency.
 
 Removing the capacitors altogether would have rendered the lowest cutoff frequency possible were it not for the fact that they are essential for the circuit - they separate the input and output signals from the bias voltage source.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 From operating point analysis we got the following results:
@@ -73,7 +31,7 @@ And now for the impedances values, the input and output impedances, respectively
 \FloatBarrier
 \begin{table}[h]
   \centering
-  \begin{tabular}{|c|}
+  \begin{tabular}{|c|c|}
     \hline    
     \input{input_tab.tex}
     \hline
