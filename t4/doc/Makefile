@@ -20,7 +20,7 @@ report.pdf:
 	@echo "Everything good"
 
 clean:
-	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
+	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof Impedancias.tex Cutoff.tex
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
 	@echo "doc cleaned"
 .PHONY: all clean
