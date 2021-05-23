@@ -6,7 +6,7 @@
 LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 
 all: report.pdf
-	evince $< &
+	evince ../$< &
 
 report.pdf:
 	@echo "beginning"

@@ -12,5 +12,5 @@ clean:
 	@make -C mat clean
 	@make -C sim clean
 	@make -C doc clean
-	
+	@rm *.pdf *_tab.tex
 .PHONY: all clean
