@@ -8,9 +8,9 @@ The entire circuit can be seen in the following image:\\
 
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{circuit.pdf}
-  \caption{Amplifier circuit}
-  \label{fig:theoplots}
+  \includegraphics[width=\linewidth]{circuitsep.jpeg}
+  \caption{The amplifier stages}
+  \label{fig:stage}
   \endminipage\hfill
 \end{figure}
 
@@ -31,7 +31,13 @@ The analysis can be divided into the following particular smaller analysis:
 
 To calculate the OP of each stage, it was considered the following circuits for each stage:
 
-[Inser images of OP analysis]\\
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{malhas.jpeg}
+  \caption{Meshes for OP analysis}
+  \label{fig:mesh}
+  \endminipage\hfill
+\end{figure}
 
 
 It was used the mesh method in conjuction with the Ebers-Moll bipolar npn transistor model in order to calculate the currents in each mesh and the voltage drops between nodes. With this, it was possible to calcule the DC component of the output volltage.\
