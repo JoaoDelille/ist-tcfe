@@ -104,13 +104,29 @@ let cost=resist+capac+trans*0.1
 let merit=((gain*bandwidth)/(cost*low))
 
 
-echo "op_TAB"
+echo "merit_TAB"
 print low
 print cost
 print gain
 print bandwidth
 print merit
+echo "merit_END"
+
+
+
+
+let VCE=v(coll)-v(emit)
+let VBE=v(base)-v(emit)
+let VEB=v(emit2)-0
+let VEC=v(emit2)-v(coll)
+
+echo "op_TAB"
+print VEC
+print VEB
+print VCE
+print VBE
 echo "op_END"
+
 
 
 *input impedance in kohm
