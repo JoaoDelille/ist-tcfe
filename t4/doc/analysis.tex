@@ -1,21 +1,14 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-
-<<<<<<< HEAD
-In this section we will approach and conduct a theoretical study of an Amplifier circuit. We started by performing an operating point analysis in order to discover the values ​​of all voltages and static currents. For this purpose, the mesh method was used, through which the following equations were obtained:
-
-
-%Obendo então os seguinte valores explícitos na tabala em baixo
-=======
 In this section we will detail the theoretical study of the Amplifier Circuit conducted during this lab. The circuit was divided into two seperate ones: the gain stage and the outrput stage. The first one increased the gain, but it had a drop of current considered undesirable due to the output impedance. The latter one corrects this effect while having a gain near one, as to not decrease the voltage previously gained.\\
 The entire circuit can be seen in the following image:\\
->>>>>>> ca888802bbf8324d923c1a4d2572062541174014
+
 
 \FloatBarrier
 \begin{document}
 \begin{figure}
-  \includegraphics{circuit.ong}
+  \includegraphics{circuit.pdf}
   \caption{}
   \label{}
 \end{figure}
@@ -35,37 +28,64 @@ The analysis can be divided into the following particular smaller analysis:
 	\item Calculation of the input and output inpedances;
 \end{itemize}
 
-<<<<<<< HEAD
-% As wanted the input impedance of the output stage is bigger than the output impedance of the gain stage. And thats the reason why the circuit presents very little signal loss. (explicação)
-=======
 To calculate the OP of each stage, it was considered the following circuits for each stage:
+
 [Inser images of OP analysis]\\
->>>>>>> ca888802bbf8324d923c1a4d2572062541174014
+
 
 It was used the mesh method in conjuction with the Ebers-Moll bipolar npn transistor model in order to calculate the currents in each mesh and the voltage drops between nodes. With this, it was possible to calcule the DC component of the output volltage.\
 
 To calculate the incremental stage, it was considered the following incremental model of the transistor:\\
 
-<<<<<<< HEAD
-\begin{figure} [!htb] 
-  \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{GAINVERDADEIRO.png}
-  \caption{Frequency response of Voltage gain in Gain stage}
-  \label{fig:theoplots}
-  \endminipage\hfill
+
+\FloatBarrier
+\begin{document}
+\begin{figure}
+  \includegraphics{incremental_model.pdf}
+  \caption{}
+  \label{}
 \end{figure}
-=======
-[insert incremental modell]\\
+\FloatBarrier 
 
 Each stage was therefore modeled as follows:\\
->>>>>>> ca888802bbf8324d923c1a4d2572062541174014
 
-[insert each stage in incremental terms]\\
+\begin{equation}
+ g_{m} = I_{C}/V_{T}
+ \label{}
+\end{equation} 
+
+\begin{equation}
+ r_{pi}= {beta}_{F}/g_{m}
+   \label{}
+\end{equation} 
+
+\begin{equation}
+  r_{o}= V_{A}/I_{C}
+  \label{}
+\end{equation} 
 
 By using the mesh method, it was possible to calculate the AC component for the output voltage.\\
 The total voltage for each frequencie is equal to the sum of the AC with the DC component.\\
 
 This analysis was repeated for various frequencies of Vin (10 equally spaced frequencies per decade), and the results were ploted on a dB scale.
-The calculation of the overall gain was obtained by multiplying the gain of each stage. The results can be observed in the following graphs:\\
+The calculation of the overall gain was obtained by multiplying the gain of each stage. The results can be observed in the following graphs:\\ 
 
-[INSERT GRAPH]\\
+\FloatBarrier
+\begin{document}
+\begin{figure}
+  \includegraphics{GAIN_Exprimental_R2_a_0.png}
+  \caption{}
+  \label{}
+\end{figure}
+\FloatBarrier 
+
+\FloatBarrier
+\begin{document}
+\begin{figure}
+  \includegraphics{GAINVERDADEIRO.png}
+  \caption{}
+  \label{}
+\end{figure}
+\FloatBarrier
+
+
