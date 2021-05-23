@@ -11,7 +11,7 @@ all: report.pdf
 report.pdf:
 	@echo "beginning"
 	mv -v ../*.tex .
-	mv -v ../*.png .
+#	mv -v ../*.png .
 	pdflatex report.tex
 	pdflatex report.tex
 	pdflatex report.tex
