@@ -5,14 +5,23 @@ In this section we will detail the theoretical study of the Amplifier Circuit co
 The entire circuit can be seen in the following image:\\
 
 
+<<<<<<< HEAD
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{circuit.pdf}
+  \caption{Amplifier circuit}
+  \label{fig:theoplots}
+  \endminipage\hfill
+=======
 \FloatBarrier
-\begin{document}
 \begin{figure}
   \includegraphics[scale=0.7]{circuit.pdf}
   \caption{}
   \label{}
+>>>>>>> 74e1021c063fb58fec2c274d63c0c3cfcb71e49c
 \end{figure}
-\FloatBarrier
+
+
 
 One must note that Vin and Rin constitute the thevenin equivalent of the circuit to which the amplifier is connected.\\
 The capacitator connected to Rin will enforce that only the AC part of the voltage is taken into account. The DC part is suplied by a constant 12V voltage source Vcc. With this arquitecture, we can ensure that the transistors are in foward active region (FAC), for the Vcc will force an voltage drop bigger than the one necessary for that mode of operation.\\
@@ -38,14 +47,31 @@ It was used the mesh method in conjuction with the Ebers-Moll bipolar npn transi
 To calculate the incremental stage, it was considered the following incremental model of the transistor:\\
 
 
+<<<<<<< HEAD
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{incrementalgain.pdf}
+  \caption{Amplifier circuit}
+  \label{fig:theoplots}
+  \endminipage\hfill
+=======
 \FloatBarrier
-\begin{document}
 \begin{figure}
   \includegraphics{incremental_model.pdf}
   \caption{}
   \label{}
+>>>>>>> 74e1021c063fb58fec2c274d63c0c3cfcb71e49c
 \end{figure}
-\FloatBarrier 
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{incrementaloutput.pdf}
+  \caption{Amplifier circuit}
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+
+\FloatBarrier
 
 The transistor was modeled as follows:\\
 
@@ -70,22 +96,42 @@ The total voltage for each frequencie is equal to the sum of the AC with the DC 
 This analysis was repeated for various frequencies of Vin (10 equally spaced frequencies per decade), and the results were ploted on a dB scale.
 The calculation of the overall gain was obtained by multiplying the gain of each stage. The results can be observed in the following graphs:\\ 
 
+<<<<<<< HEAD
+
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{GAINVERDADEIRO.png}
+  \caption{Amplifier circuit}
+  \label{fig:theoplots}
+  \endminipage\hfill
+=======
 \FloatBarrier
-\begin{document}
 \begin{figure}
-  \includegraphics{GAIN_Exprimental_R2_a_0.png}
+  \includegraphics{GAIN_Exprimental_R3_a_0.png}
   \caption{}
   \label{}
+>>>>>>> 74e1021c063fb58fec2c274d63c0c3cfcb71e49c
 \end{figure}
-\FloatBarrier 
 
+<<<<<<< HEAD
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{GAIN_Exprimental_R3_a_0.png}
+  \caption{Amplifier circuit}
+  \label{fig:theoplots}
+  \endminipage\hfill
+=======
 \FloatBarrier
-\begin{document}
 \begin{figure}
   \includegraphics{GAINVERDADEIRO.png}
   \caption{}
   \label{}
+>>>>>>> 74e1021c063fb58fec2c274d63c0c3cfcb71e49c
 \end{figure}
+
 \FloatBarrier
+
+
 
 

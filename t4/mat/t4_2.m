@@ -111,20 +111,22 @@ while 20*log10(abs(real(gain2(iii)))) < (20*log10(peakG)-3)
 iii++
 endwhile 
 
-fprintf ( fopen("Impedancias.tex", "w") , '\n $Z_{in}$ & $Z_{out}$ \\\\ \n %g \\Omega   & %g \\Omega\\\\\n' , ZI2 , ZO2 )
+fprintf ( fopen("Impedancias.tex", "w") , '\n $Z_{in}$ & $Z_{out}$ \\\\ \n %g \\$Omega   & %g \\$Omega\\\\\n' , ZI2 , ZO2 )
 fprintf ( fopen("Cutoff.tex", "w") , '\n min cut-off frequency \\\\ \n %g \\\\\n' , int(iii))
 
 figure(1)
 plot(log10(int), 20*log10(gain) , ".");
-print("GAIN_Exprimental_R3_a_0", "-dpng");
 title ("Gain com R3=0 em função da fequência");
 xlabel ("dB");
-ylabel ("Gain)");
+ylabel ("Gain");
+
+print("GAIN_Exprimental_R3_a_0", "-dpng");
 
 figure(2)
 plot(log10(int), 20*log10(gain2) , ".");
-print("GAINVERDADEIRO", "-dpng");
 title ("Gain função da fequência");
 xlabel ("dB");
-ylabel ("Gain)");
+ylabel ("Gain");
+print("GAINVERDADEIRO", "-dpng");
+
 
