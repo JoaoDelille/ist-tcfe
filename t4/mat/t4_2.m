@@ -116,9 +116,17 @@ fprintf ( fopen("Cutoff.tex", "w") , '\n min cut-off frequency \\\\ \n %g \\\\\n
 
 figure(1)
 plot(log10(int), 20*log10(gain) , ".");
+title ("Gain com R3=0 em função da fequência");
+xlabel ("dB");
+ylabel ("Gain");
+
 print("GAIN_Exprimental_R3_a_0", "-dpng");
 
 figure(2)
 plot(log10(int), 20*log10(gain2) , ".");
+title ("Gain função da fequência");
+xlabel ("dB");
+ylabel ("Gain");
 print("GAINVERDADEIRO", "-dpng");
+
 

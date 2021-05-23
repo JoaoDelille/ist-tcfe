@@ -1,5 +1,9 @@
 all:
-	soffice --headless --convert-to pdf circuit.odg incrementaloutput.odg incrementalgain.odg
+
+	soffice --headless --convert-to pdf circuit.odg
+	soffice --headless --convert-to pdf incrementalgain.odg
+	soffice --headless --convert-to pdf incrementaloutput.odg
+
 	mv *.pdf ./doc/
 	make -C mat
 	make -C sim
