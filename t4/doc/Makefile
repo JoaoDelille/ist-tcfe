@@ -12,7 +12,7 @@ report.pdf:
 	@echo "beginning"
 	mv -v ../*.tex .
 #	mv -v ../*.ps .
-#	mv -v ../*.png .
+	mv -v ../*.png .
 	pdflatex report.tex
 	pdflatex report.tex
 	pdflatex report.tex
@@ -22,7 +22,7 @@ report.pdf:
 
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof Impedancias.tex Cutoff.tex
-	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
+	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps *.png *_tab.tex
 	@echo "doc cleaned"
 .PHONY: all clean
 
