@@ -40,7 +40,24 @@ To calculate the OP of each stage, it was considered the following circuits for 
 \end{figure}
 
 
-It was used the mesh method in conjuction with the Ebers-Moll bipolar npn transistor model in order to calculate the currents in each mesh and the voltage drops between nodes. With this, it was possible to calcule the DC component of the output volltage.\
+It was used the mesh method in conjuction with the Ebers-Moll bipolar npn transistor model in order to calculate the currents in each mesh and the voltage drops between nodes. With this, it was possible to calcule the DC component of the output volltage.\\
+
+The transistor was modeled as follows:\\
+
+\begin{equation}
+ g_{m} = I_{C}/V_{T}
+ \label{}
+\end{equation} 
+
+\begin{equation}
+ r_{\pi}= {\beta}_{F}/g_{m}
+   \label{}
+\end{equation} 
+
+\begin{equation}
+  r_{o}= V_{A}/I_{C}
+  \label{}
+\end{equation} 
 
 To calculate the incremental stage, it was considered the following incremental model of the transistor:\\
 
@@ -66,23 +83,6 @@ To calculate the incremental stage, it was considered the following incremental 
 
 \FloatBarrier
 
-The transistor was modeled as follows:\\
-
-\begin{equation}
- g_{m} = I_{C}/V_{T}
- \label{}
-\end{equation} 
-
-\begin{equation}
- r_{\pi}= {\beta}_{F}/g_{m}
-   \label{}
-\end{equation} 
-
-\begin{equation}
-  r_{o}= V_{A}/I_{C}
-  \label{}
-\end{equation} 
-
 By using the mesh method, it was possible to calculate the AC component for the output voltage.\\
 The total voltage for each frequencie is equal to the sum of the AC with the DC component.\\
 
@@ -91,11 +91,10 @@ The calculation of the overall gain was obtained by multiplying the gain of each
 
 
 
-
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
   \includegraphics[width=\linewidth]{GAINVERDADEIRO.png}
-  \caption{Amplifier circuit}
+  \caption{Gain with R3=0}
   \label{fig:theoplots}
   \endminipage\hfill
 \end{figure}
@@ -104,7 +103,7 @@ The calculation of the overall gain was obtained by multiplying the gain of each
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
   \includegraphics[width=\linewidth]{GAIN_Exprimental_R3_a_0.png}
-  \caption{Amplifier circuit}
+  \caption{Gain with abitrated values}
   \label{fig:theoplots}
   \endminipage\hfill
 \end{figure}

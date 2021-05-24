@@ -7,7 +7,14 @@ LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 
 all: report.pdf
 	evince ../$< &
-
+	@echo
+	@echo
+	@echo
+	@echo "Keep finding bugs in your code? Try applying Raid to your disk drives next time!"
+	@echo
+	@echo
+	@echo
+	
 report.pdf:
 	@echo "beginning"
 	mv -v ../*.tex .
