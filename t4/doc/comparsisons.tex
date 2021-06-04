@@ -63,6 +63,19 @@ And now for the impedances values, in the tables down bellow we can compare side
 \end{table}
 \FloatBarrier   
 
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline    
+    \input{OP.tex}
+    \hline
+  \end{tabular}
+  \caption{Operanting point, V outpit of the gain stange and of the output stage repectivaly}
+  \label{tab:Spice1}
+\end{table}
+\FloatBarrier   
+
 
 Comparing both results, we can that the gain is not the same. Such a disparity is visibly noticible for high frequencies, where the gain drops in the simulation, but stabilizes in the theoretical analysis. Such a result can be explain when one notices that gain was obtained by assuming a linear incremental model. This model is based on truncating the taylor series for each component, so that the circuit components can all have a linear dependency on frequency. However, such is an aproximation and, in this case, the error grows with the frequency, for transistors are non-linear devices that depend on it. By analysing the incremental model, one notes than only the capacitators present have a dependency on frequency, the transistor does not. Since the impendance of the capacitators will decrease with the rise in frequency, it eventually becomes negligible and the gain stabilizes.\\
 It is also possible to see that the maximum gain is not the same, growing much quicker in the ngspice model, stabilizing at a lower frequency and at a higher value.\\

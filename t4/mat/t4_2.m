@@ -119,16 +119,16 @@ fprintf ( fopen("OP.tex", "w") , '\n V_{CE} & VEC \\\\ \n %g & %g\\\\\n' , VCE ,
 figure(1)
 plot(log10(int), 20*log10(gain) , ".");
 title ("Gain com R3=0 em função da fequência");
-xlabel ("dB");
-ylabel ("Gain");
+ylabel ("dB");
+xlabel ("log(Hz)");
 
 print("GAIN_Exprimental_R3_a_0", "-dpng");
 
 figure(2)
 plot(log10(int), 20*log10(gain2) , ".");
 title ("Gain função da fequência");
-xlabel ("dB");
-ylabel ("Gain");
+ylabel ("dB");
+xlabel ("log(Hz)");
 print("GAINVERDADEIRO", "-dpng");
 
 
