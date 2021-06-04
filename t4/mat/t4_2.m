@@ -111,10 +111,10 @@ while 20*log10(abs(real(gain2(iii)))) < (20*log10(peakG)-3)
 iii++
 endwhile 
 
-fprintf ( fopen("Impedancias.tex", "w") , '\n $Z_{in output}$ & $Z_{out output}$ & $Z_{in gain}$ & $Z_{out gain}$ \n $Z_{in}$ & $Z_{out}$ \\\\ \n %g \\$Omega   & %g \\$Omega\\\\\n' , ZI2 , ZO2 , ZI1 , ZX)
+fprintf ( fopen("Impedancias.tex", "w") , '\n $Z_{in output}$ & $Z_{out output}$ & $Z_{in gain}$ & $Z_{out gain}$\\\\\n %g $\\Omega$   & %g $\\Omega$ & %g $\\Omega$   & %g $\\Omega$\\\\\n' , ZI2 , ZO2 , ZI1 , ZX)
 fprintf ( fopen("Cutoff.tex", "w") , '\n min cut-off frequency \\\\ \n %g \\\\\n' , int(iii))
 
-fprintf ( fopen("OP.tex", "w") , '\n V_{CE} & coiso, ze mete o nome certo diso linha 117 do octave \\\\ \n %g & %g\\\\\n' , VCE , VO2 )
+fprintf ( fopen("OP.tex", "w") , '\n V_{CE} & VEC \\\\ \n %g & %g\\\\\n' , VCE , VO2 )
 
 figure(1)
 plot(log10(int), 20*log10(gain) , ".");
