@@ -14,7 +14,7 @@ all: report.pdf
 	@echo
 	@echo
 	@echo
-	
+
 report.pdf:
 	@echo "beginning"
 	-mv -v ../*.tex ./resources
@@ -33,5 +33,3 @@ clean:
 	@rm ./resources/*
 	@echo "doc cleaned"
 .PHONY: all clean
-
-

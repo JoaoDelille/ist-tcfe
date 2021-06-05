@@ -2,7 +2,8 @@ all:
 	#soffice --headless --convert-to pdf circuit.odg
 	#soffice --headless --convert-to pdf incrementalgain.odg
 	#soffice --headless --convert-to pdf incrementaloutput.odg
-	-mv *.pdf ./doc/
+	-cd ./doc/; mkdir ./resources
+	-mv *.pdf ./doc/resources
 	make -C mat
 	make -C sim
 	make -C doc
