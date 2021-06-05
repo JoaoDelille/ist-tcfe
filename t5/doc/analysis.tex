@@ -2,8 +2,8 @@
 \label{sec:analysis}
 
 In this theoretical analysis, we'll be using the circuits transfer function to compute the predicted values for the output frequency (Vout) in function of the input one (Vin) of 10V. Furthermore, the input and output impedances were calculated.\\
-The transfer function is the following: \[\frac{R_1C_1s}{1+R_1C_1s} \cdot (1+\frac{R_3}{R_4 \cdot \frac{1}{1+R_2C_2s}\] \\
-The bandwith is given by the inteval from: $\frac{1}{R_1C_1}$ to $\frac{1}{R_2C_2}$; the corresponding central frequency is $\sqrt{1}{frac{1}{R_1C_1} \cdot frac{1}{R_2C_2}}$ \\
+The transfer function is the following: \[\frac{R_1C_1s}{1+R_1C_1s} \cdot (1+\frac{R_3}{R_4}) \cdot \frac{1}{1+R_2C_2s}\] \\
+The bandwith is given by the inteval from: $\frac{1}{R_1C_1}$ to $\frac{1}{R_2C_2}$; the corresponding central frequency is $\sqrt{{\frac{1}{R_1C_1} \cdot \frac{1}{R_2C_2}}}$ \\
 The values obtained for the bandwith and central frequency were:
 \FloatBarrier
 \begin{table}[h]
@@ -36,7 +36,7 @@ Using the transfer function T(s), it was possible to calculate the Vout for a ra
 
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{}
+  \includegraphics[width=\linewidth]{gain.png}
   \caption{Vout in function of frequency} 
   \label{fig:theoplots}
   \endminipage\hfill

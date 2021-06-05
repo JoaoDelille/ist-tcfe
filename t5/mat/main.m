@@ -35,8 +35,11 @@ for k = 1:numel(f)
   
 endfor
 
-Zi_100=R1+1/(i*2*pi*100*C1);
+
 Zo_100=(1/R2+i*2*pi*100*C2)^-1;
+Zi_100=R1+1/(i*2*pi*100*C1);
+fprintf ( fopen("Z.tex", "w") , 'Z_{out}: &g \\ Z_{in}: &g ' , Zo_100, Zi_100);
+
 
 
 iii=1
