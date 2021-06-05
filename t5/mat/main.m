@@ -54,10 +54,16 @@ t(cent_S,C1,C2,R1,R2,R3,R4);
 
 
 plot(log10(f), 20*log10(Vout) , ".");
-title ("Gain função da fequência");
+title ("Gain in function of frequency");
 ylabel ("dB");
 xlabel ("log(Hz)");
-print("amp", "-dpng");
+print("gain", "-dpng");
+
+plot(log10(f), 20*log10(angle(Vout)) , ".");
+title ("Phase in function of frequency);
+ylabel ("dB");
+xlabel ("log(Hz)");
+print("phase", "-dpng");
 
 plot(log10(f*2*pi), 20*log10(tplot) , ".");
 title ("T(s)");
