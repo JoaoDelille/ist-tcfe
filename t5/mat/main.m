@@ -6,17 +6,19 @@ R3=100000+10000+10000
 R4=1000
 Vi=10
 
-freqL=1/(C1*R1*2*pi)
 
-freqH=1/(C2*R2*2*pi)
 
-sqrt(freqL * freqH)
+omegaL=1/(C1*R1);
+
+omegaH=1/(C2*R2);
+
+cent_S=sqrt(omegaL * omegaH);
+cent_f=cent_S/(2*pi)
 
 f=logspace(0,7,1000);
 k=1;
 n=1;
-cent_f=1000
-cent_S=cent_f*2*pi*i;
+
 Vmax=0;
 
 
@@ -41,12 +43,12 @@ Zo_cent=(1/R2+i*2*pi*cent_f*C2)^-1;
 Zi_cent=R1+1/(i*2*pi*cent_f*C1);
 fprintf ( fopen("Z.tex", "w") , 'Z_{out} & %g \\\\ \n Z_{in} & %g \\\\' , Zo_cent, Zi_cent);
 
-fprintf ( fopen("f_c.tex", "w") , 'Frequency_{center}} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\' ,cent_f ,freqL,freqH);
+fprintf ( fopen("f_c.tex", "w") , 'Frequency_{center}} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH)/(2*pi);
 
 Vo_cent=Vi*t(cent_S,C1,C2,R1,R2,R3,R4);
-Vo_b1 = Vi*t(2*pi*freqL,C1,C2,R1,R2,R3,R4);
-Vo_b2 = Vi*t(2*pi*freqH,C1,C2,R1,R2,R3,R4);
-fprintf ( fopen("Vo_oc.tex", "w") , 'V_{out_{center}} & %g \\\\ \n V_{low_{cutoff}} & %g \\\\ \n V_{high_{cutoff}} & %g \\\\' , Vo_cent,Vo_b2,Vo_b2);
+Vo_b1 = Vi*t(2*pi*omegaL,C1,C2,R1,R2,R3,R4);
+Vo_b2 = Vi*t(2*pi*omegaH,C1,C2,R1,R2,R3,R4);
+fprintf ( fopen("Vo_oc.tex", "w") , 'V_{out_{center}} & %g \\\\ \n V_{low_{cutoff}} & %g \\\\ \n V_{high_{cutoff}} & %g \\\\ V_center from graph & %g \\\\' , Vo_cent,Vo_b2,Vo_b2,Vmax);
 
 
 
@@ -58,9 +60,6 @@ iii++;
 endwhile 
 f(iii)
 
-Vmax
-t(cent_S,C1,C2,R1,R2,R3,R4);
-%isto era suposto ser o que?
 
 
 
