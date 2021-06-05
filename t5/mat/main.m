@@ -19,6 +19,8 @@ f=logspace(0,7,1000);
 k=1;
 n=1;
 
+f_vmax=-1;
+
 Vmax=0;
 
 
@@ -31,6 +33,7 @@ for k = 1:numel(f)
   
   if(k>1 && Vout(k)>Vout(k-1)) 
     Vmax=Vout(k);
+    f_vmax=f(k);
   endif
   
   Zi(k)=R1+1/(i*2*pi*f(k)*C1);
@@ -43,12 +46,12 @@ Zo_cent=(1/R2+i*2*pi*cent_f*C2)^-1;
 Zi_cent=R1+1/(i*2*pi*cent_f*C1);
 fprintf ( fopen("Z.tex", "w") , 'Z_{out} & %g \\\\ \n Z_{in} & %g \\\\' , Zo_cent, Zi_cent);
 
-fprintf ( fopen("f_c.tex", "w") , 'Frequency_{center}} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH)/(2*pi);
+fprintf ( fopen("f_c.tex", "w") , 'Frequency_{center}} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\ \n HighFrequency_{cutoff} & %g \\\\ \n Frequency_V_{max} & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax);
 
 Vo_cent=Vi*t(cent_S,C1,C2,R1,R2,R3,R4);
 Vo_b1 = Vi*t(2*pi*omegaL,C1,C2,R1,R2,R3,R4);
 Vo_b2 = Vi*t(2*pi*omegaH,C1,C2,R1,R2,R3,R4);
-fprintf ( fopen("Vo_oc.tex", "w") , 'V_{out_{center}} & %g \\\\ \n V_{low_{cutoff}} & %g \\\\ \n V_{high_{cutoff}} & %g \\\\ V_center from graph & %g \\\\' , Vo_cent,Vo_b2,Vo_b2,Vmax);
+fprintf ( fopen("Vo_oc.tex", "w") , 'V_{out_{center}} & %g \\\\ \n V_{low_{cutoff}} & %g \\\\ \n V_{high_{cutoff}} & %g \\\\ V_{center} from graph & %g \\\\' , Vo_cent,Vo_b2,Vo_b2,Vmax);
 
 
 
