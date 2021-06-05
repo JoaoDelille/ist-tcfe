@@ -44,7 +44,7 @@ endfor
 
 Zo_cent=(1/R2+i*2*pi*cent_f*C2)^-1;
 Zi_cent=R1+1/(i*2*pi*cent_f*C1);
-fprintf ( fopen("Z.tex", "w") , 'Z_{out} & %g \\\\ \n Z_{in} & %g \\\\' , Zo_cent, Zi_cent);
+fprintf ( fopen("Z.tex", "w") , 'Z_{out} & %g +i ( %g ) & %g \\\\ \n Z_{in} & %g+ i ( %g ) & %g\\\\' , real(Zo_cent), imag(Zo_cent),abs(Zo_cent), real(Zi_cent), imag(Zi_cent), abs(Zi_cent));
 
 fprintf ( fopen("f_c.tex", "w") , 'Frequency_{center}} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\ \n HighFrequency_{cutoff} & %g \\\\ \n Frequency_V_{max} & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax);
 
