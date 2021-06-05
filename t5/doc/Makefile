@@ -17,19 +17,20 @@ all: report.pdf
 	
 report.pdf:
 	@echo "beginning"
-	mv -v ../*.tex .
-#	mv -v ../*.ps .
-	mv -v ../*.png .
+	-mv -v ../*.tex ./resources
+	-mv -v ../*.pdf ./resources
+	-mv -v ../*.png ./resources
 	pdflatex report.tex
 	pdflatex report.tex
 	pdflatex report.tex
-	mv -v ./*.pdf ..
+	mv -v ./$@ ..
 	@echo "Status norminal"
 	@echo "Everything good"
 
 clean:
-	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof Impedancias.tex Cutoff.tex
-	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps *.png *_tab.tex
+	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof 
+	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
+	@rm ./resources/*
 	@echo "doc cleaned"
 .PHONY: all clean
 
