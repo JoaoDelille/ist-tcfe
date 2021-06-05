@@ -1,0 +1,157 @@
+*
+*
+* To use a subcircuit, the name must begin with 'X'.  For example:
+* X1 1 2 3 4 5 uA741
+*
+* connections:   non-inverting input
+*                |  inverting input
+*                |  |  positive power supply
+*                |  |  |  negative power supply
+*                |  |  |  |  output
+*                |  |  |  |  |
+.subckt uA741    1  2  3  4  5
+*
+  c1   11 12 8.661E-12
+  c2    6  7 30.00E-12
+  dc    5 53 dx
+  de   54  5 dx
+  dlp  90 91 dx
+  dln  92 90 dx
+  dp    4  3 dx
+  egnd 99  0 poly(2) (3,0) (4,0) 0 .5 .5
+  fb    7 99 poly(5) vb vc ve vlp vln 0 10.61E6 -10E6 10E6 10E6 -10E6
+  ga    6  0 11 12 188.5E-6
+  gcm   0  6 10 99 5.961E-9
+  iee  10  4 dc 15.16E-6
+  hlim 90  0 vlim 1K
+  q1   11  2 13 qx
+  q2   12  1 14 qx
+  r2    6  9 100.0E3
+  rc1   3 11 5.305E3
+  rc2   3 12 5.305E3
+  re1  13 10 1.836E3
+  re2  14 10 1.836E3
+  ree  10 99 13.19E6
+  ro1   8  5 50
+  ro2   7 99 100
+  rp    3  4 18.16E3
+  vb    9  0 dc 0
+  vc    3 53 dc 1
+  ve   54  4 dc 1
+  vlim  7  8 dc 0
+  vlp  91  0 dc 40
+  vln   0 92 dc 40
+.model dx D(Is=800.0E-18 Rs=1)
+.model qx NPN(Is=800.0E-18 Bf=93.75)
+.ends
+*cost of opamp:
+*1000000( 8.661E-12 + 30.00E-12 ) + 0.2 + 0.001( 100.0E3 + 5.305E3 + 5.305E3 + 1.836E3 + 1.836E3 + 13.19E6 + 50 + 100 + 18.16E3) 
+************************************************************************
+************************************************************************
+************************************************************************
+************************************************************************
+
+.options savecurrents
+
+Vcc vcc 0 5.0
+Vee vee 0 -5.0
+Vin in1 0 0 ac 1.0 sin(0 10m 1k)
+
+
+X1 in2 inv_in vcc vee out uA741
+
+
+C1 in1 in2 220n
+C2 vout 0 220n
+
+
+R1 in2 0 500
+R2 out vout 0
+R3 out inv_in 115k
+R4 inv_in 0 1k
+
+* load
+RL out 0 8
+
+.op
+.end
+
+.control
+set hcopypscolor=1
+let opampcost= (1000000*(8.661E-12+30.00E-12)+0.2+0.001*(100.0E3+5.305E3+5.305E3+1.836E3+1.836E3+13.19E6+50+100+18.16E3))
+print all
+
+* time analysis
+tran 1e-5 1e-2
+hardcopy vout.ps v(vout)
+
+* frequency analysis
+ac dec 10 10 100MEG
+*plot vdb(out)
+*plot vp(out)
+hardcopy voutdb.ps vdb(vout)
+
+*******************************************
+
+meas AC maxgain MAX vdb(vout)
+let ref=maxgain-3
+meas AC low WHEN vdb(vout) = ref
+meas AC up  WHEN vdb(vout) = ref CROSS=LAST
+
+let center=sqrt(low*up)
+let freq_deviation= center-1000
+
+*******************************************
+
+meas AC target_gain FIND vdb(vout) AT=1000 
+
+let gain_deviation= target_gain-40
+
+*******************************************
+let cost=opampcost+000000
+let misgain= abs(gain_deviation)
+let misfreq= abs(freq_deviation)
+let merit= 1/(cost*misgain*misfreq)
+*******************************************
+echo
+echo
+echo "maxgain_TAB"
+print maxgain
+print target_gain
+echo "maxgain_END"
+echo
+echo
+echo "deviations_TAB"
+print freq_deviation
+print gain_deviation
+echo "deviations_END"
+echo
+echo
+echo "frequencies_TAB"
+print low
+print up
+print center
+echo "frequencies_END"
+echo
+echo
+echo "merit_TAB"
+print cost
+print misgain
+print misfreq
+print merit
+echo "merit_END"
+*******************************************
+
+*input impedance in kohm
+*print v(in)[40]/R1[i]/1000
+
+*print cost
+*print gain
+*print bandwidth
+*print merit
+
+
+*need a different setup to measure output impedance
+quit
+.endc 
+
