@@ -60,7 +60,7 @@ xlabel ("log(Hz)");
 print("gain", "-dpng");
 
 plot(log10(f), 20*log10(angle(Vout)) , ".");
-title ("Phase in function of frequency);
+title ("Phase in function of frequency");
 ylabel ("dB");
 xlabel ("log(Hz)");
 print("phase", "-dpng");
