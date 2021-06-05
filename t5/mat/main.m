@@ -57,7 +57,13 @@ plot(log10(f), 20*log10(Vout) , ".");
 title ("Gain função da fequência");
 ylabel ("dB");
 xlabel ("log(Hz)");
-print("amp", "-dpng");
+print("gain", "-dpng");
+
+plot(log10(f), 20*log10(angle(Vout)) , ".");
+title ("Phase em função da fequência");
+ylabel ("dB");
+xlabel ("log(Hz)");
+print("phase", "-dpng");
 
 plot(log10(f*2*pi), 20*log10(tplot) , ".");
 title ("T(s)");
