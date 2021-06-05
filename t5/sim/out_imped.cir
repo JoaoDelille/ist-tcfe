@@ -90,13 +90,17 @@ meas AC iout1 FIND i(Vload) AT=1000
 let output_v=abs(vout1)
 let output_i=abs(iout1)
 let output_impedance=abs(vout1/iout1)
-
+echo "*******************************************"
+echo
+echo 
 echo "outputimped_TAB"
 print output_v
 print output_i
 print output_impedance
 echo "outputimped_END"
-
+echo
+echo
+echo "*******************************************"
 quit
 .endc 
 

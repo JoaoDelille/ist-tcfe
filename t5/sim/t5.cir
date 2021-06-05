@@ -51,7 +51,7 @@
 ************************************************************************
 ************************************************************************
 
-.options savecurrents
+*.options savecurrents
 
 Vcc vcc 0 5.0
 Vee vee 0 -5.0
@@ -79,7 +79,6 @@ RL out 0 8
 .control
 set hcopypscolor=1
 let opampcost= (1000000*(8.661E-12+30.00E-12)+0.2+0.001*(100.0E3+5.305E3+5.305E3+1.836E3+1.836E3+13.19E6+50+100+18.16E3))
-print all
 
 * time analysis
 tran 1e-5 1e-2
@@ -91,6 +90,8 @@ ac dec 10 10 100MEG
 plot vdb(vout)
 hardcopy voutdb.ps vdb(vout)
 
+plot (180/pi * phase(v(out)/v(in))) 
+hardcopy phase.ps (180/pi * phase(v(out)/v(in)))
 *******************************************
 
 meas AC maxgain MAX vdb(vout)
@@ -108,47 +109,60 @@ meas AC target_gain FIND vdb(vout) AT=1000
 let gain_deviation= target_gain-40
 
 *******************************************
+
 let cost=opampcost+000000
 let misgain= abs(gain_deviation)
 let misfreq= abs(freq_deviation)
 let merit= 1/(cost*misgain*misfreq)
-*******************************************
-echo "maxgain_TAB"
-print maxgain
-print target_gain
-echo "maxgain_END"
-echo "deviations_TAB"
-print freq_deviation
-print gain_deviation
-echo "deviations_END"
-echo "frequencies_TAB"
-print low
-print up
-print center
-echo "frequencies_END"
-echo "merit_TAB"
-print cost
-print misgain
-print misfreq
-print merit
-echo "merit_END"
+
 *******************************************
 
-*input impedance in kohm
-
-meas AC vin1 FIND v(in) AT=1000 
+meas AC vin1 FIND v(in)     AT=1000 
 meas AC iin1 FIND i(Vdummy) AT=1000
 
 let input_v=abs(vin1)
 let input_i=abs(iin1)
 let input_impedance=abs(vin1/iin1)
 
+echo "*******************************************"
+
+echo
+echo
+echo "maxgain_TAB"
+print maxgain
+print target_gain
+echo "maxgain_END"
+echo
+echo
+echo "deviations_TAB"
+print freq_deviation
+print gain_deviation
+echo "deviations_END"
+echo
+echo
+echo "frequencies_TAB"
+print low
+print up
+print center
+echo "frequencies_END"
+echo
+echo
+echo "merit_TAB"
+print cost
+print misgain
+print misfreq
+print merit
+echo "merit_END"
+echo
+echo
 echo "inputimped_TAB"
 print input_v
 print input_i
 print input_impedance
 echo "inputimped_END"
-*******************************************
+echo
+echo
+echo "*******************************************"
 quit
 .endc 
 
