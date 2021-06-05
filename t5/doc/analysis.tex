@@ -10,7 +10,7 @@ The values obtained for the bandwith and central frequency were:
   \centering
   \begin{tabular}{|c|c|}
     \hline    
-    \input{}
+    \input{resources/f_c}
     \hline
   \end{tabular}
   \caption{Bandwith and Central Fequency}
@@ -24,7 +24,7 @@ The corresponding output voltages for an input voltage of 10V were:
   \centering
   \begin{tabular}{|c|c|}
     \hline    
-    \input{}
+    \input{resources/Vo_oc.tex}
     \hline
   \end{tabular}
   \caption{Bandwith and Central Fequency Vout}
@@ -38,7 +38,7 @@ The input and output impedances were:
   \centering
   \begin{tabular}{|c|c|}
     \hline    
-    \input{Z.tex}
+    \input{resources/Z.tex}
     \hline
   \end{tabular}
   \caption{Input and output impedances}
@@ -50,12 +50,35 @@ Using the transfer function T(s), it was possible to calculate the Vout for a ra
 
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{gain.png}
-  \caption{Vout in function of frequency} 
+  \includegraphics[width=\linewidth]{resources/gain.png}
+  \caption{Vout amplitude in function of frequency} 
   \label{fig:theoplots}
   \endminipage\hfill
 \end{figure}
 
 \FloatBarrier
+
+The frequency response is:
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/T(s).png}
+  \caption{Gain} 
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+
+\FloatBarrier
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/phase.png}
+  \caption{Phase} 
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+
+\FloatBarrier
+
+
 
 
