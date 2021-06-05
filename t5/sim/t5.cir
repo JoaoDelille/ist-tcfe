@@ -70,9 +70,6 @@ R2 out vout 0
 R3 out inv_in 115k
 R4 inv_in 0 1k
 
-* load
-RL out 0 8
-
 .op
 .end
 
@@ -88,57 +85,60 @@ hardcopy vout.ps v(vout)
 * frequency analysis
 ac dec 10 10 100MEG
 plot vdb(vout)
-hardcopy voutdb.ps vdb(vout)
+hardcopy gain.ps vdb(vout)
 
 plot (180/pi * phase(v(out)/v(in))) 
 hardcopy phase.ps (180/pi * phase(v(out)/v(in)))
 *******************************************
 
-meas AC maxgain MAX vdb(vout)
-let ref=maxgain-3
+meas AC max\\_gain MAX vdb(vout)
+let ref=max\\_gain-3
 meas AC low WHEN vdb(vout) = ref
 meas AC up  WHEN vdb(vout) = ref CROSS=LAST
 
 let center=sqrt(low*up)
-let freq_deviation= center-1000
+let freq\\_deviation= center-1000
 
 *******************************************
 
-meas AC target_gain FIND vdb(vout) AT=1000 
+meas AC target\\_gain FIND vdb(vout) AT=1000 
 
-let gain_deviation= target_gain-40
+let gain\\_deviation= target\\_gain-40
 
 *******************************************
 
 let cost=opampcost+000000
-let misgain= abs(gain_deviation)
-let misfreq= abs(freq_deviation)
+let misgain= abs(gain\\_deviation)
+let misfreq= abs(freq\\_deviation)
 let merit= 1/(cost*misgain*misfreq)
 
 *******************************************
 
-meas AC vin1 FIND v(in)     AT=1000 
-meas AC iin1 FIND i(Vdummy) AT=1000
+meas AC vin1 FIND v(in)  AT=1000 
+meas AC iin1 FIND i(Vin) AT=1000
 
-let input_v=abs(vin1)
-let input_i=abs(iin1)
-let input_impedance=abs(vin1/iin1)
+let input\\_v=abs(vin1)
+let input\\_i=abs(iin1)
+let input\\_impedance=abs(vin1/iin1)
 
-echo "*******************************************"
+echo "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
 
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "maxgain_TAB"
-print maxgain
-print target_gain
+print max\\_gain
+print target\\_gain
 echo "maxgain_END"
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "deviations_TAB"
-print freq_deviation
-print gain_deviation
+print freq\\_deviation
+print gain\\_deviation
 echo "deviations_END"
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "frequencies_TAB"
 print low
@@ -146,6 +146,7 @@ print up
 print center
 echo "frequencies_END"
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "merit_TAB"
 print cost
@@ -154,15 +155,17 @@ print misfreq
 print merit
 echo "merit_END"
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "inputimped_TAB"
-print input_v
-print input_i
-print input_impedance
+print input\\_v
+print input\\_i
+print input\\_impedance
 echo "inputimped_END"
 echo
+echo "* * * * * * * * * * * * * * * * *"
 echo
-echo "*******************************************"
+echo "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
 quit
 .endc 
 

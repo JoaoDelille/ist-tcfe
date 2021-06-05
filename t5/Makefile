@@ -8,10 +8,23 @@ all:
 	make -C sim
 	make -C doc
 	-cp doc/report.pdf .
+	@echo
+	@echo
+	@echo
+	@echo
+	@echo "The only program that doesnt have bugs is an empty file."
+	@echo
+	@echo
+	@echo
+	@echo
 
 clean:
-	@make -C mat clean
-	@make -C sim clean
-	@make -C doc clean
-	@rm *.pdf *_tab.tex
+	-@make -C mat clean
+	-@make -C sim clean
+	-@make -C doc clean
+	-@rm *.pdf *_tab.tex
+	@echo
+	@echo "all clean"
+	@echo
+	@echo
 .PHONY: all clean
