@@ -15,7 +15,9 @@ sqrt(freqL * freqH)
 f=logspace(0,7,1000);
 k=1;
 n=1;
+cent_S=1000*2*pi*i;
 Vmax=0;
+
 
 for k = 1:numel(f)
 
@@ -44,6 +46,12 @@ while 20*log10(abs(real(tplot(iii)))) < (20*log10(peakG)-3)
 iii++;
 endwhile 
 f(iii)
+
+Vmax
+t(cent_S,C1,C2,R1,R2,R3,R4);
+%isto era suposto ser o que?
+
+
 
 plot(log10(f), 20*log10(Vout) , ".");
 title ("Gain função da fequência");
