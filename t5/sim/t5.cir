@@ -55,8 +55,8 @@
 
 Vcc vcc 0 5.0
 Vee vee 0 -5.0
-Vin in1 0 0 ac 1.0 sin(0 10m 1k)
-
+Vin in 0 0 ac 1.0 sin(0 10m 1k)
+Vdummy in1 in 0
 
 X1 in2 inv_in vcc vee out uA741
 
@@ -83,12 +83,12 @@ print all
 
 * time analysis
 tran 1e-5 1e-2
+plot v(vout)
 hardcopy vout.ps v(vout)
 
 * frequency analysis
 ac dec 10 10 100MEG
-*plot vdb(out)
-*plot vp(out)
+plot vdb(vout)
 hardcopy voutdb.ps vdb(vout)
 
 *******************************************
@@ -113,27 +113,19 @@ let misgain= abs(gain_deviation)
 let misfreq= abs(freq_deviation)
 let merit= 1/(cost*misgain*misfreq)
 *******************************************
-echo
-echo
 echo "maxgain_TAB"
 print maxgain
 print target_gain
 echo "maxgain_END"
-echo
-echo
 echo "deviations_TAB"
 print freq_deviation
 print gain_deviation
 echo "deviations_END"
-echo
-echo
 echo "frequencies_TAB"
 print low
 print up
 print center
 echo "frequencies_END"
-echo
-echo
 echo "merit_TAB"
 print cost
 print misgain
@@ -143,15 +135,20 @@ echo "merit_END"
 *******************************************
 
 *input impedance in kohm
-*print v(in)[40]/R1[i]/1000
 
-*print cost
-*print gain
-*print bandwidth
-*print merit
+meas AC vin1 FIND v(in) AT=1000 
+meas AC iin1 FIND i(Vdummy) AT=1000
 
+let input_v=abs(vin1)
+let input_i=abs(iin1)
+let input_impedance=abs(vin1/iin1)
 
-*need a different setup to measure output impedance
+echo "inputimped_TAB"
+print input_v
+print input_i
+print input_impedance
+echo "inputimped_END"
+*******************************************
 quit
 .endc 
 

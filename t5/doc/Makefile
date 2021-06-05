@@ -10,7 +10,7 @@ all: report.pdf
 	@echo
 	@echo
 	@echo
-	@echo "Keep finding bugs in your code? Try applying Raid to your disk drives next time!"
+	@echo "The only program that doesnt have bugs is an empty file."
 	@echo
 	@echo
 	@echo
