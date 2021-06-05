@@ -6,16 +6,21 @@ R3=100000+10000+10000
 R4=1000
 Vi=10
 
-freqL=1/(C1*R1*2*pi)
 
-freqH=1/(C2*R2*2*pi)
 
-sqrt(freqL * freqH)
+omegaL=1/(C1*R1);
+
+omegaH=1/(C2*R2);
+
+cent_S=sqrt(omegaL * omegaH);
+cent_f=cent_S/(2*pi)
 
 f=logspace(0,7,1000);
 k=1;
 n=1;
-cent_S=1000*2*pi*i;
+
+f_vmax=-1;
+
 Vmax=0;
 
 
@@ -28,6 +33,7 @@ for k = 1:numel(f)
   
   if(k>1 && Vout(k)>Vout(k-1)) 
     Vmax=Vout(k);
+    f_vmax=f(k);
   endif
   
   Zi(k)=R1+1/(i*2*pi*f(k)*C1);
@@ -36,9 +42,16 @@ for k = 1:numel(f)
 endfor
 
 
-Zo_100=(1/R2+i*2*pi*100*C2)^-1;
-Zi_100=R1+1/(i*2*pi*100*C1);
-fprintf ( fopen("Z.tex", "w") , 'Z_{out} & %g \\\\ \n Z_{in} & %g ' , Zo_100, Zi_100);
+Zo_cent=(1/R2+i*2*pi*cent_f*C2)^-1;
+Zi_cent=R1+1/(i*2*pi*cent_f*C1);
+fprintf ( fopen("Z.tex", "w") , 'Z_{out} & %g +i ( %g ) & %g \\\\ \n Z_{in} & %g+ i ( %g ) & %g\\\\' , real(Zo_cent), imag(Zo_cent),abs(Zo_cent), real(Zi_cent), imag(Zi_cent), abs(Zi_cent));
+
+fprintf ( fopen("f_c.tex", "w") , 'Frequency_{center}} & %g \\\\ \n LowFrequency_{cutoff} & %g \\\\ \n HighFrequency_{cutoff} & %g \\\\ \n Frequency_V_{max} & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax);
+
+Vo_cent=Vi*t(cent_S,C1,C2,R1,R2,R3,R4);
+Vo_b1 = Vi*t(2*pi*omegaL,C1,C2,R1,R2,R3,R4);
+Vo_b2 = Vi*t(2*pi*omegaH,C1,C2,R1,R2,R3,R4);
+fprintf ( fopen("Vo_oc.tex", "w") , 'V_{out_{center}} & %g \\\\ \n V_{low_{cutoff}} & %g \\\\ \n V_{high_{cutoff}} & %g \\\\ V_{center} from graph & %g \\\\' , Vo_cent,Vo_b2,Vo_b2,Vmax);
 
 
 
@@ -50,14 +63,11 @@ iii++;
 endwhile 
 f(iii)
 
-Vmax
-t(cent_S,C1,C2,R1,R2,R3,R4);
-%isto era suposto ser o que?
 
 
 
 plot(log10(f), 20*log10(Vout) , ".");
-title ("Gain in function of frequency");
+title ("Vout in function of frequency");
 ylabel ("dB");
 xlabel ("log(Hz)");
 print("gain", "-dpng");
