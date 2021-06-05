@@ -9,6 +9,7 @@ f=logspace(0,7,1000);
 n=size(f)
 k=1;
 n=1;
+cent_S=1000*2*pi*i;
 Vmax=0;
 for k = 1:numel(f)
   s=2*pi*f(n)*i;
@@ -25,6 +26,7 @@ endfor
 Vmax
 Zi_100=R1+1/(i*2*pi*100*C1)
 Zo_100=(1/R2+i*2*pi*100*C2)^-1
+t(cent_S,C1,C2,R1,R2,R3,R4);
 
 plot(log10(f), 20*log10(Vout) , ".");
 title ("Gain função da fequência");
