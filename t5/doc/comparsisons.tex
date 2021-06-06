@@ -2,50 +2,44 @@
 \label{sec:comparsisons}
 
 In this section, a comparision between the ngspice and octave results is made. Moreover, we delve into the reasons regarding the diffences and similarities observed\\
-Starting with the frequency response, the gain and phase are presented bellow.
+Starting with the frequency response, the gain and phase are presented bellow.\\
+\FloatBarrier
 Gain:
 
 
 \begin{figure} [!htb] 
-  \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{resources/gain.pdf}
-  \caption{NGspice voltage gain}
-  \label{fig:theoplots}
-  \endminipage\hfill
-\end{figure}
-
-
-
-\begin{figure} [!htb] 
-  \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{resources/gain.png}
-  \caption{Octave voltage gain}
-  \label{fig:theoplots}
-  \endminipage\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+  		\includegraphics[width=\textwidth]{resources/gain.pdf}
+  		\caption{NGspice voltage gain}
+	\end{subfigure}
+  	\begin{subfigure}[b]{0.5\textwidth}
+  		\centering
+ 		 \includegraphics[width=\textwidth]{resources/gain.png}
+ 		 \caption{Octave voltage gain}
+  	\end{subfigure}
 \end{figure}
 \FloatBarrier
-
+\FloatBarrier
 Phase:
 
 
 \begin{figure} [!htb] 
-  \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{resources/phase.pdf}
-  \caption{NGspice voltage phase}
-  \label{fig:theoplots}
-  \endminipage\hfill
-\end{figure}
-
-
-
-\begin{figure} [!htb] 
-  \minipage{0.9\textwidth}
-  \includegraphics[width=\linewidth]{resources/phase.png}
-  \caption{Octave voltage phase}
-  \label{fig:theoplots}
-  \endminipage\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+ 		 \includegraphics[width=\textwidth]{resources/phase.pdf}
+  		\caption{NGspice voltage phase}
+ 		\label{fig:theoplots}
+	\end{subfigure}
+  	\begin{subfigure}[b]{0.5\textwidth}
+  		\includegraphics[width=\textwidth]{resources/phase_deg.png}
+ 		 \caption{Octave voltage phase}
+ 		 \label{fig:theoplots}
+  	\end{subfigure}
 \end{figure}
 \FloatBarrier
+
+
+
 
 In the following tables, the input and ouput inpedances  calculated at the central frequency from both analysis are presented.
 

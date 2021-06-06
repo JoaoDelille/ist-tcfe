@@ -91,28 +91,28 @@ fprintf ( fopen("Vkhz.tex", "w") , '$V_{out_{1KHz}}$ & %g \\\\ \n $V_{in}$ & %g 
 
 
 
-plot(log10(f), 20*log10(Vout) , ".");
+plot(log10(f), (Vout) , ".");
 title ("Vout in function of frequency");
-ylabel ("dB");
+ylabel ("V");
 xlabel ("log(Hz)");
 print("gain", "-dpng");
 
-plot(log10(f), 20*log10(angle(Vout)) , ".");
-title ("PHASE ANGLES THINGY");
-ylabel ("dB");
-xlabel ("log(Hz)");
-print("phase", "-dpng");
+%plot(log10(f), 20*log10(angle(Vout)) , ".");
+%title ("PHASE ANGLES THINGY");
+%ylabel ("dB");
+%xlabel ("log(Hz)");
+%print("phase", "-dpng");
 
 plot(log10(f_lin), (angle(Vout_lin))*180/pi , ".");
-title ("THE OTHER ONE I GUESS");
+title ("Phase of frequency response");
 ylabel ("degrees");
 xlabel ("Hz");
 print("phase_deg", "-dpng");
 
-plot(log10(f*2*pi), 20*log10(tplot) , ".");
-title ("T(s)");
-ylabel ("dB");
-xlabel ("log(Re(s)");
+plot(log10(f), (tplot) , ".");
+title ("Gain");
+ylabel ("V/V");
+xlabel ("log(f)");
 print("T(s)", "-dpng");
 
 
