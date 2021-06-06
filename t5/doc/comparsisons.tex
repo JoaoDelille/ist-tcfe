@@ -4,46 +4,57 @@
 In this section, a comparision between the ngspice and octave results is made. Moreover, we delve into the reasons regarding the diffences and similarities observed\\
 Starting with the frequency response, the gain and phase are presented bellow.
 Gain:
-%\begin{figure} [!htb] 
-%  \minipage{0.9\textwidth}
-%  \includegraphics[width=\linewidth]{}
-%  \caption{NGspice voltage gain}
-%  \label{fig:theoplots}
-%  \endminipage\hfill
-%\end{figure}
 
-%\begin{figure} [!htb] 
-%  \minipage{0.9\textwidth}
-%  \includegraphics[width=\linewidth]{}
-%  \caption{Octave voltage gain}
-%  \label{fig:theoplots}
-%  \endminipage\hfill
-%\end{figure}
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/gain.pdf}
+  \caption{NGspice voltage gain}
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+
+
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/gain.png}
+  \caption{Octave voltage gain}
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+\FloatBarrier
 
 Phase:
-%\begin{figure} [!htb] 
-%  \minipage{0.9\textwidth}
-%  \includegraphics[width=\linewidth]{}
-%  \caption{NGspice voltage phase}
-%  \label{fig:theoplots}
-%  \endminipage\hfill
-%\end{figure}
 
-%\begin{figure} [!htb] 
-%  \minipage{0.9\textwidth}
-%  \includegraphics[width=\linewidth]{}
-%  \caption{Octave voltage phase}
-%  \label{fig:theoplots}
-%  \endminipage\hfill
-%\end{figure}
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/phase.pdf}
+  \caption{NGspice voltage phase}
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+
+
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/phase.png}
+  \caption{Octave voltage phase}
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+\FloatBarrier
 
 In the following tables, the input and ouput inpedances  calculated at the central frequency from both analysis are presented.
+
 %\FloatBarrier
 %\begin{table}[h]
 %  \centering
-%  \begin{tabular}{|c|c|}
+%  \begin{tabular}{|c|c|c|}
 %    \hline    
-%    \input{ }
+%    \input{}
 %    \hline
 %  \end{tabular}
 %  \caption{Input Impedance by Ngspice}
@@ -51,18 +62,18 @@ In the following tables, the input and ouput inpedances  calculated at the centr
 %\end{table}
 %\FloatBarrier   
 
-%\FloatBarrier
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{|c|c|c|c|}
-%    \hline    
-%    \input{}
-%    \hline
-%  \end{tabular}
-%  \caption{Input and Output Impedances by Octave}
-%  \label{tab:Spice1}
-%\end{table}
-%\FloatBarrier   
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline    
+    \input{resources/Z.tex}
+    \hline
+  \end{tabular}
+  \caption{Input and Output Impedances by Octave}
+  \label{tab:Spice1}
+\end{table}
+\FloatBarrier   
 
 %The cost of the design is: \input{}\\
 
