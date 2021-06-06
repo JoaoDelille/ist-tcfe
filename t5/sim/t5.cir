@@ -95,7 +95,7 @@ plot v(vout)
 hardcopy gain.ps v(vout)
 
 plot (180/pi * phase(v(out)/v(in))) 
-hardcopy phase.ps m;(180/pi * phase(v(out)/v(in)))
+hardcopy phase.ps (180/pi * phase(v(out)/v(in)))
 
 *******************************************
 
