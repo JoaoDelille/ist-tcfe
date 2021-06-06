@@ -72,6 +72,17 @@ fcentdel= sqrt(f(iii)*f(jjj));
 fprintf ( fopen("f_c.tex", "w") , '$Frequency_{center}$ & %g \\\\ \n $LowFrequency_{cutoff}$ & %g \\\\ \n $HighFrequency_{cutoff}$ & %g \\\\ \n $Frequency V_{max}$ & %g \\\\ Delille $Frequency_{center}$ & %g \\\\ \n Delille $LowFrequency_{cutoff}$ & %g \\\\ \n Delille $HighFrequency_{cutoff}$ & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax, fcentdel ,f(iii), f(jjj));
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%foi o delille que adicionou, nao mexi no resto, faz o que quiseres com isto
+
+V_target=Vi*t(2*pi*1000,C1,C2,R1,R2,R3,R4);
+V_gain_khz=V_target/Vi;
+
+fprintf ( fopen("Vkhz.tex", "w") , '$V_{out_{1KHz}}$ & %g \\\\ \n $V_{in}$ & %g \\\\ \n $Gain$ & %g V/V \\\\\\\\' , V_target,Vi,V_gain_khz);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 plot(log10(f), 20*log10(Vout) , ".");

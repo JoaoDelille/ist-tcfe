@@ -81,7 +81,7 @@ R4 inv_in 0 10000
 
 .control
 set hcopypscolor=1
-let opampcost= (1000000*(8.661E-12+30.00E-12)+0.2+0.001*(100.0E3+5.305E3+5.305E3+1.836E3+1.836E3+13.19E6+50+100+18.16E3))
+let opampcost= (1000000*(8.661E-12 + 30.00E-12) + 0.2 + 0.001*(100.0E3 + 5.305E3 + 5.305E3 + 1.836E3 + 1.836E3 + 13.19E6 + 50 + 100 + 18.16E3))
 
 * time analysis
 tran 1e-5 1e-2
@@ -90,15 +90,21 @@ hardcopy vout.ps v(vout)
 
 * frequency analysis
 ac dec 10 10 100MEG
+
 plot vdb(vout)
 hardcopy gain.ps vdb(vout)
 
 plot (180/pi * phase(v(out)/v(in))) 
 hardcopy phase.ps (180/pi * phase(v(out)/v(in)))
+
 *******************************************
 
-meas AC max\\_gain MAX vdb(vout)
+meas AC max\\_volt MAX v(vout)
+meas AC vin MAX v(in)
+
+let max\\_gain=db(max\\_volt/vin)
 let ref=max\\_gain-3
+
 meas AC low WHEN vdb(vout) = ref
 meas AC up  WHEN vdb(vout) = ref CROSS=LAST
 
@@ -107,16 +113,19 @@ let freq\\_deviation= center-1000
 
 *******************************************
 
-meas AC target\\_gain FIND vdb(vout) AT=1000 
+meas AC central\\_v FIND v(vout) AT=1000 
+meas AC vin1        FIND v(in)   AT=1000 
 
-let gain\\_deviation= target\\_gain-40
+let central\\_gain = central\\_v/vin1
+let gain\\_deviation= central\\_gain-100
+let peak\\_gain=max\\_volt/vin
 
 *******************************************
 
-let cost=opampcost+000000
+let cost=opampcost+0.44+3+300+10
 let misgain= abs(gain\\_deviation)
 let misfreq= abs(freq\\_deviation)
-let merit= 1/(cost*misgain*misfreq)
+let merit= 1/(cost*(misgain+misfreq+1e-6))
 
 *******************************************
 
@@ -133,8 +142,8 @@ echo
 echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "maxgain_TAB"
-print max\\_gain
-print target\\_gain
+print peak\\_gain     ;peak gain anywhere on the circuit
+print central\\_gain  ;peak gain at 1000Hz
 echo "maxgain_END"
 echo
 echo "* * * * * * * * * * * * * * * * *"
