@@ -3,8 +3,11 @@
 
 In this theoretical analysis, we'll be using the circuits transfer function to compute the predicted values for the output frequency (Vout) in function of the input one (Vin) of 10V. Furthermore, the input and output impedances were calculated.\\
 The transfer function is the following: \[\frac{R_1C_1s}{1+R_1C_1s} \cdot (1+\frac{R_3}{R_4}) \cdot \frac{1}{1+R_2C_2s}\] \\
-The bandwith is given by the inteval from: $\frac{1}{R_1C_1}$ to $\frac{1}{R_2C_2}$; the corresponding central frequency is $\sqrt{{\frac{1}{R_1C_1} \cdot \frac{1}{R_2C_2}}}$ \\
+
+The bandwith is given by the inteval from: $\frac{1}{R_1C_1}$ to $\frac{1}{R_2C_2}$; the corresponding central frequency is \ $\sqrt{{\frac{1}{R_1C_1} \cdot \frac{1}{R_2C_2}}}$\\
+
 The values obtained for the bandwith and central frequency were:
+
 \FloatBarrier
 \begin{table}[h]
   \centering
@@ -30,6 +33,7 @@ The corresponding output voltages for an input voltage of 10V were:
   \caption{Bandwith and Central Fequency Vout}
   \label{tab:Octave_cent}
 \end{table}
+
 \FloatBarrier
 
 The input and output impedances were:
@@ -69,9 +73,20 @@ The frequency response is:
 \end{figure}
 
 \FloatBarrier
+
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
   \includegraphics[width=\linewidth]{resources/phase.png}
+  \caption{Phase} 
+  \label{fig:theoplots}
+  \endminipage\hfill
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure} [!htb] 
+  \minipage{0.9\textwidth}
+  \includegraphics[width=\linewidth]{resources/phase_deg.png}
   \caption{Phase} 
   \label{fig:theoplots}
   \endminipage\hfill
