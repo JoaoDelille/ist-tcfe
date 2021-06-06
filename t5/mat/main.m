@@ -16,7 +16,7 @@ cent_S=sqrt(omegaL * omegaH);
 cent_f=cent_S/(2*pi)
 
 f=logspace(0,7,1000);
-f_lin = linspace(0, 10^8, 10000);
+f_lin = logspace(0, 7, 1000);
 k=1;
 n=1;
 
@@ -98,17 +98,16 @@ xlabel ("log(Hz)");
 print("gain", "-dpng");
 
 plot(log10(f), 20*log10(angle(Vout)) , ".");
-title ("Phase in function of frequency");
+title ("PHASE ANGLES THINGY");
 ylabel ("dB");
 xlabel ("log(Hz)");
 print("phase", "-dpng");
 
-plot(log10(f_lin), 180/pi*(angle(Vout_lin)) , ".");
-title ("Phase in function of frequency");
+plot(log10(f_lin), (angle(Vout_lin))*180/pi , ".");
+title ("THE OTHER ONE I GUESS");
 ylabel ("degrees");
 xlabel ("Hz");
 print("phase_deg", "-dpng");
-
 
 plot(log10(f*2*pi), 20*log10(tplot) , ".");
 title ("T(s)");
@@ -116,13 +115,16 @@ ylabel ("dB");
 xlabel ("log(Re(s)");
 print("T(s)", "-dpng");
 
-plot(log10(f*2*pi), 20*log10(Zi) , ".");
+
+
+
+plot(log10(f*2*pi), 20*log10(Zi) , "."); %nao e necessario
 title ("Zi");
 ylabel ("dB");
 xlabel ("log(Re(s)");
 print("Zi", "-dpng");
 
-plot(log10(f*2*pi), 20*log10(Zo) , ".");
+plot(log10(f*2*pi), 20*log10(Zo) , "."); %nao e necessario
 title ("Zo");
 ylabel ("dB");
 xlabel ("log(Re(s)");
