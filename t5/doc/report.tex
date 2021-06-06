@@ -75,6 +75,8 @@
 \usepackage{mdframed}
 \usepackage{amsmath}
 \usepackage{placeins}
+\usepackage{fancyhdr}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Begin Document                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,7 +85,10 @@
 \begin{document}
 
 % Set plain page style (no headers, footer with centered page number)
-\pagestyle{plain}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\today}
+\lhead{\bfseries Lab 5}
 
 % Set roman numbering (i,ii,...) before the start of chapters
 %\pagenumbering{roman}
@@ -142,13 +147,13 @@
 % ----------------------------------------------------------------------
 \clearpage
 \input{intro}
-
+\pagebreak
 \input{analysis}
-
+\pagebreak
 \input{simulation} 
-
+\pagebreak
 \input{comparsisons}
-
+\pagebreak
 \input{conclusion}
 
 
