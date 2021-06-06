@@ -65,10 +65,16 @@ C1 in1 in2 220n
 C2 vout 0 220n
 
 
-R1 in2 0 500
-R2 out vout 0
-R3 out inv_in 115k
-R4 inv_in 0 1k
+R1 in2 0 1000
+
+R2a out vout 1000
+R2b out vout 1000
+
+R3a out a 100000
+R3b a b 100000
+R3c b inv_in 100000
+
+R4 inv_in 0 10000
 
 .op
 .end

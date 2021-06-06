@@ -22,7 +22,7 @@ clean:
 	-@make -C mat clean
 	-@make -C sim clean
 	-@make -C doc clean
-	-@rm *.pdf *_tab.tex
+	-@rm *.pdf *_tab.tex *.toc *~ *.*%
 	@echo
 	@echo "all clean"
 	@echo
