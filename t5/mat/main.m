@@ -1,5 +1,5 @@
-C1=1*10^-6;
-C2=1*10^-6;
+C1=220*10^-9;
+C2=220*10^-9;
 R1=1000
 R2=500
 R3=100000+100000+100000
@@ -16,6 +16,7 @@ cent_S=sqrt(omegaL * omegaH);
 cent_f=cent_S/(2*pi)
 
 f=logspace(0,7,1000);
+f_lin = linspace(0, 10^8, 10000);
 k=1;
 n=1;
 
@@ -39,6 +40,11 @@ for k = 1:numel(f)
   Zi(k)=R1+1/(i*2*pi*f(k)*C1);
   Zo(k)=(1/R2+i*2*pi*f(k)*C2)^-1;
   
+endfor
+
+for k =1:numel(f_lin)
+	s_lin=2*pi*f_lin(k)*i;
+	Vout_lin(k)=t(s_lin,C1,C2,R1,R2,R3,R4)*Vi;
 endfor
 
 
@@ -85,6 +91,13 @@ title ("Phase in function of frequency");
 ylabel ("dB");
 xlabel ("log(Hz)");
 print("phase", "-dpng");
+
+plot(log10(f_lin), 180/pi*(angle(Vout_lin)) , ".");
+title ("Phase in function of frequency");
+ylabel ("degrees");
+xlabel ("Hz");
+print("phase_deg", "-dpng");
+
 
 plot(log10(f*2*pi), 20*log10(tplot) , ".");
 title ("T(s)");
