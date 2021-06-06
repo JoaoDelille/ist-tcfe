@@ -47,7 +47,7 @@ Zi_cent=R1+1/(i*2*pi*cent_f*C1);
 
 fprintf ( fopen("Z.tex", "w") , '$Z_{out}$ & %g +i ( %g ) & %g \\\\ \n $Z_{in}$ & %g+ i ( %g ) & %g\\\\' , real(Zo_cent), imag(Zo_cent),abs(Zo_cent), real(Zi_cent), imag(Zi_cent), abs(Zi_cent));
 
-fprintf ( fopen("f_c.tex", "w") , '$Frequency_{center}$ & %g \\\\ \n $LowFrequency_{cutoff}$ & %g \\\\ \n $HighFrequency_{cutoff}$ & %g \\\\ \n $Frequency V_{max}$ & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax);
+
 
 Vo_cent=Vi*t(cent_S,C1,C2,R1,R2,R3,R4);
 Vo_b1 = Vi*t(2*pi*omegaL,C1,C2,R1,R2,R3,R4);
@@ -62,8 +62,14 @@ peakG=max(abs(real(tplot)))
 maxG=20*log(peakG)
 while 20*log10(abs(real(tplot(iii)))) < (20*log10(peakG)-3)
 iii++;
+endwhile
+jjj=iii; 
+while 20*log10(abs(real(tplot(jjj)))) >= (20*log10(peakG)-3)
+jjj++;
 endwhile 
-f(iii)
+fcentdel= sqrt(f(iii)*f(jjj));
+
+fprintf ( fopen("f_c.tex", "w") , '$Frequency_{center}$ & %g \\\\ \n $LowFrequency_{cutoff}$ & %g \\\\ \n $HighFrequency_{cutoff}$ & %g \\\\ \n $Frequency V_{max}$ & %g \\\\ Delille $Frequency_{center}$ & %g \\\\ \n Delille $LowFrequency_{cutoff}$ & %g \\\\ \n Delille $HighFrequency_{cutoff}$ & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax, fcentdel ,f(iii), f(jjj));
 
 
 
@@ -97,3 +103,4 @@ title ("Zo");
 ylabel ("dB");
 xlabel ("log(Re(s)");
 print("Zo", "-dpng");
+
