@@ -14,8 +14,8 @@ report.pdf:
 	-mv -v ../*.tex ./resources
 	-mv -v ../*.pdf ./resources
 	-mv -v ../*.png ./resources
-	pdflatex report.tex
-	pdflatex report.tex
+	#pdflatex report.tex
+	#pdflatex report.tex
 	pdflatex report.tex
 	mv -v ./$@ ..
 	@echo "Status norminal"

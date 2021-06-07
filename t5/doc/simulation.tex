@@ -2,82 +2,184 @@
 \label{sec:simulation} 
 
 From operating point analysis, we got the following results:
-\FloatBarrier
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline    
-    \input{resources/frequencies_tab.tex}
+%\FloatBarrier
+%\begin{table}[h]
+%  \centering
+%  \begin{tabular}{|c|c|c|c|c|}
+%    \hline    
+%    \input{resources/frequencies_tab.tex}
+
+%  \end{tabular}
+%  \caption{frequencies}
+%  \label{tab:Spice1}
+%\end{table}
+%\FloatBarrier 
+
+
+%\begin{table}[h]
+%  \centering
+%  \begin{tabular}{|c|c|c|c|c|}
+%    \hline    
+%    \input{resources/maxgain_tab.tex}
+
+%  \end{tabular}
+%  \caption{gain}
+%  \label{tab:Spice1}
+%\end{table}
+
+
+\FloatBarrier  
+\begin{table}
+
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{|c|c|c|c|c|}
     \hline
+    \input{resources/frequencies_tab.tex}
+
   \end{tabular}
   \caption{frequencies}
-  \label{tab:Spice1}
-\end{table}
-\FloatBarrier 
+}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
+\hfill
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{|c|c|c|c|c|}
     \hline    
     \input{resources/maxgain_tab.tex}
-    \hline
+
   \end{tabular}
   \caption{gain}
-  \label{tab:Spice1}
-\end{table}
-\FloatBarrier
+}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline    
-    \input{resources/deviations_tab.tex}
-    \hline
-  \end{tabular}
-  \caption{deviations}
-  \label{tab:Spice1}
-\end{table}
-\FloatBarrier 
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|c|c|}
-    \hline    
-    \input{resources/merit_tab.tex}
-    \hline
-  \end{tabular}
-  \caption{merit}
-  \label{tab:Spice1}
 \end{table}
 \FloatBarrier  
 
+
+\FloatBarrier  
+\begin{table}
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+    \hline    
+    \input{resources/deviations_tab.tex}
+  \end{tabular}
+  \caption{deviations}
+}
+
+\hfill
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{|c|c|c|c|}
+    \hline    
+    \input{resources/merit_tab.tex}
+  \end{tabular}
+  \caption{merit}
+  \label{tab:Spice1}
+}
+\end{table}
+\FloatBarrier  
+
+
+
+%\FloatBarrier  
+%\begin{table}[h]
+%  \centering
+%  \begin{tabular}{|c|c|c|c|c|}
+%    \hline    
+%    \input{resources/deviations_tab.tex}
+
+%  \end{tabular}
+%  \caption{deviations}
+%  \label{tab:Spice1}
+%\end{table}
+%\FloatBarrier 
+
+%\FloatBarrier  
+%\begin{table}[h]
+%  \centering
+%  \begin{tabular}{|c|c|c|c|}
+%    \hline    
+%    \input{resources/merit_tab.tex}
+
+%  \end{tabular}
+%  \caption{merit}
+  %\label{tab:Spice1}
+%\end{table}
+%\FloatBarrier  
+
 The input and output impedances for the central frequency obtained can be observed in the following tables.
 
-\FloatBarrier
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|c|c|c|}
-    \hline    
-    \input{resources/inputimped_tab.tex}
-    \hline
-  \end{tabular}
-  \caption{Input Impedace}
-  \label{tab:Spice1}
-\end{table}
-\FloatBarrier 
-\begin{table}[h]
+%\FloatBarrier
+%\begin{table}[h]
+ % \centering
+ % \begin{tabular}{|c|c|c|}
+ %   \hline    
+%    \input{resources/inputimped_tab.tex}
+%  \end{tabular}
+%  \caption{Input Impedace}
+%  \label{tab:Spice1}
+%\end{table}
+%\FloatBarrier 
+
+%\FloatBarrier  
+%\begin{table}[h]
+%  \centering
+%  \begin{tabular}{|c|c|}
+%    \hline    
+%    \input{resources/outputimped_tab.tex}
+
+%  \end{tabular}
+ % \caption{Output Impedace}
+%  \label{tab:Spice1}
+%\end{table}
+%\FloatBarrier  
+
+
+
+
+
+
+
+
+
+\begin{table}
+
+
+\parbox{.45\linewidth}{
   \centering
   \begin{tabular}{|c|c|}
     \hline    
     \input{resources/outputimped_tab.tex}
-    \hline
+  \end{tabular}
+  \caption{Output Impedace}
+}
+
+\hfill
+\parbox{.45\linewidth}{
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline    
+    \input{resources/inputimped_tab.tex}
   \end{tabular}
   \caption{Input Impedace}
-  \label{tab:Spice1}
-\end{table}
-\FloatBarrier  
+}
 
-The frequency response analysis yielded the following results:
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \FloatBarrier  
 \begin{figure} [!htb] 
   \includegraphics[trim={0 45px 0 230px},width=\linewidth]{resources/gain.pdf}
@@ -93,7 +195,8 @@ The frequency response analysis yielded the following results:
   \includegraphics[width=\linewidth]{resources/phase.pdf}
   \caption{Phase}
   \label{fig:theoplots}
-  \endminipage\hfill
+  \endminipage
+  \hfill
 \end{figure}
 \FloatBarrier
 

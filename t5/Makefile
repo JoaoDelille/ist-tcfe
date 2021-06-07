@@ -11,9 +11,7 @@ all:
 	@echo
 	@echo
 	@echo
-	@echo
 	@echo "The only program that doesnt have bugs is an empty file."
-	@echo
 	@echo
 	@echo
 	@echo
