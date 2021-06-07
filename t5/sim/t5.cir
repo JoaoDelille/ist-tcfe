@@ -53,9 +53,9 @@
 
 *.options savecurrents
 
-Vcc vcc 0 5.0
-Vee vee 0 -5.0
-Vin in 0 0 ac 1.0 sin(0 10m 1k)
+Vcc vcc 0 10.0
+Vee vee 0 -10.0
+Vin in 0 0 ac 10 sin(0 10m 1k)
 Vdummy in1 in 0
 
 X1 in2 inv_in vcc vee out uA741
