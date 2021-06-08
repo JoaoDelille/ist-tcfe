@@ -51,7 +51,7 @@ endfor
 Zo_cent=(1/R2+i*2*pi*cent_f*C2)^-1;
 Zi_cent=R1+1/(i*2*pi*cent_f*C1);
 
-fprintf ( fopen("Z.tex", "w") , '$Z_{out}$ & %g +i ( %g ) & %g \\\\ \n $Z_{in}$ & %g+ i ( %g ) & %g\\\\' , real(Zo_cent), imag(Zo_cent),abs(Zo_cent), real(Zi_cent), imag(Zi_cent), abs(Zi_cent));
+fprintf ( fopen("Z.tex", "w") , '$Z_{in}$ & %g +i ( %g ) & %g \\\\ \n $Z_{out}$ & %g+ i ( %g ) & %g\\\\' , real(Zi_cent), imag(Zi_cent),abs(Zi_cent), real(Zo_cent), imag(Zo_cent), abs(Zo_cent));
 
 
 
