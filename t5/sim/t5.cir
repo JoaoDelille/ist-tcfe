@@ -89,10 +89,10 @@ plot v(vout)
 hardcopy vout.ps v(vout)
 
 * frequency analysis
-ac dec 1000 10 100MEG
+ac dec 10000 10 100MEG
 
-plot v(vout)
-hardcopy gain.ps v(vout)
+plot v(vout)/v(in)
+hardcopy gain.ps v(vout)/v(in)
 
 plot (180/pi * phase(v(out)/v(in))) 
 hardcopy phase.ps (180/pi * phase(v(out)/v(in)))
