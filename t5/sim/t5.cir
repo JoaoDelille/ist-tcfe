@@ -91,8 +91,8 @@ hardcopy vout.ps v(vout)
 * frequency analysis
 ac dec 10000 10 100MEG
 
-plot v(vout)/v(in)
-hardcopy gain.ps v(vout)/v(in)
+plot db(v(vout)/v(in))
+hardcopy gain.ps db(v(vout)/v(in))
 
 plot (180/pi * phase(v(out)/v(in))) 
 hardcopy phase.ps (180/pi * phase(v(out)/v(in)))
@@ -119,6 +119,8 @@ meas AC vin1        FIND v(in)   AT=1000
 let central\\_gain = central\\_v/vin1
 let gain\\_deviation= central\\_gain-100
 let peak\\_gain=max\\_volt/vin
+let central\\_gain(dB)= db(central\\_gain)
+let peak\\_gain(dB)= db(peak\\_gain)
 
 *******************************************
 
@@ -142,8 +144,10 @@ echo
 echo "* * * * * * * * * * * * * * * * *"
 echo
 echo "maxgain_TAB"
-print peak\\_gain     ;peak gain anywhere on the circuit
-print central\\_gain  ;peak gain at 1000Hz
+print peak\\_gain(dB)     ;peak gain anywhere on the circuit
+print central\\_gain(dB)  ;peak gain at 1000Hz
+print peak\\_gain     
+print central\\_gain  
 echo "maxgain_END"
 echo
 echo "* * * * * * * * * * * * * * * * *"

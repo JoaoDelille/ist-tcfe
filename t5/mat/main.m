@@ -117,9 +117,9 @@ ylabel ("Degrees");
 xlabel ("Hz");
 print("phase_deg", "-dpng");
 
-plot(log10(f), (tplot) , ".");
+plot(log10(f), 20*log10(tplot) , ".");
 title ("Gain");
-ylabel ("V/V");
+ylabel ("dB");
 xlabel ("log(f)");
 print("T(s)", "-dpng");
 
