@@ -1,62 +1,36 @@
 \section{Simulation Analysis}
 \label{sec:simulation} 
 
-From operating point analysis, we got the following results:
-%\FloatBarrier
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{|c|c|c|c|c|}
-%    \hline    
-%    \input{resources/frequencies_tab.tex}
-
-%  \end{tabular}
-%  \caption{frequencies}
-%  \label{tab:Spice1}
-%\end{table}
-%\FloatBarrier 
+From the AC sweep analysis, we obtained the following results for the frequency response:
 
 
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{|c|c|c|c|c|}
-%    \hline    
-%    \input{resources/maxgain_tab.tex}
-
-%  \end{tabular}
-%  \caption{gain}
-%  \label{tab:Spice1}
-%\end{table}
-
-
-\FloatBarrier  
+%%%%%%%tabela das frequencias e gain
 \begin{table}[!htb]
-
-\parbox{.45\linewidth}{
-\centering
-\begin{tabular}{|l|l|}
-    \hline
-    \input{resources/frequencies_tab.tex}
-
-  \end{tabular}
-  \caption{frequencies}
-}
-
+  \parbox{.45\linewidth}{
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline
+      \input{resources/frequencies_tab.tex}
+    \end{tabular}
+    \caption{Lower and upper cutoff frequencies plus central frequency (in Hertz)}
+  }
 \hfill
-\parbox{.45\linewidth}{
-\centering
-\begin{tabular}{|l|l|}
-    \hline    
-    \input{resources/maxgain_tab.tex}
-
-  \end{tabular}
-  \caption{gain}
-}
-
+  \parbox{0.45\linewidth}{
+    \centering
+    \begin{tabular}{|l|l|}
+      \hline    
+      \input{resources/maxgain_tab.tex}
+    \end{tabular}
+    \caption{Voltage gain in function of frequency (in V/V)}
+  }
 \end{table}
-\FloatBarrier  
+%%%%%%%tabela das frequencias e gain
 
+Where the gain is measured in V/V both at its peak overall, and at the central frequency of 1kHz.\\
+The cuttoff frequencies are used to obtain the true central frequency so it can be compared to the target of 1kHz.\\ \\ \\
 
-\FloatBarrier  
+The following tables present the deviation of the gain and central frequency from their target of 100V/V (40dB) and 1kHz respectively, as well as the merit figure obtained for this design in function of its cost and performance.
+%%%%%%%tabela dos desvios e do merito
 \begin{table}[!htb]
 \parbox{.45\linewidth}{
 \centering
@@ -66,7 +40,6 @@ From operating point analysis, we got the following results:
   \end{tabular}
   \caption{deviations}
 }
-
 \hfill
 \parbox{.45\linewidth}{
 \centering
@@ -78,74 +51,14 @@ From operating point analysis, we got the following results:
   \label{tab:Spice1}
 }
 \end{table}
-\FloatBarrier  
+%%%%%%%tabela dos desvios e do merito
 
+The merit figure is quite poor. Unlike previous lab assignments, we were not able to fully optimize this circuit due to the several possible designs that can be made, which would require several simulations and theoretical models to be developed until the best amplifier design is could be found.\\ \\ \\
 
-
-%\FloatBarrier  
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{|c|c|c|c|c|}
-%    \hline    
-%    \input{resources/deviations_tab.tex}
-
-%  \end{tabular}
-%  \caption{deviations}
-%  \label{tab:Spice1}
-%\end{table}
-%\FloatBarrier 
-
-%\FloatBarrier  
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{|c|c|c|c|}
-%    \hline    
-%    \input{resources/merit_tab.tex}
-
-%  \end{tabular}
-%  \caption{merit}
-  %\label{tab:Spice1}
-%\end{table}
-%\FloatBarrier  
-
-The input and output impedances for the central frequency obtained can be observed in the following tables.
-
-%\FloatBarrier
-%\begin{table}[h]
- % \centering
- % \begin{tabular}{|c|c|c|}
- %   \hline    
-%    \input{resources/inputimped_tab.tex}
-%  \end{tabular}
-%  \caption{Input Impedace}
-%  \label{tab:Spice1}
-%\end{table}
-%\FloatBarrier 
-
-%\FloatBarrier  
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{|c|c|}
-%    \hline    
-%    \input{resources/outputimped_tab.tex}
-
-%  \end{tabular}
- % \caption{Output Impedace}
-%  \label{tab:Spice1}
-%\end{table}
-%\FloatBarrier  
-
-
-
-
-
-
-
+The input and output impedances were also simulated for the central target frequency of 1kHz and are presented in the following tables. 
 
 
 \begin{table}[!htb]
-
-
 \parbox{.45\linewidth}{
   \centering
   \begin{tabular}{|l|l|}
@@ -154,7 +67,6 @@ The input and output impedances for the central frequency obtained can be observ
   \end{tabular}
   \caption{Output Impedace}
 }
-
 \hfill
 \parbox{.45\linewidth}{
   \centering
@@ -164,18 +76,7 @@ The input and output impedances for the central frequency obtained can be observ
   \end{tabular}
   \caption{Input Impedace}
 }
-
 \end{table}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -187,9 +88,7 @@ The input and output impedances for the central frequency obtained can be observ
   \label{fig:theoplots}
   \hfill
 \end{figure}
-\FloatBarrier  
 
-\FloatBarrier
 \begin{figure} [!htb] 
   \minipage{0.9\textwidth}
   \includegraphics[width=\linewidth]{resources/phase.pdf}

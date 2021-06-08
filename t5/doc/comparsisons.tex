@@ -1,7 +1,7 @@
 \section{Comparisons}
 \label{sec:comparsisons}
 
-In this section, a comparision between the ngspice and octave results is made. Moreover, we delve into the reasons regarding the diffences and similarities observed\\
+In this section, a comparision between the ngspice and Octave results is made. Moreover, we delve into the reasons regarding the diffences and similarities observed.\\
 Starting with the frequency response, the gain and phase are presented bellow.\\
 \FloatBarrier
 Gain:
@@ -32,10 +32,10 @@ Phase:
   	\end{subfigure}
 \end{figure}
 \FloatBarrier
-It is possible to observe that the maximum gain is achieved around 1000Hz, as it was intended, both in the simulation and with the octave script. However, the simulated graph has a less abrupt growth and decline near the central frequency then the octave generated one.\\
-In terms of phase, one can note that the phase of the simulated one has a less sharp slope in the middle than the octave one. It is also noticeable that the ngspice graphic has smaller frequency reagions where the phase is almost constant, in comparision to the middle part, than the octave one.\\
-Both of this diferances, gain and phase, can be linked to the use of a real OP AMP model in ngspice and a idealized model in octave. The simulated one does not have infinite input inpedance, nor does it have null output one. Furthermore, the amplification, Av, is not infinite. Taking these three distinctions into consideration, it is expected to have diferences between the models, namely, less abrupt changes in the ngspice model.\\
-In the following tables, the input and ouput inpedances  calculated at the central frequency from both analysis are presented.\\
+It is possible to observe that the maximum gain is achieved around 1000Hz, as it was intended, both in the simulation and in the Octave model.\\
+Regarding the phase, one can note that the phase of the simulated one has a less sharp slope than the Octave one. It is also noticeable that the ngspice simulation shows smaller frequency bands in which the phase is almost constant, whereas Octave showed significant plateaus.\\
+The differences in the gain and phase can be linked to the use of a more complex OP-AMP model in ngspice whereas an ideal model was modelled in Octave. The simulated one does not have infinite input and zero output impedances. Furthermore, the amplification, Av, is not infinite. The theoretical model also ignores any capacitive and inductive effects as well as non-linearities in the OP-AMP, which leads the frequency response to be seemingly inconsistent in contrast to the idealized smooth gain and phase curves of the theoretical model. Taking these three distinctions into consideration, it is expected to have diferences between the models.\\
+In the following tables, the input and ouput inpedances  calculated at the central frequency from both analyses are presented.\\
 \FloatBarrier
 \begin{table}[h]
   \centering

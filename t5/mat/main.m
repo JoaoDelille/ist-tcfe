@@ -75,11 +75,16 @@ jjj++;
 endwhile 
 fcentdel= sqrt(f(iii)*f(jjj));
 
-fprintf ( fopen("f_c.tex", "w") , '$Frequency_{center}$ & %g \\\\ \n $LowFrequency_{cutoff}$ & %g \\\\ \n $HighFrequency_{cutoff}$ & %g \\\\ \n $Frequency V_{max}$ & %g \\\\ Delille $Frequency_{center}$ & %g \\\\ \n Delille $LowFrequency_{cutoff}$ & %g \\\\ \n Delille $HighFrequency_{cutoff}$ & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax, fcentdel ,f(iii), f(jjj));
+%fprintf ( fopen("f_c.tex", "w") , '$Frequency_{center}$ & %g \\\\ \n $LowFrequency_{cutoff}$ & %g \\\\ \n $HighFrequency_{cutoff}$ & %g \\\\ \n $Frequency V_{max}$ & %g \\\\ Delille $Frequency_{center}$ & %g \\\\ \n Delille $LowFrequency_{cutoff}$ & %g \\\\ \n Delille $HighFrequency_{cutoff}$ & %g \\\\' ,cent_f ,(omegaL)/(2*pi),omegaH/(2*pi), f_vmax, fcentdel ,f(iii), f(jjj));
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %foi o delille que adicionou, nao mexi no resto, faz o que quiseres com isto
+
+
+fprintf ( fopen("f_c.tex", "w") , '$Frequency V_{max}$ & %g \\\\ $Frequency_{center}$ & %g \\\\ \n $LowFrequency_{cutoff}$ & %g \\\\ \n  $HighFrequency_{cutoff}$ & %g \\\\' , f_vmax, fcentdel ,f(iii), f(jjj));
+
+
 
 V_target=Vi*t(2*pi*1000,C1,C2,R1,R2,R3,R4);
 V_gain_khz=V_target/Vi;
@@ -94,7 +99,7 @@ fprintf ( fopen("Vkhz.tex", "w") , '$V_{out_{1KHz}}$ & %g \\\\ \n $V_{in}$ & %g 
 plot(log10(f), (Vout) , ".");
 title ("Vout in function of frequency");
 ylabel ("V");
-xlabel ("log(Hz)");
+xlabel ("log(f)");
 print("gain", "-dpng");
 
 %plot(log10(f), 20*log10(angle(Vout)) , ".");
@@ -105,7 +110,7 @@ print("gain", "-dpng");
 
 plot(log10(f_lin), (angle(Vout_lin))*180/pi , ".");
 title ("Phase of frequency response");
-ylabel ("degrees");
+ylabel ("Degrees");
 xlabel ("Hz");
 print("phase_deg", "-dpng");
 
