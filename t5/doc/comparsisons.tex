@@ -32,8 +32,8 @@ Phase:
   	\end{subfigure}
 \end{figure}
 \FloatBarrier
-It is possible to observe that the maximum gain is achieved around 1000Hz, as it was intended, both in the simulation and in the Octave model.\\
-Regarding the phase, one can note that the phase of the simulated one has a less sharp slope than the Octave one. It is also noticeable that the ngspice simulation shows smaller frequency bands in which the phase has a small slope, whereas Octave showed significant plateaus.\\
+It is possible to observe that the maximum gain is achieved at around 1000Hz, as it was intended, both in the simulation and in the Octave model.\\
+Regarding the phase, one can note that the phase of the simulated circuit has a less sharp slope than the Octave one. It is also noticeable that the ngspice simulation shows smaller frequency bands in which the phase has a small slope, whereas Octave showed significant plateaus.\\
 The differences in the gain and phase can be linked to the use of a more complex OP-AMP model in ngspice whereas an ideal model was modelled in Octave. The simulated one does not have infinite input and zero output impedances. Furthermore, the amplification, Av, is not infinite. The theoretical model also ignores any capacitive and inductive effects as well as non-linearities in the OP-AMP, which leads the frequency response to be seemingly inconsistent in contrast to the idealized smooth gain and phase curves of the theoretical model. Taking these distinctions into consideration, it is expected to have diferences between the models.\\
 In the following tables, the input and ouput impedances calculated at the central frequency from both analyses are presented.
 \begin{table}[h!]

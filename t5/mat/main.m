@@ -51,8 +51,11 @@ endfor
 Zo_cent=(1/R2+i*2*pi*cent_f*C2)^-1;
 Zi_cent=R1+1/(i*2*pi*cent_f*C1);
 
-fprintf ( fopen("Z.tex", "w") , '$Z_{in}$ & %g +i ( %g ) & %g \\\\ \n $Z_{out}$ & %g+ i ( %g ) & %g\\\\' , real(Zi_cent), imag(Zi_cent),abs(Zi_cent), real(Zo_cent), imag(Zo_cent), abs(Zo_cent));
+%fprintf ( fopen("Z.tex", "w") , '$Z_{in}$ & %g +i ( %g ) & %g \\\\ \n $Z_{out}$ & %g+ i ( %g ) & %g\\\\' , real(Zi_cent), imag(Zi_cent),abs(Zi_cent), real(Zo_cent), imag(Zo_cent), abs(Zo_cent));
 
+%%%%%%%%%%%%%%%%%delillices
+fprintf ( fopen("Z.tex", "w") , '$Z_{in}$ &  %g \\\\ \\hline \n $Z_{out}$  & %g\\\\' , abs(Zi_cent),  abs(Zo_cent));
+%%%%%%%%%%%%%%%%%fim de delillices
 
 
 Vo_cent=Vi*t(cent_S,C1,C2,R1,R2,R3,R4);
